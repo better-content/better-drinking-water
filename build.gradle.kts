@@ -4,6 +4,7 @@ plugins {
     jacoco
     id("net.minecraftforge.gradle") version "6.0.54"
     id("org.parchmentmc.librarian.forgegradle") version "1.2.0"
+    id("org.spongepowered.mixin") version "0.7.38"
 }
 
 group = "com.bettercontent"
@@ -66,6 +67,7 @@ dependencies {
     runtimeOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-${property("minecraft_version")}:1.0.5"))
     implementation(fg.deobf("com.tterrag.registrate:Registrate:MC1.20-1.3.3"))
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:[0.5.0,0.6.0)")!!)
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
     compileOnly(fg.deobf("curse.maven:hyle-609850:7736352"))
     compileOnly(fg.deobf("curse.maven:thirst-was-taken-679270:6660408"))
     compileOnly(fg.deobf("curse.maven:cold-sweat-506194:7893262"))
@@ -101,7 +103,16 @@ dependencies {
 }
 
 tasks.named<Jar>("jar") {
+    dependsOn(tasks.named("compileJava"))
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(layout.buildDirectory.file("tmp/compileJava/compileJava-refmap.json")) {
+        rename { "water_survival.refmap.json" }
+    }
     finalizedBy("reobfJar")
+}
+
+tasks.named<JavaCompile>("compileJava") {
+    outputs.file(layout.buildDirectory.file("tmp/compileJava/compileJava-refmap.json"))
 }
 
 val stageRuntimeJar by tasks.registering(Copy::class) {
@@ -174,4 +185,9 @@ tasks.processResources {
     filesMatching(listOf("META-INF/mods.toml", "pack.mcmeta")) {
         expand(props)
     }
+}
+
+mixin {
+    add(sourceSets.main.get(), "water_survival.refmap.json")
+    config("water_survival.mixins.json")
 }

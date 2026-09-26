@@ -33,19 +33,8 @@ public final class WaterBottleCurio {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide || event.player.tickCount % 10 != 0) return;
         if (!(event.player instanceof ServerPlayer player)) return;
         CuriosApi.getCuriosInventory(player).ifPresent(handler -> handler.getStacksHandler(SLOT).ifPresent(slot -> {
-            ItemStack equipped = slot.getStacks().getStackInSlot(0);
+            final ItemStack equipped = slot.getStacks().getStackInSlot(0);
             if (!isWaterBottle(equipped) || !ThirstHelper.itemRestoresThirst(equipped)) return;
-            // A partially opened bottle must travel as one physical container. If
-            // another mod supplies a stacked potion, separate sealed extras first.
-            if (equipped.getCount() > 1) {
-                ItemStack sealed = equipped.copy();
-                sealed.setCount(equipped.getCount() - 1);
-                clearBottleFraction(sealed);
-                equipped = equipped.copy();
-                equipped.setCount(1);
-                slot.getStacks().setStackInSlot(0, equipped);
-                if (!player.getInventory().add(sealed)) player.drop(sealed, false);
-            }
             final ItemStack stack = equipped;
             player.getCapability(ModCapabilities.PLAYER_THIRST).ifPresent(thirst -> {
                 final int bottleThirst = Math.max(0, ThirstHelper.getThirst(stack));
@@ -84,6 +73,9 @@ public final class WaterBottleCurio {
                     if (WaterPurity.getPurity(stack) == WaterPurity.MAX_PURITY) WaterSafetyEpisodes.purifiedDrunk(player);
                 }
                 if (bottlesConsumed > 0) {
+                    // The fraction belongs to the first bottle still in the stack.
+                    // A completed bottle must not leave its fraction on the next one.
+                    if (!remainingBottles.isEmpty()) setBottleFraction(remainingBottles, fraction);
                     slot.getStacks().setStackInSlot(0, remainingBottles);
                     returnEmptyBottles(player, bottlesConsumed);
                 } else if (thirstRestored > 0) {
@@ -98,6 +90,12 @@ public final class WaterBottleCurio {
         return bottle.hasTag()
                 ? WaterBottleConsumption.normalizeFraction(bottle.getTag().getDouble(FRACTION_KEY))
                 : 0.0D;
+    }
+
+    public static void keepOpenedBottleInExtractedStack(final ItemStack original, final ItemStack extracted) {
+        if (!original.isEmpty() && isWaterBottle(extracted) && getBottleFraction(extracted) > 0.0D) {
+            clearBottleFraction(original);
+        }
     }
 
     private static void setBottleFraction(final ItemStack bottle, final double fraction) {
