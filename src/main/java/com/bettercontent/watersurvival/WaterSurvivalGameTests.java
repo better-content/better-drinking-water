@@ -34,16 +34,25 @@ public final class WaterSurvivalGameTests {
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
     public static void exposedCollectorFillsOneChargePerPulse(final GameTestHelper helper) {
         final ServerLevel level = helper.getLevel();
-        final BlockPos relativePos = new BlockPos(2, 200, 2);
+        // Use the top of the buildable world so unrelated terrain and structures cannot
+        // cover the collector in the generated GameTest world.
+        final int relativeY = level.getMaxBuildHeight() - 3 - helper.absolutePos(BlockPos.ZERO).getY();
+        final BlockPos relativePos = new BlockPos(2, relativeY, 2);
         final BlockPos worldPos = helper.absolutePos(relativePos);
         makeBiomeRainy(level, worldPos);
         level.setWeatherParameters(0, 1200, true, false);
         level.setRainLevel(1.0F);
         final BlockState state = RainCollectorRegistry.RAIN_COLLECTOR.get().defaultBlockState();
         helper.setBlock(relativePos, state);
-        RainCollectorRegistry.RAIN_COLLECTOR.get().tick(state, level, worldPos, RandomSource.create(1L));
-        helper.assertBlockProperty(relativePos, RainCollectorBlock.LEVEL, 1);
-        helper.succeed();
+        helper.runAfterDelay(2, () -> {
+            if (!level.canSeeSky(worldPos.above()) || !level.isRainingAt(worldPos.above())) {
+                helper.fail("Exposed collector setup did not have rain and sky access");
+                return;
+            }
+            RainCollectorRegistry.RAIN_COLLECTOR.get().tick(state, level, worldPos, RandomSource.create(1L));
+            helper.assertBlockProperty(relativePos, RainCollectorBlock.LEVEL, 1);
+            helper.succeed();
+        });
     }
 
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
