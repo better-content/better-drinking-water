@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    { "apply": { "model": "water_survival:block/rain_collector" } },
-    { "when": { "level": "1" }, "apply": { "model": "water_survival:block/rain_collector_water_1" } },
-    { "when": { "level": "2" }, "apply": { "model": "water_survival:block/rain_collector_water_2" } },
-    { "when": { "level": "3" }, "apply": { "model": "water_survival:block/rain_collector_water_3" } },
-    { "when": { "level": "4" }, "apply": { "model": "water_survival:block/rain_collector_water_4" } }
-  ]
-}

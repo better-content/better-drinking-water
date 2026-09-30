@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["# #", "###"],
+  "key": { "#": { "tag": "minecraft:planks" } },
+  "result": { "item": "better_drinking_water:rain_collector", "count": 1 }
+}

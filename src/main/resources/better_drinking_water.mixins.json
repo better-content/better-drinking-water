@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.bettercontent.betterdrinkingwater.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "better_drinking_water.refmap.json",
+  "mixins": ["WaterPotionStackSizeMixin"],
+  "injectors": {"defaultRequire": 1}
+}

@@ -18,4 +18,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "water-survival"
+rootProject.name = "better-drinking-water"

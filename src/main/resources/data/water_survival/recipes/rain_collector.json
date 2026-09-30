@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "pattern": ["# #", "###"],
-  "key": { "#": { "tag": "minecraft:planks" } },
-  "result": { "item": "water_survival:rain_collector", "count": 1 }
-}

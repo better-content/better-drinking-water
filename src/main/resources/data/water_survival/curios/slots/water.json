@@ -1,8 +1,0 @@
-{
-  "size": 1,
-  "order": 90,
-  "icon": "curios:slot/empty_curio_slot",
-  "validators": [
-    "water_survival:water_bottle"
-  ]
-}

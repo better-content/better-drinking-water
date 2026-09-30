@@ -106,7 +106,7 @@ tasks.named<Jar>("jar") {
     dependsOn(tasks.named("compileJava"))
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from(layout.buildDirectory.file("tmp/compileJava/compileJava-refmap.json")) {
-        rename { "water_survival.refmap.json" }
+        rename { "better_drinking_water.refmap.json" }
     }
     finalizedBy("reobfJar")
 }
@@ -188,6 +188,6 @@ tasks.processResources {
 }
 
 mixin {
-    add(sourceSets.main.get(), "water_survival.refmap.json")
-    config("water_survival.mixins.json")
+    add(sourceSets.main.get(), "better_drinking_water.refmap.json")
+    config("better_drinking_water.mixins.json")
 }
