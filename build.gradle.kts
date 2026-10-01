@@ -79,6 +79,7 @@ dependencies {
     compileOnly(fg.deobf("curse.maven:oculus-581495:6020952"))
     compileOnly(fg.deobf("curse.maven:sophisticated-core-618298:7916595"))
     compileOnly(fg.deobf("curse.maven:sophisticated-storage-619320:7973265"))
+    compileOnly(fg.deobf("curse.maven:sophisticated-backpacks-422301:7916619"))
     compileOnly(fg.deobf("curse.maven:curios-api-309927:6418456"))
     compileOnly(fg.deobf("curse.maven:mantle-74924:7563777"))
     compileOnly(fg.deobf("curse.maven:tinkers-construct-74072:7449219"))

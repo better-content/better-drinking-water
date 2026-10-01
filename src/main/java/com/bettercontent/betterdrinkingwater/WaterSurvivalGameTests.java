@@ -145,14 +145,9 @@ public final class WaterSurvivalGameTests {
                 "Exactly the opened bottle should be consumed while the sealed bottle stays equipped");
         helper.assertTrue(WaterBottleCurio.getBottleFraction(waterSlot.getStacks().getStackInSlot(0)) == 0.0D,
                 "The next sealed bottle must start with no consumed fraction");
-        final var emptyBottleSlot = CuriosApi.getCuriosInventory(player).resolve()
-                .flatMap(handler -> handler.getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT))
-                .orElseThrow(() -> new IllegalStateException("Mock player is missing the empty-bottle Curios slot"));
-        helper.assertTrue(emptyBottleSlot.getStacks().getStackInSlot(0).is(Items.GLASS_BOTTLE)
-                        && emptyBottleSlot.getStacks().getStackInSlot(0).getCount() == 1,
-                "Completing a fractional bottle should return one empty bottle to its dedicated slot");
-        helper.assertTrue(player.getInventory().countItem(Items.GLASS_BOTTLE) == 0,
-                "Returned empty bottles must not spill into normal inventory while the dedicated slot has room");
+        helper.assertTrue(player.getInventory().getItem(0).is(Items.GLASS_BOTTLE)
+                        && player.getInventory().getItem(0).getCount() == 1,
+                "Completing a fractional bottle should return one empty bottle to the hotbar");
         helper.assertTrue(WaterBottleCurio.getBottleFraction(fresh) == 1.0D / 6.0D,
                 "Completing the original bottle must not change the swapped container");
         helper.succeed();
@@ -183,7 +178,6 @@ public final class WaterSurvivalGameTests {
                 .orElseThrow(() -> new IllegalStateException("Mock player is missing the Thirst capability"));
         final var curios = CuriosApi.getCuriosInventory(player).resolve().orElseThrow();
         final var waterSlot = curios.getStacksHandler(WaterBottleCurio.SLOT).orElseThrow();
-        final var emptySlot = curios.getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
         waterSlot.getStacks().setStackInSlot(0, purifiedWaterBottles(2));
         helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).getMaxStackSize() == 64,
                 "Stacked water bottles must retain their stack capacity");
@@ -193,9 +187,9 @@ public final class WaterSurvivalGameTests {
         tickWaterCurio(player);
         helper.assertTrue(thirst.getThirst() == 12, "Two stacked bottles should restore twelve thirst points");
         helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).isEmpty(), "Both used bottles should leave the water slot");
-        helper.assertTrue(emptySlot.getStacks().getStackInSlot(0).is(Items.GLASS_BOTTLE)
-                        && emptySlot.getStacks().getStackInSlot(0).getCount() == 2,
-                "Both empties should stack in the second Curios slot");
+        helper.assertTrue(player.getInventory().getItem(0).is(Items.GLASS_BOTTLE)
+                        && player.getInventory().getItem(0).getCount() == 2,
+                "Both empties should stack in the hotbar");
         helper.succeed();
     }
 

@@ -12,20 +12,20 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.p3pp3rf1y.sophisticatedbackpacks.api.CapabilityBackpackWrapper;
+import net.p3pp3rf1y.sophisticatedbackpacks.backpack.BackpackItem;
 import top.theillusivec4.curios.api.CuriosApi;
 
 public final class WaterBottleCurio {
     public static final String SLOT = "water";
-    public static final String EMPTY_BOTTLE_SLOT = "empty_bottle";
+    public static final String BACKPACK_SLOT = "better_backpack";
     public static final ResourceLocation PREDICATE = new ResourceLocation(WaterSurvival.MOD_ID, "water_bottle");
-    public static final ResourceLocation EMPTY_BOTTLE_PREDICATE = new ResourceLocation(WaterSurvival.MOD_ID, "empty_bottle");
     private static final String FRACTION_KEY = "BetterContentSippedFraction";
 
     private WaterBottleCurio() {}
 
     public static void registerPredicate() {
         CuriosApi.registerCurioPredicate(PREDICATE, result -> isWaterBottle(result.stack()));
-        CuriosApi.registerCurioPredicate(EMPTY_BOTTLE_PREDICATE, result -> result.stack().is(Items.GLASS_BOTTLE));
     }
 
     @SubscribeEvent
@@ -110,19 +110,28 @@ public final class WaterBottleCurio {
 
     static void returnEmptyBottles(final ServerPlayer player, final int count) {
         final ItemStack emptyBottles = new ItemStack(Items.GLASS_BOTTLE, count);
-        CuriosApi.getCuriosInventory(player).ifPresent(handler -> handler.getStacksHandler(EMPTY_BOTTLE_SLOT).ifPresent(slot -> {
-            final ItemStack current = slot.getStacks().getStackInSlot(0);
-            if (current.isEmpty()) {
-                slot.getStacks().setStackInSlot(0, emptyBottles.copy());
-                emptyBottles.setCount(0);
-            } else if (ItemStack.isSameItemSameTags(current, emptyBottles)) {
-                final int inserted = Math.min(emptyBottles.getCount(), current.getMaxStackSize() - current.getCount());
-                current.grow(inserted);
-                emptyBottles.shrink(inserted);
-                slot.getStacks().setStackInSlot(0, current);
-            }
+        CuriosApi.getCuriosInventory(player).ifPresent(handler -> handler.getStacksHandler(BACKPACK_SLOT).ifPresent(slot -> {
+            if (slot.getStacks().getSlots() == 0) return;
+            final ItemStack backpack = slot.getStacks().getStackInSlot(0);
+            if (!(backpack.getItem() instanceof BackpackItem)) return;
+            backpack.getCapability(CapabilityBackpackWrapper.getCapabilityInstance()).ifPresent(wrapper -> {
+                final ItemStack remainder = wrapper.getInventoryHandler().insertItem(emptyBottles.copy(), false);
+                emptyBottles.setCount(remainder.getCount());
+            });
         }));
-        if (!emptyBottles.isEmpty()) player.getInventory().add(emptyBottles);
+        for (int index = 0; index < 9 && !emptyBottles.isEmpty(); index++) {
+            final ItemStack current = player.getInventory().getItem(index);
+            if (!current.isEmpty() && !ItemStack.isSameItemSameTags(current, emptyBottles)) continue;
+            final int room = current.isEmpty() ? emptyBottles.getMaxStackSize() : current.getMaxStackSize() - current.getCount();
+            final int inserted = Math.min(room, emptyBottles.getCount());
+            if (inserted <= 0) continue;
+            if (current.isEmpty()) {
+                final ItemStack placed = emptyBottles.copy();
+                placed.setCount(inserted);
+                player.getInventory().setItem(index, placed);
+            } else current.grow(inserted);
+            emptyBottles.shrink(inserted);
+        }
         if (!emptyBottles.isEmpty()) player.drop(emptyBottles, false);
     }
 
