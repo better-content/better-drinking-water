@@ -1,7 +1,7 @@
 {
   "size": 1,
   "order": 90,
-  "icon": "curios:slot/empty_curio_slot",
+  "icon": "better_drinking_water:slot/water_bottle_slot",
   "validators": [
     "better_drinking_water:water_bottle"
   ]
