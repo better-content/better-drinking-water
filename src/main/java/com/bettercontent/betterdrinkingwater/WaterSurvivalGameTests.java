@@ -82,7 +82,7 @@ public final class WaterSurvivalGameTests {
         helper.setBlock(upperCorner, Blocks.SNOW_BLOCK);
         helper.setBlock(directlyAbove, Blocks.SNOW_BLOCK);
         helper.setBlock(outside, Blocks.SNOW_BLOCK);
-        // The one-block template is embedded underground. Cap melt targets so random overhead
+        // The fixture is embedded underground. Cap melt targets so random overhead
         // gravel cannot fall into the resulting water before the delayed assertion runs.
         helper.setBlock(lowerCorner.above(), Blocks.STONE);
         helper.setBlock(upperCorner.above(), Blocks.STONE);
