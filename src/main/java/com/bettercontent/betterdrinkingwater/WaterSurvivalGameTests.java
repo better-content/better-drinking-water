@@ -145,9 +145,13 @@ public final class WaterSurvivalGameTests {
                 "Exactly the opened bottle should be consumed while the sealed bottle stays equipped");
         helper.assertTrue(WaterBottleCurio.getBottleFraction(waterSlot.getStacks().getStackInSlot(0)) == 0.0D,
                 "The next sealed bottle must start with no consumed fraction");
-        helper.assertTrue(player.getInventory().getItem(0).is(Items.GLASS_BOTTLE)
-                        && player.getInventory().getItem(0).getCount() == 1,
-                "Completing a fractional bottle should return one empty bottle to the hotbar");
+        final var emptySlot = CuriosApi.getCuriosInventory(player).resolve().orElseThrow()
+                .getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
+        helper.assertTrue(emptySlot.getStacks().getStackInSlot(0).is(Items.GLASS_BOTTLE)
+                        && emptySlot.getStacks().getStackInSlot(0).getCount() == 1,
+                "Completing a fractional bottle should return one empty bottle to its dedicated slot");
+        helper.assertTrue(player.getInventory().countItem(Items.GLASS_BOTTLE) == 0,
+                "Empties must prefer their dedicated slot over the hotbar");
         helper.assertTrue(WaterBottleCurio.getBottleFraction(fresh) == 1.0D / 6.0D,
                 "Completing the original bottle must not change the swapped container");
         helper.succeed();
@@ -187,9 +191,12 @@ public final class WaterSurvivalGameTests {
         tickWaterCurio(player);
         helper.assertTrue(thirst.getThirst() == 12, "Two stacked bottles should restore twelve thirst points");
         helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).isEmpty(), "Both used bottles should leave the water slot");
-        helper.assertTrue(player.getInventory().getItem(0).is(Items.GLASS_BOTTLE)
-                        && player.getInventory().getItem(0).getCount() == 2,
-                "Both empties should stack in the hotbar");
+        final var emptySlot = curios.getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
+        helper.assertTrue(emptySlot.getStacks().getStackInSlot(0).is(Items.GLASS_BOTTLE)
+                        && emptySlot.getStacks().getStackInSlot(0).getCount() == 2,
+                "Both empties should stack in the dedicated Curios slot");
+        helper.assertTrue(player.getInventory().countItem(Items.GLASS_BOTTLE) == 0,
+                "Stacked empties must not spill into the hotbar while their slot has room");
         helper.succeed();
     }
 
@@ -203,6 +210,25 @@ public final class WaterSurvivalGameTests {
                 "The extracted stack must retain the opened bottle's sip");
         helper.assertTrue(original.getCount() == 1 && WaterBottleCurio.getBottleFraction(original) == 0.0D,
                 "The bottle left behind must be sealed");
+        helper.succeed();
+    }
+
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
+    public static void emptyBottleSlotStacksAndOverflowFallsBackToHotbar(final GameTestHelper helper) {
+        final ServerPlayer player = fakePlayer(helper, "empty-overflow");
+        final var emptySlot = CuriosApi.getCuriosInventory(player).resolve().orElseThrow()
+                .getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
+        helper.assertTrue(emptySlot.getStacks().isItemValid(0, new ItemStack(Items.GLASS_BOTTLE)),
+                "The restored slot must accept glass bottles");
+        helper.assertTrue(!emptySlot.getStacks().isItemValid(0, new ItemStack(Items.STONE)),
+                "The empty-bottle slot must reject unrelated items");
+        emptySlot.getStacks().setStackInSlot(0, new ItemStack(Items.GLASS_BOTTLE, 63));
+        WaterBottleCurio.returnEmptyBottles(player, 3);
+        helper.assertTrue(emptySlot.getStacks().getStackInSlot(0).getCount() == 64,
+                "Returned empties should fill the dedicated stack without exceeding 64");
+        helper.assertTrue(player.getInventory().getItem(0).is(Items.GLASS_BOTTLE)
+                        && player.getInventory().getItem(0).getCount() == 2,
+                "Only the overflow should fall back to the hotbar");
         helper.succeed();
     }
 

@@ -18,6 +18,8 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public final class WaterBottleCurio {
     public static final String SLOT = "water";
+    public static final String EMPTY_BOTTLE_SLOT = "empty_bottle";
+    public static final ResourceLocation EMPTY_BOTTLE_PREDICATE = new ResourceLocation(WaterSurvival.MOD_ID, "empty_bottle");
     public static final String BACKPACK_SLOT = "better_backpack";
     public static final ResourceLocation PREDICATE = new ResourceLocation(WaterSurvival.MOD_ID, "water_bottle");
     private static final String FRACTION_KEY = "BetterContentSippedFraction";
@@ -26,6 +28,7 @@ public final class WaterBottleCurio {
 
     public static void registerPredicate() {
         CuriosApi.registerCurioPredicate(PREDICATE, result -> isWaterBottle(result.stack()));
+        CuriosApi.registerCurioPredicate(EMPTY_BOTTLE_PREDICATE, result -> result.stack().is(Items.GLASS_BOTTLE));
     }
 
     @SubscribeEvent
@@ -110,6 +113,13 @@ public final class WaterBottleCurio {
 
     static void returnEmptyBottles(final ServerPlayer player, final int count) {
         final ItemStack emptyBottles = new ItemStack(Items.GLASS_BOTTLE, count);
+        CuriosApi.getCuriosInventory(player).ifPresent(handler -> handler.getStacksHandler(EMPTY_BOTTLE_SLOT).ifPresent(slot -> {
+            for (int index = 0; index < slot.getStacks().getSlots() && !emptyBottles.isEmpty(); index++) {
+                final ItemStack remainder = slot.getStacks().insertItem(index, emptyBottles.copy(), false);
+                emptyBottles.setCount(remainder.getCount());
+            }
+        }));
+        if (emptyBottles.isEmpty()) return;
         CuriosApi.getCuriosInventory(player).ifPresent(handler -> handler.getStacksHandler(BACKPACK_SLOT).ifPresent(slot -> {
             if (slot.getStacks().getSlots() == 0) return;
             final ItemStack backpack = slot.getStacks().getStackInSlot(0);

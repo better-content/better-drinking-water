@@ -1,4 +1,4 @@
 {
   "entities": ["minecraft:player"],
-  "slots": ["water"]
+  "slots": ["water", "empty_bottle"]
 }
