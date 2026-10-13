@@ -19,7 +19,7 @@ final class WaterBottleConsumption {
         final int thirstRestored = Math.min(missingThirst, thirstUntilBottleBoundary(fraction, bottleThirst));
         final double cumulativeFraction = fraction + thirstRestored / (double) bottleThirst;
         final int quenchedRestored = Math.max(0,
-                quenchedCredit(cumulativeFraction, bottleQuenched) - quenchedCredit(fraction, bottleQuenched));
+                quenchedCredit(Math.min(1.0D, cumulativeFraction), bottleQuenched) - quenchedCredit(fraction, bottleQuenched));
         final boolean bottleCompleted = cumulativeFraction >= 1.0D - EPSILON;
         final double remainingFraction = bottleCompleted
                 ? normalizeFraction(cumulativeFraction - 1.0D)

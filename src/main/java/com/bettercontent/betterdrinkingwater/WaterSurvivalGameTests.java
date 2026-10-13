@@ -100,7 +100,7 @@ public final class WaterSurvivalGameTests {
     }
 
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
-    public static void waterCurioKeepsFractionWithOpenedBottleAcrossSwapAndReload(final GameTestHelper helper) {
+    public static void waterCurioKeepsPrepaidReserveAcrossSwapAndReload(final GameTestHelper helper) {
         final ServerPlayer player = fakePlayer(helper, "fractional-top-off");
         final var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve()
                 .orElseThrow(() -> new IllegalStateException("Mock player is missing the Thirst capability"));
@@ -115,36 +115,39 @@ public final class WaterSurvivalGameTests {
 
         tickWaterCurio(player);
         helper.assertTrue(thirst.getThirst() == 20, "One missing thirst point should be restored immediately");
-        helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).getCount() == 2,
-                "A partial sip must keep the equipped bottle stack together");
-        helper.assertTrue(closeTo(WaterBottleCurio.getBottleFraction(waterSlot.getStacks().getStackInSlot(0)), 1.0D / 6.0D),
-                "The opened bottle should store one sixth of its contents");
+        helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).getCount() == 1,
+                "The first sip must debit one bottle immediately");
+        helper.assertTrue(closeTo(PlayerWaterReserve.read(player).consumed(), 1.0D / 6.0D),
+                "The player must own the remaining water");
+        helper.assertTrue(!waterSlot.getStacks().getStackInSlot(0).getTag().contains("BetterContentSippedFraction"),
+                "Remaining bottles must not carry sip progress");
+        helper.assertTrue(CuriosApi.getCuriosInventory(player).resolve().orElseThrow()
+                .getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow()
+                .getStacks().getStackInSlot(0).getCount() == 1,
+                "The empty must be returned on the first sip, not reserve exhaustion");
 
-        final ItemStack opened = waterSlot.getStacks().extractItem(0, 2, false);
-        thirst.setThirst(19);
-        tickWaterCurio(player);
-        helper.assertTrue(thirst.getThirst() == 19, "An empty water slot must not provide hydration");
-        helper.assertTrue(closeTo(WaterBottleCurio.getBottleFraction(opened), 1.0D / 6.0D),
-                "Removing the bottle must carry its fractional progress with it");
-        waterSlot.getStacks().setStackInSlot(0, purifiedWaterBottles(1));
-        tickWaterCurio(player);
-        helper.assertTrue(closeTo(WaterBottleCurio.getBottleFraction(waterSlot.getStacks().getStackInSlot(0)), 1.0D / 6.0D),
-                "A fresh bottle must start at zero even after a partial bottle was removed");
-        final ItemStack fresh = waterSlot.getStacks().extractItem(0, 1, false);
-        helper.assertTrue(closeTo(WaterBottleCurio.getBottleFraction(fresh), 1.0D / 6.0D),
-                "The swapped bottle must keep only its own sip");
-        waterSlot.getStacks().setStackInSlot(0, ItemStack.of(opened.save(new net.minecraft.nbt.CompoundTag())));
-
+        final ItemStack unopened = waterSlot.getStacks().extractItem(0, 1, false);
+        final ServerPlayer other = fakePlayer(helper, "reserve-recipient");
+        helper.assertTrue(PlayerWaterReserve.read(other) == null, "Another player must not inherit credit");
+        // Exercise native entity save/load and ServerPlayer's respawn/Forge clone path.
+        var beforeReload = PlayerWaterReserve.read(player);
+        player.load(player.saveWithoutId(new net.minecraft.nbt.CompoundTag()));
+        helper.assertTrue(beforeReload.equals(PlayerWaterReserve.read(player)),
+                "Native entity save/load must preserve exact credit");
+        final ServerPlayer replacement = fakePlayer(helper, "reserve-clone");
+        replacement.restoreFrom(player, false);
+        helper.assertTrue(PlayerWaterReserve.read(player).equals(PlayerWaterReserve.read(replacement)),
+                "Respawn must preserve exact credit without replaying refunds");
         for (int use = 0; use < 5; use++) {
             thirst.setThirst(19);
             tickWaterCurio(player);
         }
         helper.assertTrue(thirst.getThirst() == 20, "The sixth partial use should still top off thirst");
-        helper.assertTrue(thirst.getQuenched() == 9, "One completed bottle plus one sip of the swapped bottle should restore nine quenched points");
-        helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).getCount() == 1,
-                "Exactly the opened bottle should be consumed while the sealed bottle stays equipped");
-        helper.assertTrue(WaterBottleCurio.getBottleFraction(waterSlot.getStacks().getStackInSlot(0)) == 0.0D,
-                "The next sealed bottle must start with no consumed fraction");
+        helper.assertTrue(thirst.getQuenched() == 8, "Six small sips must award exactly one bottle's quenched total");
+        helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).isEmpty(),
+                "Paid water must work with an empty slot");
+        helper.assertTrue(PlayerWaterReserve.read(player) == null, "Completed credit must be cleared");
+        helper.assertTrue(unopened.getCount() == 1, "Removing unused bottles must not consume them");
         final var emptySlot = CuriosApi.getCuriosInventory(player).resolve().orElseThrow()
                 .getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
         helper.assertTrue(emptySlot.getStacks().getStackInSlot(0).is(Items.GLASS_BOTTLE)
@@ -152,8 +155,9 @@ public final class WaterSurvivalGameTests {
                 "Completing a fractional bottle should return one empty bottle to its dedicated slot");
         helper.assertTrue(player.getInventory().countItem(Items.GLASS_BOTTLE) == 0,
                 "Empties must prefer their dedicated slot over the hotbar");
-        helper.assertTrue(WaterBottleCurio.getBottleFraction(fresh) == 1.0D / 6.0D,
-                "Completing the original bottle must not change the swapped container");
+        thirst.setThirst(19);
+        tickWaterCurio(player);
+        helper.assertTrue(thirst.getThirst() == 19, "No reserve and no bottle must grant nothing");
         helper.succeed();
     }
 
@@ -201,15 +205,31 @@ public final class WaterSurvivalGameTests {
     }
 
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
-    public static void splittingAnOpenedStackKeepsTheSipOnOnlyOneStack(final GameTestHelper helper) {
+    public static void legacyFractionRequiresDebitAndAppliesOnlyOnce(final GameTestHelper helper) {
+        final ServerPlayer player = fakePlayer(helper, "legacy-reserve");
+        final var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        final var slot = CuriosApi.getCuriosInventory(player).resolve().orElseThrow()
+                .getStacksHandler(WaterBottleCurio.SLOT).orElseThrow();
         final ItemStack original = purifiedWaterBottles(2);
-        original.getOrCreateTag().putDouble("BetterContentSippedFraction", 1.0D / 6.0D);
-
-        final ItemStack extracted = original.split(1);
-        helper.assertTrue(closeTo(WaterBottleCurio.getBottleFraction(extracted), 1.0D / 6.0D),
-                "The extracted stack must retain the opened bottle's sip");
-        helper.assertTrue(original.getCount() == 1 && WaterBottleCurio.getBottleFraction(original) == 0.0D,
-                "The bottle left behind must be sealed");
+        original.getOrCreateTag().putDouble("BetterContentSippedFraction", 0.5D);
+        slot.getStacks().setStackInSlot(0, original);
+        thirst.setThirst(20);
+        tickWaterCurio(player);
+        helper.assertTrue(slot.getStacks().getStackInSlot(0).getCount() == 2 && PlayerWaterReserve.read(player) == null,
+                "Full thirst must not charge or migrate a bottle");
+        thirst.setThirst(19);
+        thirst.setQuenched(0);
+        tickWaterCurio(player);
+        helper.assertTrue(slot.getStacks().getStackInSlot(0).getCount() == 1,
+                "Migration must debit one bottle");
+        helper.assertTrue(closeTo(PlayerWaterReserve.read(player).consumed(), 2.0D / 3.0D),
+                "Migration must honor the already consumed half");
+        helper.assertTrue(!slot.getStacks().getStackInSlot(0).getTag().contains("BetterContentSippedFraction"),
+                "Legacy progress must not leak onto the next bottle");
+        thirst.setThirst(18);
+        tickWaterCurio(player);
+        helper.assertTrue(PlayerWaterReserve.read(player) == null && thirst.getQuenched() == 4,
+                "Legacy remaining half must grant only its remaining quenched credit");
         helper.succeed();
     }
 
@@ -229,6 +249,146 @@ public final class WaterSurvivalGameTests {
         helper.assertTrue(player.getInventory().getItem(0).is(Items.GLASS_BOTTLE)
                         && player.getInventory().getItem(0).getCount() == 2,
                 "Only the overflow should fall back to the hotbar");
+        helper.succeed();
+    }
+
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
+    public static void transferringSplitBottlesCannotTransferCredit(final GameTestHelper helper) {
+        final ServerPlayer owner = fakePlayer(helper, "reserve-owner");
+        final ServerPlayer recipient = fakePlayer(helper, "reserve-transfer");
+        final var ownerThirst = owner.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        final var recipientThirst = recipient.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        final var ownerSlot = CuriosApi.getCuriosInventory(owner).resolve().orElseThrow()
+                .getStacksHandler(WaterBottleCurio.SLOT).orElseThrow();
+        final var recipientSlot = CuriosApi.getCuriosInventory(recipient).resolve().orElseThrow()
+                .getStacksHandler(WaterBottleCurio.SLOT).orElseThrow();
+        ownerSlot.getStacks().setStackInSlot(0, purifiedWaterBottles(3));
+        ownerThirst.setThirst(19);
+        tickWaterCurio(owner);
+        var credit = PlayerWaterReserve.read(owner);
+        ItemStack extracted = ownerSlot.getStacks().extractItem(0, 2, false);
+        ItemStack transferred = extracted.split(1);
+        helper.assertTrue(ItemStack.isSameItemSameTags(transferred, purifiedWaterBottles(1)),
+                "Splitting must leave ordinary untouched water bottles");
+        recipientSlot.getStacks().setStackInSlot(0, transferred);
+        recipientThirst.setThirst(19);
+        tickWaterCurio(recipient);
+        helper.assertTrue(recipientSlot.getStacks().getStackInSlot(0).isEmpty()
+                        && PlayerWaterReserve.read(recipient).consumed() == credit.consumed(),
+                "Recipient must pay a separate whole bottle for their own reserve");
+        helper.assertTrue(credit.equals(PlayerWaterReserve.read(owner)), "Transfers cannot change the owner's credit");
+        ownerSlot.getStacks().insertItem(0, extracted, false);
+        ownerSlot.getStacks().insertItem(0, purifiedWaterBottles(1), false);
+        ownerThirst.setThirst(19);
+        tickWaterCurio(owner);
+        helper.assertTrue(ownerSlot.getStacks().getStackInSlot(0).getCount() == 2
+                        && closeTo(PlayerWaterReserve.read(owner).consumed(), 2.0D / 6.0D),
+                "Re-equipping and merging must spend old credit, not debit or reset it");
+        helper.succeed();
+    }
+
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
+    public static void emptyOverflowDropsWhenHotbarIsFull(final GameTestHelper helper) {
+        final ServerPlayer player = fakePlayer(helper, "drop-overflow");
+        var pos = helper.absolutePos(new BlockPos(1, 2, 1));
+        player.setPos(pos.getX(), pos.getY(), pos.getZ());
+        final var empty = CuriosApi.getCuriosInventory(player).resolve().orElseThrow()
+                .getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
+        empty.getStacks().setStackInSlot(0, new ItemStack(Items.GLASS_BOTTLE, 64));
+        for (int index = 0; index < 9; index++) player.getInventory().setItem(index, new ItemStack(Items.STONE, 64));
+        var bounds = new net.minecraft.world.phys.AABB(pos).inflate(3);
+        int before = helper.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, bounds,
+                entity -> entity.getItem().is(Items.GLASS_BOTTLE)).stream().mapToInt(entity -> entity.getItem().getCount()).sum();
+        WaterBottleCurio.returnEmptyBottles(player, 2);
+        int after = helper.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, bounds,
+                entity -> entity.getItem().is(Items.GLASS_BOTTLE)).stream().mapToInt(entity -> entity.getItem().getCount()).sum();
+        helper.assertTrue(after - before == 2 && empty.getStacks().getStackInSlot(0).getCount() == 64,
+                "Full storage must drop exactly the overflow without losing or duplicating empties");
+        helper.succeed();
+    }
+
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
+    public static void malformedReservesCannotGrantWater(final GameTestHelper helper) {
+        final ServerPlayer player = fakePlayer(helper, "malformed-reserve");
+        final var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        for (String field : new String[]{"version", "thirst", "quenched", "consumed", "purity", "missing"}) {
+            PlayerWaterReserve.write(player, new PlayerWaterReserve.Reserve(6, 8, 0.5D, 3));
+            var data = player.getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG)
+                    .getCompound(PlayerWaterReserve.KEY);
+            switch (field) {
+                case "version" -> data.putInt(field, 2);
+                case "thirst" -> data.putInt(field, 0);
+                case "quenched" -> data.putInt(field, -1);
+                case "consumed" -> data.putDouble(field, Double.NaN);
+                case "purity" -> data.putInt(field, 4);
+                default -> data.remove("thirst");
+            }
+            thirst.setThirst(19);
+            tickWaterCurio(player);
+            helper.assertTrue(thirst.getThirst() == 19 && PlayerWaterReserve.read(player) == null,
+                    "Malformed " + field + " must grant no water");
+        }
+        for (double invalid : new double[]{-0.1D, 1.0D, Double.POSITIVE_INFINITY}) {
+            PlayerWaterReserve.write(player, new PlayerWaterReserve.Reserve(6, 8, invalid, 3));
+            tickWaterCurio(player);
+            helper.assertTrue(thirst.getThirst() == 19 && PlayerWaterReserve.read(player) == null,
+                    "Invalid progress must grant no water");
+        }
+        helper.succeed();
+    }
+
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
+    public static void purityIsChargedOnceAndCannotBeUpgradedBySwap(final GameTestHelper helper) {
+        final ServerPlayer player = fakePlayer(helper, "purity-reserve");
+        final var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        final var curios = CuriosApi.getCuriosInventory(player).resolve().orElseThrow();
+        final var slot = curios.getStacksHandler(WaterBottleCurio.SLOT).orElseThrow();
+        final var empty = curios.getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
+        var poison = dev.ghen.thirst.foundation.config.CommonConfig.DIRTY_POISON_PERCENTAGE;
+        var nausea = dev.ghen.thirst.foundation.config.CommonConfig.DIRTY_NAUSEA_PERCENTAGE;
+        var allow = dev.ghen.thirst.foundation.config.CommonConfig.QUENCH_THIRST_WHEN_DEBUFFED;
+        var oldPoison = poison.get();
+        var oldNausea = nausea.get();
+        var oldAllow = allow.get();
+        try {
+            poison.set(100);
+            nausea.set(100);
+            allow.set(false);
+            slot.getStacks().setStackInSlot(0, WaterPurity.addPurity(purifiedWaterBottles(1), 0));
+            thirst.setThirst(19);
+            tickWaterCurio(player);
+            helper.assertTrue(thirst.getThirst() == 19 && PlayerWaterReserve.read(player) == null
+                            && slot.getStacks().getStackInSlot(0).isEmpty() && empty.getStacks().getStackInSlot(0).getCount() == 1,
+                    "Rejected unsafe water must be paid and refunded without creating credit");
+            player.removeAllEffects();
+            allow.set(true);
+            slot.getStacks().setStackInSlot(0, WaterPurity.addPurity(purifiedWaterBottles(1), 0));
+            tickWaterCurio(player);
+            helper.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.POISON),
+                    "Charging unsafe water must evaluate its effects");
+            player.removeAllEffects();
+            slot.getStacks().setStackInSlot(0, purifiedWaterBottles(1));
+            WaterSafetyEpisodes.thirstLost(player);
+            thirst.setThirst(19);
+            tickWaterCurio(player);
+            helper.assertTrue(PlayerWaterReserve.read(player).purity() == 0 && !player.hasEffect(net.minecraft.world.effect.MobEffects.POISON),
+                    "Later sips must retain purity without rerolling effects");
+            helper.assertTrue(!WaterSafetyEpisodes.remembered(player).isEmpty(),
+                    "Equipping pure water must not complete safety while drinking a dirty reserve");
+            thirst.setThirst(16);
+            tickWaterCurio(player);
+            helper.assertTrue(PlayerWaterReserve.read(player) == null && slot.getStacks().getStackInSlot(0).getCount() == 1,
+                    "Old reserve must drain before charging the replacement");
+            thirst.setThirst(19);
+            tickWaterCurio(player);
+            helper.assertTrue(WaterSafetyEpisodes.remembered(player).isEmpty()
+                            && empty.getStacks().getStackInSlot(0).getCount() == 3,
+                    "Actual purified hydration must complete safety, with one empty per debit");
+        } finally {
+            poison.set(oldPoison);
+            nausea.set(oldNausea);
+            allow.set(oldAllow);
+        }
         helper.succeed();
     }
 

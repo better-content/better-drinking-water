@@ -15,10 +15,4 @@ public abstract class WaterPotionStackSizeMixin {
         if (WaterBottleCurio.isWaterBottle((ItemStack) (Object) this)) callback.setReturnValue(64);
     }
 
-    @Inject(method = "split", at = @At("RETURN"))
-    private void waterSurvival$keepFractionOnOpenedBottle(
-            final int amount, final CallbackInfoReturnable<ItemStack> callback) {
-        WaterBottleCurio.keepOpenedBottleInExtractedStack(
-                (ItemStack) (Object) this, callback.getReturnValue());
-    }
 }

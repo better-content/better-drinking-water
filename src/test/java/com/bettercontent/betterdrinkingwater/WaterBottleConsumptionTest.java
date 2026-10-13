@@ -27,7 +27,7 @@ class WaterBottleConsumptionTest {
     }
 
     @Test
-    void absentBottleLeavesStoredFractionUntouched() {
+    void fullThirstLeavesReserveProgressUntouched() {
         final WaterBottleConsumption.Result result = WaterBottleConsumption.calculate(0, 6, 8, 5.0D / 6.0D);
 
         assertEquals(0, result.thirstRestored());
@@ -52,6 +52,13 @@ class WaterBottleConsumptionTest {
         assertEquals(1, result.thirstRestored());
         assertTrue(result.bottleCompleted());
         assertEquals(1.0D / 15.0D, result.remainingFraction(), TOLERANCE);
+    }
+
+    @Test
+    void legacyRoundingCannotAwardMoreThanRemainingQuenched() {
+        var result = WaterBottleConsumption.calculate(1, 6, 8, 0.99D);
+        assertTrue(result.bottleCompleted());
+        assertEquals(1, result.quenchedRestored());
     }
 
     @Test

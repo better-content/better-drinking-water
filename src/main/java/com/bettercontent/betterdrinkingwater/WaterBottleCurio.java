@@ -32,83 +32,58 @@ public final class WaterBottleCurio {
     }
 
     @SubscribeEvent
+    public static void onClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
+        if (!event.getEntity().level().isClientSide) PlayerWaterReserve.copy(event.getOriginal(), event.getEntity());
+    }
+
+    @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide || event.player.tickCount % 10 != 0) return;
         if (!(event.player instanceof ServerPlayer player)) return;
-        CuriosApi.getCuriosInventory(player).ifPresent(handler -> handler.getStacksHandler(SLOT).ifPresent(slot -> {
-            final ItemStack equipped = slot.getStacks().getStackInSlot(0);
-            if (!isWaterBottle(equipped) || !ThirstHelper.itemRestoresThirst(equipped)) return;
-            final ItemStack stack = equipped;
-            player.getCapability(ModCapabilities.PLAYER_THIRST).ifPresent(thirst -> {
-                final int bottleThirst = Math.max(0, ThirstHelper.getThirst(stack));
-                final int bottleQuenched = Math.max(0, ThirstHelper.getQuenched(stack));
-                int missingThirst = Math.max(0, 20 - thirst.getThirst());
-                if (bottleThirst == 0 || missingThirst == 0) return;
-
-                final ItemStack remainingBottles = stack.copy();
-                double fraction = getBottleFraction(stack);
-                int thirstRestored = 0;
-                int quenchedRestored = 0;
-                int bottlesConsumed = 0;
-
-                while (missingThirst > 0 && !remainingBottles.isEmpty()) {
-                    if (fraction == 0.0D && !WaterPurity.givePurityEffects(player, remainingBottles)) {
-                        remainingBottles.shrink(1);
-                        bottlesConsumed++;
-                        break;
-                    }
-
-                    final WaterBottleConsumption.Result result = WaterBottleConsumption.calculate(
-                            missingThirst, bottleThirst, bottleQuenched, fraction);
-                    if (result.thirstRestored() == 0) break;
-                    thirstRestored += result.thirstRestored();
-                    quenchedRestored += result.quenchedRestored();
-                    missingThirst -= result.thirstRestored();
-                    fraction = result.remainingFraction();
-                    if (!result.bottleCompleted()) break;
-                    remainingBottles.shrink(1);
-                    bottlesConsumed++;
+        player.getCapability(ModCapabilities.PLAYER_THIRST).ifPresent(thirst -> {
+            int missing = Math.max(0, 20 - thirst.getThirst());
+            if (missing == 0) return;
+            PlayerWaterReserve.Reserve reserve = PlayerWaterReserve.read(player);
+            PlayerWaterReserve.write(player, reserve); // Discard malformed/unsupported records.
+            int restored = 0, quenched = 0;
+            boolean purified = false;
+            while (missing > 0) {
+                if (reserve == null) {
+                    var slot = CuriosApi.getCuriosInventory(player).resolve()
+                            .flatMap(handler -> handler.getStacksHandler(SLOT)).orElse(null);
+                    if (slot == null) break;
+                    ItemStack bottle = slot.getStacks().getStackInSlot(0).copy();
+                    if (!isWaterBottle(bottle) || !ThirstHelper.itemRestoresThirst(bottle)) break;
+                    int total = ThirstHelper.getThirst(bottle), totalQuenched = ThirstHelper.getQuenched(bottle);
+                    int purity = WaterPurity.getPurity(bottle);
+                    if (total <= 0 || total > 20 || totalQuenched < 0 || totalQuenched > 20
+                            || purity < 0 || purity > WaterPurity.MAX_PURITY) break;
+                    double legacy = bottle.hasTag()
+                            ? WaterBottleConsumption.normalizeFraction(bottle.getTag().getDouble(FRACTION_KEY)) : 0;
+                    ItemStack remaining = bottle.copy();
+                    remaining.shrink(1);
+                    if (remaining.hasTag()) remaining.getTag().remove(FRACTION_KEY);
+                    slot.getStacks().setStackInSlot(0, remaining);
+                    returnEmptyBottles(player, 1);
+                    if (!WaterPurity.givePurityEffects(player, bottle)) break;
+                    reserve = new PlayerWaterReserve.Reserve(total, totalQuenched, legacy, purity);
                 }
-
-                if (thirstRestored > 0) {
-                    thirst.drink(player, thirstRestored, quenchedRestored);
-                    thirst.updateThirstData(player);
-                    if (WaterPurity.getPurity(stack) == WaterPurity.MAX_PURITY) WaterSafetyEpisodes.purifiedDrunk(player);
-                }
-                if (bottlesConsumed > 0) {
-                    // The fraction belongs to the first bottle still in the stack.
-                    // A completed bottle must not leave its fraction on the next one.
-                    if (!remainingBottles.isEmpty()) setBottleFraction(remainingBottles, fraction);
-                    slot.getStacks().setStackInSlot(0, remainingBottles);
-                    returnEmptyBottles(player, bottlesConsumed);
-                } else if (thirstRestored > 0) {
-                    setBottleFraction(remainingBottles, fraction);
-                    slot.getStacks().setStackInSlot(0, remainingBottles);
-                }
-            });
-        }));
-    }
-
-    static double getBottleFraction(final ItemStack bottle) {
-        return bottle.hasTag()
-                ? WaterBottleConsumption.normalizeFraction(bottle.getTag().getDouble(FRACTION_KEY))
-                : 0.0D;
-    }
-
-    public static void keepOpenedBottleInExtractedStack(final ItemStack original, final ItemStack extracted) {
-        if (!original.isEmpty() && isWaterBottle(extracted) && getBottleFraction(extracted) > 0.0D) {
-            clearBottleFraction(original);
-        }
-    }
-
-    private static void setBottleFraction(final ItemStack bottle, final double fraction) {
-        final double normalized = WaterBottleConsumption.normalizeFraction(fraction);
-        if (normalized == 0.0D) clearBottleFraction(bottle);
-        else bottle.getOrCreateTag().putDouble(FRACTION_KEY, normalized);
-    }
-
-    private static void clearBottleFraction(final ItemStack bottle) {
-        if (bottle.hasTag()) bottle.getTag().remove(FRACTION_KEY);
+                var result = WaterBottleConsumption.calculate(missing, reserve.thirst(), reserve.quenched(), reserve.consumed());
+                restored += result.thirstRestored();
+                quenched += result.quenchedRestored();
+                missing -= result.thirstRestored();
+                purified |= result.thirstRestored() > 0 && reserve.purity() == WaterPurity.MAX_PURITY;
+                reserve = result.bottleCompleted() ? null : new PlayerWaterReserve.Reserve(
+                        reserve.thirst(), reserve.quenched(), result.remainingFraction(), reserve.purity());
+                PlayerWaterReserve.write(player, reserve);
+                if (result.thirstRestored() == 0) break;
+            }
+            if (restored > 0) {
+                thirst.drink(player, restored, quenched);
+                thirst.updateThirstData(player);
+                if (purified) WaterSafetyEpisodes.purifiedDrunk(player);
+            }
+        });
     }
 
     static void returnEmptyBottles(final ServerPlayer player, final int count) {
