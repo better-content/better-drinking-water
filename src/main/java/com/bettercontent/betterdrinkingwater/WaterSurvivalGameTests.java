@@ -347,13 +347,33 @@ public final class WaterSurvivalGameTests {
         var poison = dev.ghen.thirst.foundation.config.CommonConfig.DIRTY_POISON_PERCENTAGE;
         var nausea = dev.ghen.thirst.foundation.config.CommonConfig.DIRTY_NAUSEA_PERCENTAGE;
         var allow = dev.ghen.thirst.foundation.config.CommonConfig.QUENCH_THIRST_WHEN_DEBUFFED;
-        var oldPoison = poison.get();
-        var oldNausea = nausea.get();
-        var oldAllow = allow.get();
+        // ConfigValue.set writes Forge's autosaving file; its reload watcher can
+        // clear cached overrides between this test's writes and the native effect roll.
+        // Scope the synchronous fixture to real ConfigValues backed by an in-memory
+        // copy, so temporary percentages never reach the watched common.toml file.
+        final var config = net.minecraftforge.fml.config.ConfigTracker.INSTANCE.configSets()
+                .get(net.minecraftforge.fml.config.ModConfig.Type.COMMON).stream()
+                .filter(candidate -> candidate.getModId().equals("thirst")
+                        && candidate.getSpec() instanceof net.minecraftforge.common.ForgeConfigSpec candidateSpec
+                        && candidateSpec.getValues().get(poison.getPath()) == poison)
+                .findFirst().orElseThrow();
+        final var spec = (net.minecraftforge.common.ForgeConfigSpec) config.getSpec();
+        final var originalConfig = config.getConfigData();
+        final var oldPoison = poison.get();
+        final var oldNausea = nausea.get();
+        final var oldAllow = allow.get();
         try {
+            spec.setConfig(copyConfig(originalConfig));
             poison.set(100);
             nausea.set(100);
             allow.set(false);
+            spec.afterReload(); // Exercise the cache reset used by the native file watcher.
+            helper.assertTrue(poison.get().intValue() == 100 && nausea.get().intValue() == 100 && !allow.get(),
+                    "Native config overrides must survive cache invalidation");
+            helper.assertTrue(originalConfig.get(poison.getPath()).equals(oldPoison)
+                            && originalConfig.get(nausea.getPath()).equals(oldNausea)
+                            && originalConfig.get(allow.getPath()).equals(oldAllow),
+                    "Purity fixture must not mutate the watched native config");
             slot.getStacks().setStackInSlot(0, WaterPurity.addPurity(purifiedWaterBottles(1), 0));
             thirst.setThirst(19);
             tickWaterCurio(player);
@@ -362,6 +382,7 @@ public final class WaterSurvivalGameTests {
                     "Rejected unsafe water must be paid and refunded without creating credit");
             player.removeAllEffects();
             allow.set(true);
+            spec.afterReload();
             slot.getStacks().setStackInSlot(0, WaterPurity.addPurity(purifiedWaterBottles(1), 0));
             tickWaterCurio(player);
             helper.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.POISON),
@@ -385,11 +406,21 @@ public final class WaterSurvivalGameTests {
                             && empty.getStacks().getStackInSlot(0).getCount() == 3,
                     "Actual purified hydration must complete safety, with one empty per debit");
         } finally {
-            poison.set(oldPoison);
-            nausea.set(oldNausea);
-            allow.set(oldAllow);
+            spec.setConfig(originalConfig);
         }
         helper.succeed();
+    }
+
+    private static com.electronwill.nightconfig.core.CommentedConfig copyConfig(
+            final com.electronwill.nightconfig.core.UnmodifiableConfig source) {
+        final var copy = com.electronwill.nightconfig.core.CommentedConfig.inMemory();
+        for (var entry : source.entrySet()) {
+            final Object value = entry.getValue();
+            copy.set(java.util.List.of(entry.getKey()),
+                    value instanceof com.electronwill.nightconfig.core.UnmodifiableConfig section
+                            ? copyConfig(section) : value);
+        }
+        return copy;
     }
 
     private static ServerPlayer fakePlayer(final GameTestHelper helper, final String name) {
