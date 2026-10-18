@@ -31,6 +31,36 @@ public final class WaterSurvivalGameTests {
     private WaterSurvivalGameTests() {
     }
 
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty")
+    public static void waterHasOnlyDirtyAndPurifiedQuality(final GameTestHelper helper) {
+        for (int old = 0; old <= 3; old++) {
+            int expected = old == 3 ? 3 : 0;
+            ItemStack bottle = PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER);
+            bottle.getOrCreateTag().putInt("Purity", old);
+            helper.assertTrue(WaterPurity.getPurity(bottle) == expected, "Legacy item quality must collapse");
+            var fluid = new net.minecraftforge.fluids.FluidStack(net.minecraft.world.level.material.Fluids.WATER, 1000);
+            fluid.getOrCreateTag().putInt("Purity", old);
+            helper.assertTrue(WaterPurity.getPurity(fluid) == expected, "Legacy fluid quality must collapse");
+            WaterPurity.addPurity(bottle, old);
+            WaterPurity.addPurity(fluid, old);
+            helper.assertTrue(bottle.getTag().getInt("Purity") == expected && fluid.getTag().getInt("Purity") == expected,
+                    "Quality writers must use only endpoints");
+            helper.assertTrue(WaterPurity.getPurityText(old).equals(WaterPurity.getPurityText(expected)),
+                    "Intermediate labels must not survive");
+            helper.assertTrue(WaterPurity.getPurityColor(old) == WaterPurity.getPurityColor(expected),
+                    "Intermediate colors must not survive");
+            var inventory = new net.minecraft.world.SimpleContainer(bottle);
+            for (var type : java.util.List.of(net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING,
+                    net.minecraft.world.item.crafting.RecipeType.SMELTING)) {
+                var recipe = helper.getLevel().getRecipeManager().getRecipeFor(type, inventory, helper.getLevel());
+                helper.assertTrue(recipe.isPresent(), "Water must have a boiling recipe");
+                helper.assertTrue(WaterPurity.getPurity(recipe.get().getResultItem(helper.getLevel().registryAccess())) == 3,
+                        "One boiling step must purify water");
+            }
+        }
+        helper.succeed();
+    }
+
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
     public static void exposedCollectorFillsOneChargePerPulse(final GameTestHelper helper) {
         final ServerLevel level = helper.getLevel();

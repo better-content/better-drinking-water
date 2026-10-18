@@ -20,7 +20,7 @@ final class PlayerWaterReserve {
         double consumed = data.getDouble("consumed");
         if (thirst <= 0 || thirst > 20 || quenched < 0 || quenched > 20 || purity < 0 || purity > 3
                 || !Double.isFinite(consumed) || consumed < 0 || consumed >= 1) return null;
-        return new Reserve(thirst, quenched, consumed, purity);
+        return new Reserve(thirst, quenched, consumed, WaterQuality.normalize(purity));
     }
 
     static void write(Player player, Reserve reserve) {

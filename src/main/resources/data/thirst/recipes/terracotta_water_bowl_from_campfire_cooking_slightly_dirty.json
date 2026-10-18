@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "type": "forge:partial_nbt",
+    "item": "thirst:terracotta_water_bowl",
+    "nbt": {}
+  },
+  "result": {
+    "item": "thirst:terracotta_water_bowl",
+    "nbt": {
+      "Purity": 3
+    }
+  },
+  "experience": 0.35,
+  "cookingtime": 300
+}
