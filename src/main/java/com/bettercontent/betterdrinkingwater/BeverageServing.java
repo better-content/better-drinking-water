@@ -38,8 +38,7 @@ record BeverageServing(String source, int food, float saturation, CompoundTag nu
         for (var effect : drink.effects()) {
             double roll = effect.group() == 0 ? player.getRandom().nextDouble()
                     : rolls.computeIfAbsent(Math.abs(effect.group()), ignored -> player.getRandom().nextDouble());
-            if (effect.group() < 0) roll = 1 - roll;
-            if (effect.chance() <= 0 || roll >= effect.chance()) continue;
+            if (!BeverageChance.selected(roll, effect.chance(), effect.group())) continue;
             int amplifier = effect.amplifier();
             boolean tipsy = (drink.action().equals("booze") || drink.action().equals("dread_nog"))
                     && effect.id().equals("brewinandchewin:tipsy");
