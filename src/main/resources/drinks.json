@@ -1,0 +1,1759 @@
+{
+  "version": 1,
+  "drinks": [
+    {
+      "id": "aether:skyroot_milk_bucket",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "aether:skyroot_bucket",
+      "effects": [],
+      "action": "milk",
+      "source": "aether-1.5.2 AetherItems/SkyrootMilkBucketItem; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:beer",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:bloody_mary",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 1,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:raging",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:dread_nog",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 4800,
+          "amplifier": 2,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 4200,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:bad_omen",
+          "duration": 72000,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "dread_nog",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving/DreadNogItem; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:egg_grog",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:absorption",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:glittering_grenadine",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:glowing",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:night_vision",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:kombucha",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:haste",
+          "duration": 1200,
+          "amplifier": 1,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:mead",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:sweet_heart",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:pale_jane",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 3600,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 3000,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:red_rum",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 2,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:raging",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:rice_wine",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:saccharine_rum",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 3600,
+          "amplifier": 1,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 2400,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:sweet_heart",
+          "duration": 3600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:salty_folly",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 3600,
+          "amplifier": 1,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 3000,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:water_breathing",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:steel_toe_stout",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 2,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:resistance",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:strongroot_ale",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 2400,
+          "amplifier": 1,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:resistance",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:vodka",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 3600,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 3000,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "brewinandchewin:withering_dross",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "brewinandchewin:tankard",
+      "effects": [
+        {
+          "id": "brewinandchewin:tipsy",
+          "duration": 3600,
+          "amplifier": 2,
+          "chance": 1.0
+        },
+        {
+          "id": "brewinandchewin:intoxication",
+          "duration": 3000,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:blindness",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:weakness",
+          "duration": 3000,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:slowness",
+          "duration": 3000,
+          "amplifier": 0,
+          "chance": 1.0
+        },
+        {
+          "id": "minecraft:wither",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "booze",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+    },
+    {
+      "id": "create:builders_tea",
+      "hydration": 12,
+      "quenching": 22,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 3600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "create-1.20.1-6.0.8 AllItems/BuildersTeaItem; thirst config"
+    },
+    {
+      "id": "fallout_wastelands_:neutronade",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "fallout_wastelands_:empty_neutronade_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NeutronadeItem: food and empty bottle only; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fallout_wastelands_:nuka_cola",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "fallout_wastelands_:empty_nuka_cola_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NukaColaItem: food and empty bottle only; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fallout_wastelands_:nuka_cola_quantum",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "fallout_wastelands_:empty_nuka_cola_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NukaColaQuantumItem: food and empty bottle only; conservative authored hydration/quenching"
+    },
+    {
+      "id": "farmersdelight:apple_cider",
+      "hydration": 8,
+      "quenching": 13,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:absorption",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem; thirst config"
+    },
+    {
+      "id": "farmersdelight:hot_cocoa",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "cure_harmful_one",
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem HotCocoaItem: one random harmful milk-curable effect; conservative authored hydration/quenching"
+    },
+    {
+      "id": "farmersdelight:melon_juice",
+      "hydration": 8,
+      "quenching": 13,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "heal2",
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem MelonJuiceItem: direct 2 HP; thirst config"
+    },
+    {
+      "id": "farmersdelight:milk_bottle",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "cure_one",
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem MilkBottleItem: one random milk-curable effect; conservative authored hydration/quenching"
+    },
+    {
+      "id": "farmersrespite:black_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersrespite:caffeinated",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:coffee",
+      "hydration": 6,
+      "quenching": 11,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersrespite:caffeinated",
+          "duration": 6000,
+          "amplifier": 1,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:dandelion_tea",
+      "hydration": 12,
+      "quenching": 22,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 3600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:gamblers_tea",
+      "hydration": 6,
+      "quenching": 11,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:glowing",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 0.5,
+          "group": 1
+        },
+        {
+          "id": "minecraft:wither",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 0.5,
+          "group": -1
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config"
+    },
+    {
+      "id": "farmersrespite:green_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 3600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:long_apple_cider",
+      "hydration": 8,
+      "quenching": 13,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:absorption",
+          "duration": 1800,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; conservative authored hydration/quenching"
+    },
+    {
+      "id": "farmersrespite:long_black_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersrespite:caffeinated",
+          "duration": 900,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:long_coffee",
+      "hydration": 6,
+      "quenching": 11,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersrespite:caffeinated",
+          "duration": 12000,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:long_dandelion_tea",
+      "hydration": 12,
+      "quenching": 22,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 5400,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:long_gamblers_tea",
+      "hydration": 6,
+      "quenching": 11,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:glowing",
+          "duration": 300,
+          "amplifier": 0,
+          "chance": 0.5,
+          "group": 1
+        },
+        {
+          "id": "minecraft:wither",
+          "duration": 300,
+          "amplifier": 0,
+          "chance": 0.5,
+          "group": -1
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config"
+    },
+    {
+      "id": "farmersrespite:long_green_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 5400,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:long_rose_hip_tea",
+      "hydration": 12,
+      "quenching": 22,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:regeneration",
+          "duration": 300,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:long_yellow_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:resistance",
+          "duration": 5400,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:rose_hip_tea",
+      "hydration": 12,
+      "quenching": 22,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:regeneration",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_apple_cider",
+      "hydration": 8,
+      "quenching": 13,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:absorption",
+          "duration": 600,
+          "amplifier": 1,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_black_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersrespite:caffeinated",
+          "duration": 300,
+          "amplifier": 1,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_coffee",
+      "hydration": 6,
+      "quenching": 11,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersrespite:caffeinated",
+          "duration": 3000,
+          "amplifier": 2,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_gamblers_tea",
+      "hydration": 6,
+      "quenching": 11,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:glowing",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 0.5,
+          "group": 1
+        },
+        {
+          "id": "minecraft:night_vision",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 0.5,
+          "group": 1
+        },
+        {
+          "id": "minecraft:wither",
+          "duration": 200,
+          "amplifier": 1,
+          "chance": 0.5,
+          "group": -1
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_green_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 1800,
+          "amplifier": 1,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_hot_cocoa",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "cure_harmful_two",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues StrongHotCocoaItem: up to two random harmful cures; conservative authored hydration/quenching"
+    },
+    {
+      "id": "farmersrespite:strong_melon_juice",
+      "hydration": 8,
+      "quenching": 13,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "heal4",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues StrongMelonJuiceItem: direct 4 HP; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_rose_hip_tea",
+      "hydration": 12,
+      "quenching": 22,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:regeneration",
+          "duration": 200,
+          "amplifier": 1,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:strong_yellow_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:resistance",
+          "duration": 1800,
+          "amplifier": 1,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "farmersrespite:yellow_tea",
+      "hydration": 10,
+      "quenching": 14,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:resistance",
+          "duration": 3600,
+          "amplifier": 0,
+          "chance": 1.0
+        }
+      ],
+      "action": "none",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+    },
+    {
+      "id": "fruitsdelight:bellini_cocktail",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "fruitsdelight:heal_aura",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:nausea",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:hamimelon_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:hawberry_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "fruitsdelight:appetizing",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:kiwi_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:lychee_cherry_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:strength",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:mango_milkshake",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:strength",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "fruitsdelight:rage_aura",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:mango_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:strength",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "fruitsdelight:rage_aura",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:mangosteen_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "fruitsdelight:sliding",
+          "duration": 800,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:peach_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "fruitsdelight:heal_aura",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "fruitsdelight:pear_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "fruitsdelight:lozenge",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+    },
+    {
+      "id": "hexerei:milk_bottle",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "milk",
+      "source": "hexerei-0.4.2.3 ModItems/BottleMilkItem/HexBottleItem: vanilla milk curative; conservative authored hydration/quenching"
+    },
+    {
+      "id": "malum:cursed_sap",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:strength",
+          "duration": 400,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:resistance",
+          "duration": 400,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "malum-1.6.7 ItemRegistry/FoodPropertyRegistry/BottledDrinkItem; conservative authored hydration/quenching"
+    },
+    {
+      "id": "minecraft:honey_bottle",
+      "hydration": 2,
+      "quenching": 3,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "poison",
+      "source": "Minecraft 1.20.1 Items/HoneyBottleItem: remove poison once at completion; conservative authored hydration/quenching"
+    },
+    {
+      "id": "minecraft:milk_bucket",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:bucket",
+      "effects": [],
+      "action": "milk",
+      "source": "Minecraft 1.20.1 Items/MilkBucketItem: cure once at completion; conservative authored hydration/quenching"
+    },
+    {
+      "id": "the_bumblezone:sugar_water_bottle",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "the_bumblezone-7.13.4 BzItems/SugarWaterBottle; conservative authored hydration/quenching"
+    },
+    {
+      "id": "the_deep_void:grimberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "the_deep_void-1.98.1 TheDeepVoidModItems/GrimberryJuiceItem/GrimberryJuicePlayerFinishesUsingItemProcedure; conservative authored hydration/quenching"
+    },
+    {
+      "id": "ubesdelight:milk_tea_ube",
+      "hydration": 4,
+      "quenching": 5,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:night_vision",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "ubesdelight-0.4.11 UbesDelightItemsImpl/FoodValues/UbesDelightDrinkableItem; conservative authored hydration/quenching"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "ubesdelight:condensed_milk_bottle",
+      "reason": "Not an ordinary beverage: condensed milk is a cooking ingredient; native DRINK animation does not authorize beverage-slot admission.",
+      "source": "ubesdelight-0.4.11 UbesDelightItemsImpl/FoodValues/UbesDelightDrinkableItem"
+    },
+    {
+      "id": "aether:skyroot_poison_bucket",
+      "reason": "Manual only: custom Inebriation/Remedy utility effect; no audited fractional custom-effect adapter.",
+      "source": "aether-1.5.2 AetherItems/SkyrootPoisonBucketItem/SkyrootRemedyBucketItem"
+    },
+    {
+      "id": "aether:skyroot_remedy_bucket",
+      "reason": "Manual only: custom Inebriation/Remedy utility effect; no audited fractional custom-effect adapter.",
+      "source": "aether-1.5.2 AetherItems/SkyrootPoisonBucketItem/SkyrootRemedyBucketItem"
+    },
+    {
+      "id": "alexscaves:biome_treat",
+      "reason": "Manual only: NBT biome sampling transforms the consumed stack and depends on hunger/creative state; not a static serving.",
+      "source": "alexscaves-2.0.2 ACItemRegistry/ACFoods/native item and effect classes"
+    },
+    {
+      "id": "alexscaves:green_soylent",
+      "reason": "Manual only: conditional radiation-dependent direct-health mutation.",
+      "source": "alexscaves-2.0.2 ACItemRegistry/ACFoods/native item and effect classes"
+    },
+    {
+      "id": "alexscaves:hot_chocolate_bottle",
+      "reason": "Manual only: completion resets insomnia stat and SugarRush has custom lifecycle hooks.",
+      "source": "alexscaves-2.0.2 ACItemRegistry/ACFoods/native item and effect classes"
+    },
+    {
+      "id": "alexscaves:jelly_bean",
+      "reason": "Manual only: PotionItem subclass uses stack-NBT potion effects and rainbow state; no static finite beverage profile.",
+      "source": "alexscaves-2.0.2 ACItemRegistry/JellyBeanItem"
+    },
+    {
+      "id": "alexscaves:purple_soda_bottle",
+      "reason": "Manual only: custom SugarRush slow-motion lifecycle hooks require dedicated verification.",
+      "source": "alexscaves-2.0.2 ACItemRegistry/ACFoods/native item and effect classes"
+    },
+    {
+      "id": "ars_nouveau:potion_flask",
+      "reason": "Manual only: multi-dose NBT potion container, not a finite static serving.",
+      "source": "ars_nouveau-4.12.7 ItemsRegistry/PotionFlask"
+    },
+    {
+      "id": "ars_nouveau:potion_flask_amplify",
+      "reason": "Manual only: multi-dose NBT potion container, not a finite static serving.",
+      "source": "ars_nouveau-4.12.7 ItemsRegistry/PotionFlask"
+    },
+    {
+      "id": "ars_nouveau:potion_flask_extend_time",
+      "reason": "Manual only: multi-dose NBT potion container, not a finite static serving.",
+      "source": "ars_nouveau-4.12.7 ItemsRegistry/PotionFlask"
+    },
+    {
+      "id": "bloodmagic:alchemy_flask",
+      "reason": "Manual only: NBT alchemy multi-dose utility flask.",
+      "source": "bloodmagic-3.3.7 BloodMagicItems/ItemAlchemyFlask"
+    },
+    {
+      "id": "born_in_chaos_v1:bottle_of_magical_energy",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "born_in_chaos_v1:elixir_of_vampirism",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "born_in_chaos_v1:elixirof_ice_barrier",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "born_in_chaos_v1:elixirof_insect_protection",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "born_in_chaos_v1:elixirof_wither_resistance",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "born_in_chaos_v1:intoxicating_decoction",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "born_in_chaos_v1:potion_of_rampage",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "born_in_chaos_v1:stimulating_decoction",
+      "reason": "Manual only: bespoke magical elixir/decoction finish procedure; ordinary drink serving must not omit custom behavior.",
+      "source": "born_in_chaos_1.7.5 BornInChaosV1ModItems/native item subclasses"
+    },
+    {
+      "id": "brewinandchewin:apple_jelly",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem JamJarItem: native DRINK"
+    },
+    {
+      "id": "brewinandchewin:glow_berry_marmalade",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem JamJarItem: native DRINK"
+    },
+    {
+      "id": "brewinandchewin:sweet_berry_jam",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem JamJarItem: native DRINK"
+    },
+    {
+      "id": "cold_sweat:filled_waterskin",
+      "reason": "Manual only: NBT temperature and use/depletion mechanics; water source integration is separate.",
+      "source": "ColdSweat-2.4 ItemInit/FilledWaterskinItem"
+    },
+    {
+      "id": "eanimod:fivesixths_milk_bucket",
+      "reason": "Manual only: probabilistic volume-dependent cure and remove-all-effects behavior, with partial milk containers; no generic milk equivalence.",
+      "source": "GeneticAnimals-0_11_12 ModItems/MilkBottle/MilkBucket subclasses"
+    },
+    {
+      "id": "eanimod:half_milk_bottle",
+      "reason": "Manual only: probabilistic volume-dependent cure and remove-all-effects behavior, with partial milk containers; no generic milk equivalence.",
+      "source": "GeneticAnimals-0_11_12 ModItems/MilkBottle/MilkBucket subclasses"
+    },
+    {
+      "id": "eanimod:half_milk_bucket",
+      "reason": "Manual only: probabilistic volume-dependent cure and remove-all-effects behavior, with partial milk containers; no generic milk equivalence.",
+      "source": "GeneticAnimals-0_11_12 ModItems/MilkBottle/MilkBucket subclasses"
+    },
+    {
+      "id": "eanimod:milk_bottle",
+      "reason": "Manual only: probabilistic volume-dependent cure and remove-all-effects behavior, with partial milk containers; no generic milk equivalence.",
+      "source": "GeneticAnimals-0_11_12 ModItems/MilkBottle/MilkBucket subclasses"
+    },
+    {
+      "id": "eanimod:onesixth_milk_bucket",
+      "reason": "Manual only: probabilistic volume-dependent cure and remove-all-effects behavior, with partial milk containers; no generic milk equivalence.",
+      "source": "GeneticAnimals-0_11_12 ModItems/MilkBottle/MilkBucket subclasses"
+    },
+    {
+      "id": "eanimod:onethird_milk_bucket",
+      "reason": "Manual only: probabilistic volume-dependent cure and remove-all-effects behavior, with partial milk containers; no generic milk equivalence.",
+      "source": "GeneticAnimals-0_11_12 ModItems/MilkBottle/MilkBucket subclasses"
+    },
+    {
+      "id": "eanimod:twothirds_milk_bucket",
+      "reason": "Manual only: probabilistic volume-dependent cure and remove-all-effects behavior, with partial milk containers; no generic milk equivalence.",
+      "source": "GeneticAnimals-0_11_12 ModItems/MilkBottle/MilkBucket subclasses"
+    },
+    {
+      "id": "fallout_wastelands_:absinthe",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:beer",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:coffee",
+      "reason": "Not a native DRINK item (inherits EAT); finish adds haste/speed and native saturation modifier is negative.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/CoffeeItem"
+    },
+    {
+      "id": "fallout_wastelands_:gamma_gulp_beer",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:rad_island_cider",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:roentgen_rum",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:scotch",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:sierra_madre_martini",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:vodka",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:whiskey",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "fallout_wastelands_:wine",
+      "reason": "Manual only: native negative nutrition and/or finish procedure branches on the currently used item; cannot replace with positive-food generic serving.",
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/BeerPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "farmersdelight:bone_broth",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem"
+    },
+    {
+      "id": "farmersrespite:long_purulent_tea",
+      "reason": "Manual only: extends one random existing milk-curable effect by 300/300/600 ticks; no safe fractional random-extension adapter.",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues PurulentTeaItem"
+    },
+    {
+      "id": "farmersrespite:purulent_tea",
+      "reason": "Manual only: extends one random existing milk-curable effect by 300/300/600 ticks; no safe fractional random-extension adapter.",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues PurulentTeaItem"
+    },
+    {
+      "id": "farmersrespite:strong_purulent_tea",
+      "reason": "Manual only: extends one random existing milk-curable effect by 300/300/600 ticks; no safe fractional random-extension adapter.",
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues PurulentTeaItem"
+    },
+    {
+      "id": "fruitsdelight:apple_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:bayberry_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:bayberry_soup",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:blueberry_custard",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:blueberry_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:chorus_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:cranberry_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:durian_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:fig_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:glowberry_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:hamimelon_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:hamimelon_shaved_ice",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:hawberry_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:kiwi_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:lemon_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:lemon_juice",
+      "reason": "Manual only: EffectRemovalEffect cleanses on attribute addition; repeated fractional admission would repeat native cleansing.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:lychee_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:mango_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:mangosteen_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:melon_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:orange_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:orange_juice",
+      "reason": "Manual only: EffectRemovalEffect cleanses on attribute addition; repeated fractional admission would repeat native cleansing.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:peach_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:pear_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:persimmon_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "fruitsdelight:pineapple_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks"
+    },
+    {
+      "id": "fruitsdelight:sweetberry_jelly",
+      "reason": "Not an ordinary beverage: cooking spread or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass"
+    },
+    {
+      "id": "goety:brew",
+      "reason": "Manual only: bespoke utility actions or stack-NBT brew effects.",
+      "source": "goety-2.5.53.1 ModItems/native item classes"
+    },
+    {
+      "id": "goety:refuse_bottle",
+      "reason": "Manual only: bespoke utility actions or stack-NBT brew effects.",
+      "source": "goety-2.5.53.1 ModItems/native item classes"
+    },
+    {
+      "id": "goety:undeath_potion",
+      "reason": "Manual only: bespoke utility actions or stack-NBT brew effects.",
+      "source": "goety-2.5.53.1 ModItems/native item classes"
+    },
+    {
+      "id": "goety:void_bottle",
+      "reason": "Manual only: bespoke utility actions or stack-NBT brew effects.",
+      "source": "goety-2.5.53.1 ModItems/native item classes"
+    },
+    {
+      "id": "hexerei:blood_bottle",
+      "reason": "Manual only: HexBottleItem reagent with bespoke finish damage/effect/ignition behavior, not safe milk/food equivalence.",
+      "source": "hexerei-0.4.2.3 ModItems/HexBottleItem subclasses"
+    },
+    {
+      "id": "hexerei:lava_bottle",
+      "reason": "Manual only: HexBottleItem reagent with bespoke finish damage/effect/ignition behavior, not safe milk/food equivalence.",
+      "source": "hexerei-0.4.2.3 ModItems/HexBottleItem subclasses"
+    },
+    {
+      "id": "hexerei:quicksilver_bottle",
+      "reason": "Manual only: HexBottleItem reagent with bespoke finish damage/effect/ignition behavior, not safe milk/food equivalence.",
+      "source": "hexerei-0.4.2.3 ModItems/HexBottleItem subclasses"
+    },
+    {
+      "id": "hexerei:tallow_bottle",
+      "reason": "Manual only: HexBottleItem reagent with bespoke finish damage/effect/ignition behavior, not safe milk/food equivalence.",
+      "source": "hexerei-0.4.2.3 ModItems/HexBottleItem subclasses"
+    },
+    {
+      "id": "malum:concentrated_gluttony",
+      "reason": "Manual only: finish computes Gluttony amplifier/duration from equipped Curios and emits custom effects; not a static timed-buff serving.",
+      "source": "malum-1.6.7 ItemRegistry/ConcentratedGluttonyItem.createGluttonyEffect"
+    },
+    {
+      "id": "malum:runic_sap",
+      "reason": "Manual only: FoodProperties include instant-health plus regeneration; no generic instantaneous-effect fraction adapter.",
+      "source": "malum-1.6.7 ItemRegistry/FoodPropertyRegistry/BottledDrinkItem"
+    },
+    {
+      "id": "minecraft:potion",
+      "reason": "Water potion uses the separate existing water profile; other potions retain native NBT-dependent manual use.",
+      "source": "Minecraft 1.20.1 Items/PotionItem; WaterSources"
+    },
+    {
+      "id": "minecraft:water_bucket",
+      "reason": "Handled by the separate existing purity-aware water profile.",
+      "source": "Minecraft 1.20.1 Items; WaterSources"
+    },
+    {
+      "id": "moreartifacts:recall_potion",
+      "reason": "Manual only: teleport utility potion completion action.",
+      "source": "moreartifacts-1.5.5 MAItems/RecallPotionItem"
+    },
+    {
+      "id": "supplementaries:jar",
+      "reason": "Manual only: NBT fluid contents and JarItem's contained-fluid consumption are dynamic, not a static finite drink profile.",
+      "source": "supplementaries-3.1.43 ModRegistry.JAR_ITEM/JarItem"
+    },
+    {
+      "id": "supplementaries:lumisene_bottle",
+      "reason": "Manual only: bespoke lumisene drink/ignition behavior.",
+      "source": "supplementaries-3.1.43 LumiseneBottleItem"
+    },
+    {
+      "id": "supplementaries:lunch_basket",
+      "reason": "Manual only: nested inventory chooses the consumed food or drink; the basket itself is not a finite static serving.",
+      "source": "supplementaries-3.1.43 ModRegistry.LUNCH_BASKET_ITEM/LunchBoxItem"
+    },
+    {
+      "id": "tconstruct:earth_slime_bottle",
+      "reason": "Manual only: native slime fluid-container serving and custom slime effect require a dedicated audited adapter.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids.slimeBottle registerEnum/SlimeType.EARTH"
+    },
+    {
+      "id": "tconstruct:ender_slime_bottle",
+      "reason": "Manual only: native slime fluid-container serving and custom slime effect require a dedicated audited adapter.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids.slimeBottle registerEnum/SlimeType.ENDER"
+    },
+    {
+      "id": "tconstruct:ichor_slime_bottle",
+      "reason": "Manual only: native slime fluid-container serving and custom slime effect require a dedicated audited adapter.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids.slimeBottle registerEnum/SlimeType.ICHOR"
+    },
+    {
+      "id": "tconstruct:magma_bottle",
+      "reason": "Manual only: native fluid-specific effects and container mechanics require dedicated adapters.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids/ContainerFoodItem"
+    },
+    {
+      "id": "tconstruct:meat_soup",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids.meatSoupBowl/TinkerFood.MEAT_SOUP/ContainerFoodItem: native DRINK, 8 food/0.6 saturation, bowl only"
+    },
+    {
+      "id": "tconstruct:potion_bucket",
+      "reason": "Manual only: native fluid-specific effects and container mechanics require dedicated adapters.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids/ContainerFoodItem"
+    },
+    {
+      "id": "tconstruct:sky_slime_bottle",
+      "reason": "Manual only: native slime fluid-container serving and custom slime effect require a dedicated audited adapter.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids.slimeBottle registerEnum/SlimeType.SKY"
+    },
+    {
+      "id": "tconstruct:venom_bottle",
+      "reason": "Manual only: native fluid-container serving; fluid capability and venom food/effect profile require a dedicated audited adapter.",
+      "source": "TConstruct-3.11.2.166 TinkerFluids.venomBottle/ContainerFoodItem.FluidContainerFoodItem"
+    },
+    {
+      "id": "the_bumblezone:essence_of_the_bees",
+      "reason": "Manual only: non-food unique essence/progression acquisition; native use is not an ordinary replaceable serving.",
+      "source": "the_bumblezone-7.13.4 BzItems/EssenceOfTheBees"
+    },
+    {
+      "id": "the_bumblezone:royal_jelly_bottle",
+      "reason": "Manual only: finish removes poison/slowness/weakness together; generic poison/milk action would remove the wrong set. Native Beenergized and 9600-tick buffs must not be dropped.",
+      "source": "the_bumblezone-7.13.4 BzItems/RoyalJellyBottle"
+    },
+    {
+      "id": "the_deep_void:bottle_of_ambrosia",
+      "reason": "Manual only: finish shortens existing ambrosia-withdrawal effect by 200 ticks, preserving amplifier; no safe fractional withdrawal mutation.",
+      "source": "the_deep_void-1.98.1 TheDeepVoidModItems/BottleOfAmbrosiaPlayerFinishesUsingItemProcedure"
+    },
+    {
+      "id": "thirst:terracotta_water_bowl",
+      "reason": "Handled by the separate existing purity-aware water profile.",
+      "source": "ThirstWasTaken-1.4.0 ItemInit/DrinkableItem; WaterSources"
+    },
+    {
+      "id": "tomeofblood:mint_tea",
+      "reason": "Manual only: correlated rare poison/nausea versus custom Serene utility effect not audited for fractional event hooks.",
+      "source": "tomeofblood-0.4.5 MintTeaItem"
+    },
+    {
+      "id": "twilightforest:brittle_potion_flask",
+      "reason": "Manual only: NBT dose count and break/refill semantics.",
+      "source": "twilightforest-4.3.2508 TFItems/BrittleFlaskItem/GreaterFlaskItem"
+    },
+    {
+      "id": "twilightforest:greater_potion_flask",
+      "reason": "Manual only: NBT dose count and break/refill semantics.",
+      "source": "twilightforest-4.3.2508 TFItems/BrittleFlaskItem/GreaterFlaskItem"
+    },
+    {
+      "id": "ubesdelight:fish_sauce_bottle",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "ubesdelight-0.4.11 UbesDelightItemsImpl/FoodValues/UbesDelightDrinkableItem"
+    },
+    {
+      "id": "ubesdelight:halo_halo",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "ubesdelight-0.4.11 UbesDelightItemsImpl/FoodValues/UbesDelightDrinkableItem"
+    },
+    {
+      "id": "upgrade_aquatic:mulberry_jam_bottle",
+      "reason": "Not an ordinary beverage: cooking spread, sauce, soup or spoonable dessert; native DRINK animation alone does not authorize beverage-slot admission.",
+      "source": "upgrade_aquatic-6.0.3 UAItems/MulberryJamBottleItem: food, bottle, no finish effects"
+    }
+  ]
+}

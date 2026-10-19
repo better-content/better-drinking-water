@@ -3,6 +3,7 @@ package com.bettercontent.betterdrinkingwater;
 import dev.ghen.thirst.api.ThirstHelper;
 import dev.ghen.thirst.content.purity.WaterPurity;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluids;
@@ -34,7 +35,9 @@ public final class WaterSources {
     }
 
     public static boolean isEmptyVessel(ItemStack stack) {
-        if (stack.isEmpty() || !EMPTY_ITEMS.contains(id(stack))) return false;
+        if (stack.isEmpty()) return false;
+        if (!EMPTY_ITEMS.contains(id(stack)))
+            return DrinkCatalogue.entries().values().stream().anyMatch(drink -> drink.remainder().equals(id(stack)));
         // Copper cans retain their item identity when filled.
         return !id(stack).equals("tconstruct:copper_can") || stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM)
                 .map(handler -> handler.getFluidInTank(0).isEmpty()).orElse(false);
@@ -42,6 +45,7 @@ public final class WaterSources {
 
     public static boolean accepts(ItemStack stack) {
         if (stack.isEmpty()) return false;
+        if (DrinkCatalogue.find(stack) != null) return true;
         if (WaterBottleCurio.isWaterBottle(stack) || id(stack).equals("thirst:terracotta_water_bowl")
                 || stack.is(Items.WATER_BUCKET) || id(stack).equals("aether:skyroot_water_bucket")) return true;
         if (!FLUID_ITEMS.contains(id(stack))) return false;
@@ -55,7 +59,21 @@ public final class WaterSources {
         }).orElse(false);
     }
 
-    /** Compute a debit on a private copy; caller must install remaining/return remainder before crediting it. */
+    /** Resolve a finite beverage on a private copy; caller commits the debit before releasing credit. */
+    static Debit debit(ServerPlayer player, ItemStack source) {
+        var drink = DrinkCatalogue.find(source);
+        if (drink == null) return debit(source);
+        if (!BeverageServing.allowed(player)) return null;
+        var serving = BeverageServing.purchase(player, source, drink);
+        if (serving == null) return null;
+        ItemStack remaining = source.copy();
+        remaining.shrink(1);
+        ItemStack remainder = drink.remainder().isEmpty() ? ItemStack.EMPTY : item(drink.remainder());
+        return new Debit(remaining, remainder,
+                new PlayerWaterReserve.Reserve(drink.hydration(), drink.quenching(), 0, 3, serving));
+    }
+
+    /** Compute a water debit on a private copy; caller installs remaining/returns remainder before crediting it. */
     static Debit debit(ItemStack source) {
         if (!accepts(source)) return null;
         boolean bottle = WaterBottleCurio.isWaterBottle(source);

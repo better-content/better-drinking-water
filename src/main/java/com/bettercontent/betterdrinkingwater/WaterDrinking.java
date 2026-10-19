@@ -23,20 +23,23 @@ final class WaterDrinking {
                 if (purchases++ >= purchaseLimit) break;
                 reserve = purchase.get();
                 if (reserve == null) break;
-                if (!WaterPurity.givePurityEffects(player, reserve.purity())) {
+                if (reserve.beverage() == null && !WaterPurity.givePurityEffects(player, reserve.purity())) {
                     reserve = null;
                     break;
                 }
                 PlayerWaterReserve.write(player, reserve);
             }
+            if (reserve.beverage() != null && !BeverageServing.allowed(player)) break;
+            var purchased = reserve;
             var result = WaterBottleConsumption.calculate(missing, reserve.thirst(), reserve.quenched(), reserve.consumed());
             restored += result.thirstRestored();
             quenched += result.quenchedRestored();
             missing -= result.thirstRestored();
-            purified |= result.thirstRestored() > 0 && reserve.purity() == WaterPurity.MAX_PURITY;
-            reserve = result.bottleCompleted() ? null : new PlayerWaterReserve.Reserve(
-                    reserve.thirst(), reserve.quenched(), result.remainingFraction(), reserve.purity());
+            purified |= result.thirstRestored() > 0 && reserve.beverage() == null && reserve.purity() == WaterPurity.MAX_PURITY;
+            reserve = result.bottleCompleted() ? null : reserve.progress(result.remainingFraction());
             PlayerWaterReserve.write(player, reserve);
+            if (purchased.beverage() != null && result.thirstRestored() > 0)
+                purchased.beverage().release(player, purchased.consumed(), result.bottleCompleted() ? 1 : result.remainingFraction());
             if (result.thirstRestored() == 0) break;
         }
         if (restored > 0) {

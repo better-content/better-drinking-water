@@ -4,6 +4,6 @@
   "package": "com.bettercontent.betterdrinkingwater.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "better_drinking_water.refmap.json",
-  "mixins": ["WaterPotionStackSizeMixin", "WaterPurityMixin", "WaterBucketQualityMixin", "WaterFilledBucketMixin", "WaterCookingInputMixin"],
+  "mixins": ["WaterPotionStackSizeMixin", "WaterPurityMixin", "WaterBucketQualityMixin", "WaterFilledBucketMixin", "WaterCookingInputMixin", "BeverageEffectCadenceMixin", "BeverageEffectAccess", "BeverageEffectNotify"],
   "injectors": {"defaultRequire": 1}
 }

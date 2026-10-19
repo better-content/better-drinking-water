@@ -3,12 +3,58 @@
 ## Scope and authority
 
 This repository owns rain collection, campfire snow melting, water quality and native Curios
-water storage for Forge 1.20.1. Read [local instructions](AGENTS.md) and the
+fractional water/beverage consumption for Forge 1.20.1. Read [local instructions](AGENTS.md) and the
 [shared documentation/policy index](../../better-content-modpack/docs/README.md).
 
-## Fractional drinking
+## Beverage catalogue and fractional effects
 
-The **Drinking Water** Curios slot accepts plain water bottles, Thirst terracotta water bowls,
+The native **Drinks** slot uses the same admission predicate as the concise **Drinks slot
+compatible** item tooltip. Its internal `water` slot and predicate identities remain stable.
+The authored [`drinks.json`](src/main/resources/drinks.json) lists finite supported beverages,
+whole-serving hydration/quenching, exact remainders, timed effects and special actions; its
+exclusions classify discovered consumables that are not ordinary beverages or need bespoke
+integration. Native drink animation alone does not admit soups, spreads, ingredients or magic
+flasks. Item/effect registrations and implementations were inspected from the pack's pinned
+upstream JARs. Loaded supported profiles must resolve their actual item, remainder and effects.
+
+A beverage is paid upfront like water. Its immutable, bounded player-owned snapshot releases
+hydration, quenching, hunger, saturation and timed effects in proportion to the fraction consumed.
+Timed effects retain their pack-normalized amplifier; cumulative integer accounting preserves
+unawarded ticks. Equal-strength durations add up to the profile's full-serving duration cap;
+longer or stronger pre-existing effects are never downgraded or extended with weaker credit.
+Suppressed or capped credit is spent, not banked for a later surprise award. Duration-only
+extensions preserve the active native instance and do not replay its attribute/on-apply actions.
+Regeneration, Poison, Wither, Comfort and Sweet Heart use an independent active-tick cadence so
+replenishing their remaining duration cannot reset or accelerate healing/damage. Absorption also
+releases proportional shield points, rather than granting a whole shield on every short slice.
+
+The optional typed `BeverageEvents` integration lets Better Survival Physiology snapshot Diet's
+ordinary nutrient gains and its Nectar/Draught loads once and award each actual consumed fraction.
+It does not synthesize whole-item use events or replay `finishUsingItem`. Blackout can veto both
+purchase and release of paid beverage credit. Meal recovery and Diet's eaten-item history occur at
+serving completion, not every sip. Fruits Delight effect normalization is captured before splitting:
+suppressed Health Boost/Cycling/Digesting stay suppressed, and newly supplied vanilla benefits stay
+level I with at most 60 seconds per full serving. Custom utility effects requiring instantaneous
+on-add actions remain explicitly excluded instead of being flattened into generic buffs.
+
+Melon juice healing is proportional. Honey poison removal, milk cleansing, and cocoa/milk-bottle
+random cleansing occur once at completion. Cleansing honors native curability, Forge vetoes and
+Brewin' and Chewin' low-priority tags; strong cocoa retains its native up-to-two draws. Gambler's
+Tea resolves one correlated outcome at purchase, then stores it; reconnects and later sips cannot
+reroll it. Brewin' and Chewin' Tipsy/Bad Omen potency resolves once per paid serving against existing
+native effects (native caps 9/4); later sips cannot repeatedly escalate potency. Their durations
+use the same bounded fractional accounting, while Draught remains a separate proportional load.
+
+Changing equipment cannot change an existing paid serving. Reconnects/restarts preserve its
+remaining entitlements, with no active buff until a sip releases duration. Death discards the
+entire unfinished beverage serving without refund; it does not retain hydration while deleting
+its costs. Existing plain-water reserves keep their established death persistence. Full thirst
+never buys or releases any serving, even for food or expired buffs. No inventory beverage search
+or automatic substitution is introduced.
+
+## Fractional water drinking
+
+The **Drinks** Curios slot also accepts plain water bottles, Thirst terracotta water bowls,
 vanilla water buckets and Aether Skyroot water buckets. An explicit native-fluid-container
 allowlist also covers Tinkers' copper cans and seared/scorched tanks, gauges and lanterns,
 Create Diesel Generators' canister, and PneumaticCraft's four tank sizes. These entries require
@@ -119,6 +165,15 @@ nonshipping Malnourishment stand-in when Industrial Heat is absent. It proves th
 registry lookup, effect strengths/durations and once-per-charge behavior, not the provider's
 nutrient drain implementation (covered in Industrial Heat's source checks). Prior native worlds/logs/mods
 are retained, and ERROR/FATAL diagnostics fail the gate.
+
+Beverage checks exercise real registered Farmer's Delight, Farmer's Respite and Brewin' and
+Chewin' profiles, native Curios admission and concise tooltips, 22-quenching portions, upfront
+debits/remainders, effect duration/strength merging, real periodic ticks, fractional healing and
+absorption, completion-only cleansing, correlated random outcomes, blackout vetoes, malformed
+snapshots and clone/death semantics. The owning Physiology gate separately exercises the real
+provider with native Diet/metabolic capabilities. The remaining catalogue registrations/behaviors
+were statically inspected from pinned upstream implementations; this is not full-pack live-registry
+or per-drink client acceptance.
 
 These source checks do not establish deployed-pack or paired native-inventory visual acceptance;
 those remain separately authorized under the shared testing and inventory policies.

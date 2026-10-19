@@ -14,6 +14,7 @@ public final class WaterSurvival {
         RainCollectorRegistry.BLOCKS.register(bus);
         RainCollectorRegistry.ITEMS.register(bus);
         bus.addListener(this::registerGameTests);
+        bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) -> event.enqueueWork(DrinkCatalogue::validateLoaded));
         MinecraftForge.EVENT_BUS.register(SnowMeltHandler.class);
         MinecraftForge.EVENT_BUS.register(WaterBottleCurio.class);
         MinecraftForge.EVENT_BUS.register(BlockWaterDrinking.class);
@@ -25,5 +26,6 @@ public final class WaterSurvival {
     private void registerGameTests(RegisterGameTestsEvent event) {
         event.register(WaterSurvivalGameTests.class);
         event.register(WaterSourceGameTests.class);
+        event.register(BeverageGameTests.class);
     }
 }

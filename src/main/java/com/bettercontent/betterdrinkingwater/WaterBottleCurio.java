@@ -30,7 +30,7 @@ public final class WaterBottleCurio {
 
     @SubscribeEvent
     public static void onClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
-        if (!event.getEntity().level().isClientSide) PlayerWaterReserve.copy(event.getOriginal(), event.getEntity());
+        if (!event.getEntity().level().isClientSide) PlayerWaterReserve.copy(event.getOriginal(), event.getEntity(), event.isWasDeath());
     }
 
     @SubscribeEvent
@@ -41,7 +41,7 @@ public final class WaterBottleCurio {
             var slot = CuriosApi.getCuriosInventory(player).resolve()
                     .flatMap(handler -> handler.getStacksHandler(SLOT)).orElse(null);
             if (slot == null || slot.getStacks().getSlots() == 0) return null;
-            var debit = WaterSources.debit(slot.getStacks().getStackInSlot(0));
+            var debit = WaterSources.debit(player, slot.getStacks().getStackInSlot(0));
             if (debit == null) return null;
             slot.getStacks().setStackInSlot(0, debit.remaining());
             returnVessel(player, debit.remainder());

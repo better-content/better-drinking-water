@@ -14,6 +14,10 @@ public final class WaterContainerTooltip {
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
         var stack = event.getItemStack();
+        if (WaterSources.accepts(stack)) {
+            event.getToolTip().add(Component.translatable("tooltip.better_drinking_water.slot_compatible")
+                    .withStyle(ChatFormatting.GRAY));
+        }
         if (BlockWaterDrinking.hasDirectAccess(WaterSources.id(stack))) {
             event.getToolTip().add(Component.translatable("tooltip.better_drinking_water.direct")
                     .withStyle(ChatFormatting.GRAY));

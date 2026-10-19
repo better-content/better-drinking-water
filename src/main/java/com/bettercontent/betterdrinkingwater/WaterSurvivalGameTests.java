@@ -76,7 +76,9 @@ public final class WaterSurvivalGameTests {
         helper.setBlock(relativePos, state);
         helper.runAfterDelay(2, () -> {
             if (!level.canSeeSky(worldPos.above()) || !level.isRainingAt(worldPos.above())) {
-                helper.fail("Exposed collector setup did not have rain and sky access");
+                helper.fail("Exposed collector setup: sky=" + level.canSeeSky(worldPos.above())
+                        + ", raining=" + level.isRaining() + ", rainAt=" + level.isRainingAt(worldPos.above())
+                        + ", biome=" + level.getBiome(worldPos.above()).unwrapKey());
                 return;
             }
             RainCollectorRegistry.RAIN_COLLECTOR.get().tick(state, level, worldPos, RandomSource.create(1L));
@@ -493,12 +495,17 @@ public final class WaterSurvivalGameTests {
     }
 
     private static void makeBiomeRainy(final ServerLevel level, final BlockPos pos) {
-        final LevelChunk chunk = level.getChunkAt(pos);
         final var plains = level.registryAccess().registryOrThrow(Registries.BIOME).getHolderOrThrow(Biomes.PLAINS);
-        chunk.getSection(chunk.getSectionIndex(pos.getY())).fillBiomesFromNoise(
-                (quartX, quartY, quartZ, sampler) -> plains,
-                level.getChunkSource().randomState().sampler(), 0, 0, 0);
-        chunk.setUnsaved(true);
+        // Native BiomeManager zoom samples neighboring quart cells. A single changed section
+        // can still resolve a neighboring snowy/dry biome depending on the fresh world's seed.
+        // Author the whole small sampling neighborhood; retain the real rain/sky assertion.
+        for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++) {
+            final LevelChunk chunk = level.getChunkAt(pos.offset(dx * 16, 0, dz * 16));
+            for (var section : chunk.getSections()) section.fillBiomesFromNoise(
+                    (quartX, quartY, quartZ, sampler) -> plains,
+                    level.getChunkSource().randomState().sampler(), 0, 0, 0);
+            chunk.setUnsaved(true);
+        }
     }
 
     private static ItemStack purifiedWaterBottles(final int count) {

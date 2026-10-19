@@ -1,6 +1,7 @@
 {
   "block.better_drinking_water.rain_collector": "Rain Collector",
-  "curios.identifier.water": "Drinking Water",
+  "curios.identifier.water": "Drinks",
+  "tooltip.better_drinking_water.slot_compatible": "Drinks slot compatible",
   "curios.identifier.empty_bottle": "Empty Vessels",
   "tooltip.better_drinking_water.purified": "Water: purified",
   "tooltip.better_drinking_water.dirty": "Water: dirty",
