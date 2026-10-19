@@ -67,7 +67,21 @@ Water has exactly two gameplay quality levels: **dirty** (native value 0) and **
 (native value 3). Legacy intermediate tiers count as dirty, including stored Curio reserves.
 Native item/fluid reads, quality writes, drinking effects, tooltips and block-quality reads use
 those endpoints. The native -1 no-block-quality sentinel is preserved. Untagged water uses the
-configured default (pack: dirty), including its risks; it no longer bypasses effects.
+configured default (pack: dirty), including its penalties; it no longer bypasses effects.
+
+Dirty water always applies **Hunger VIII for 60 seconds** and, when Industrial Heat's
+effect is registered, **Malnourishment X for 25 seconds**. The pack includes that provider;
+without it, standalone Drinking Water applies only Hunger. These replace native poison/nausea
+chance rolls and apply independently of the old Thirst purity-effect settings. Dirty water
+still hydrates even when the old debuff-quenching switch is false. Purified water applies no
+purity penalty. Automatic reserves apply penalties once per purchased portion, not per sip.
+Normal effect refresh/upgrade rules apply; doses do not create independently stacking effects.
+
+Hunger remains vanilla: this dose adds 48 exhaustion, equivalent to 12 saturation/food points
+(saturation first). Industrial Heat's Malnourishment X drains ten percentage points per second
+from every Diet nutrient group, wiping full groups in ten seconds and continuing to drain any
+replenishment during the remaining fifteen seconds. These are effect-only costs, excluding
+ordinary activity or other drains.
 
 Campfire and furnace water recipes purify bottles, bowls and buckets in one step, including
 untagged and legacy water. The pack config gives kettles and sand filters three purification
@@ -100,7 +114,10 @@ Threads do not acquire a hard dependency.
 The local full gate exercises native bowl/bucket admission and remainders, real Tinkers' can/tank
 storage, real Create tank extraction, bucket purity round trips, cauldron debits, conservative
 volume limits, reserve persistence and old bottle regressions. Its nonshipping fixture mirrors
-five exact authored Farmer's Respite data repairs from the pack. Prior native worlds/logs/mods
+five exact authored Farmer's Respite data repairs from the pack and registers an explicit
+nonshipping Malnourishment stand-in when Industrial Heat is absent. It proves the cross-mod
+registry lookup, effect strengths/durations and once-per-charge behavior, not the provider's
+nutrient drain implementation (covered in Industrial Heat's source checks). Prior native worlds/logs/mods
 are retained, and ERROR/FATAL diagnostics fail the gate.
 
 These source checks do not establish deployed-pack or paired native-inventory visual acceptance;

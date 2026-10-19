@@ -1,6 +1,7 @@
 package com.bettercontent.betterdrinkingwater.mixin;
 
 import com.bettercontent.betterdrinkingwater.WaterQuality;
+import com.bettercontent.betterdrinkingwater.DirtyWaterEffects;
 import dev.ghen.thirst.content.purity.WaterPurity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -35,10 +36,10 @@ public abstract class WaterPurityMixin {
         return purity == -1 ? -1 : WaterQuality.normalize(purity);
     }
 
-    @ModifyVariable(method = "givePurityEffects(Lnet/minecraft/world/entity/player/Player;I)Z",
-            at = @At("HEAD"), argsOnly = true, ordinal = 0)
-    private static int waterSurvival$effectQuality(int purity) {
-        return WaterQuality.normalize(purity);
+    @Inject(method = "givePurityEffects(Lnet/minecraft/world/entity/player/Player;I)Z",
+            at = @At("HEAD"), cancellable = true)
+    private static void waterSurvival$effectQuality(Player player, int purity, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(DirtyWaterEffects.apply(player, purity));
     }
 
     @Inject(method = "addPurity(Lnet/minecraft/world/item/ItemStack;I)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"))

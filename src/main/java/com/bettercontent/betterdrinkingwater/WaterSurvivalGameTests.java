@@ -407,23 +407,25 @@ public final class WaterSurvivalGameTests {
             slot.getStacks().setStackInSlot(0, WaterPurity.addPurity(purifiedWaterBottles(1), 0));
             thirst.setThirst(19);
             tickWaterCurio(player);
-            helper.assertTrue(thirst.getThirst() == 19 && PlayerWaterReserve.read(player) == null
+            helper.assertTrue(thirst.getThirst() == 20 && PlayerWaterReserve.read(player) != null
                             && slot.getStacks().getStackInSlot(0).isEmpty() && empty.getStacks().getStackInSlot(0).getCount() == 1,
-                    "Rejected unsafe water must be paid and refunded without creating credit");
+                    "Dirty water must still hydrate even when the old debuff-quenching config is false");
+            assertDirtyEffects(helper, player);
+            PlayerWaterReserve.write(player, null);
             player.removeAllEffects();
             allow.set(true);
             spec.afterReload();
             slot.getStacks().setStackInSlot(0, WaterPurity.addPurity(purifiedWaterBottles(1), 0));
+            thirst.setThirst(19);
             tickWaterCurio(player);
-            helper.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.POISON),
-                    "Charging unsafe water must evaluate its effects");
+            assertDirtyEffects(helper, player);
             player.removeAllEffects();
             slot.getStacks().setStackInSlot(0, purifiedWaterBottles(1));
             WaterSafetyEpisodes.thirstLost(player);
             thirst.setThirst(19);
             tickWaterCurio(player);
-            helper.assertTrue(PlayerWaterReserve.read(player).purity() == 0 && !player.hasEffect(net.minecraft.world.effect.MobEffects.POISON),
-                    "Later sips must retain purity without rerolling effects");
+            helper.assertTrue(PlayerWaterReserve.read(player).purity() == 0 && player.getActiveEffects().isEmpty(),
+                    "Later sips must retain purity without reapplying effects");
             helper.assertTrue(!WaterSafetyEpisodes.remembered(player).isEmpty(),
                     "Equipping pure water must not complete safety while drinking a dirty reserve");
             thirst.setThirst(16);
@@ -438,6 +440,39 @@ public final class WaterSurvivalGameTests {
         } finally {
             spec.setConfig(originalConfig);
         }
+        helper.succeed();
+    }
+
+    private static void assertDirtyEffects(GameTestHelper helper, ServerPlayer player) {
+        var malnourishment = net.minecraftforge.registries.ForgeRegistries.MOB_EFFECTS.getValue(
+                new net.minecraft.resources.ResourceLocation("better_industrial_heat", "malnourishment"));
+        var hunger = player.getEffect(net.minecraft.world.effect.MobEffects.HUNGER);
+        var diet = player.getEffect(java.util.Objects.requireNonNull(malnourishment));
+        helper.assertTrue(player.getActiveEffects().size() == 2 && hunger != null && hunger.getAmplifier() == 7
+                        && hunger.getDuration() == 1200 && diet != null && diet.getAmplifier() == 9 && diet.getDuration() == 500,
+                "Dirty water must apply only Hunger VIII for 60s and Malnourishment X for 25s");
+    }
+
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 20)
+    public static void allDirtyQualitiesAndUntaggedWaterUseFixedEffects(GameTestHelper helper) {
+        var player = fakePlayer(helper, "dirty-effects");
+        for (int purity : new int[]{-1, 0, 1, 2}) {
+            player.removeAllEffects();
+            helper.assertTrue(WaterPurity.givePurityEffects(player, purity), "Dirty water must hydrate");
+            assertDirtyEffects(helper, player);
+        }
+        player.removeAllEffects();
+        helper.assertTrue(WaterPurity.givePurityEffects(player, 3) && player.getActiveEffects().isEmpty(),
+                "Purified water must not apply any purity penalty");
+        helper.assertTrue(WaterPurity.givePurityEffects(player, net.minecraft.world.item.alchemy.PotionUtils.setPotion(
+                new ItemStack(Items.POTION), net.minecraft.world.item.alchemy.Potions.WATER)), "Untagged water must hydrate");
+        assertDirtyEffects(helper, player);
+        // Vanilla refresh/upgrade rules: a repeated dose refreshes, rather than adding a second instance.
+        var hunger = player.getEffect(net.minecraft.world.effect.MobEffects.HUNGER);
+        hunger.tick(player, () -> {});
+        WaterPurity.givePurityEffects(player, 0);
+        assertDirtyEffects(helper, player);
+        player.removeAllEffects();
         helper.succeed();
     }
 
