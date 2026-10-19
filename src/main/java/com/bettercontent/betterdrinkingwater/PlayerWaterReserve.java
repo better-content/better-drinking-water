@@ -4,7 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.player.Player;
 
-/** A paid bottle, owned exclusively by the player. Never stores an item stack. */
+/** A paid water portion, owned exclusively by the player. Never stores an item stack. */
 final class PlayerWaterReserve {
     static final String KEY = "better_drinking_water:reserve";
     record Reserve(int thirst, int quenched, double consumed, int purity) {}

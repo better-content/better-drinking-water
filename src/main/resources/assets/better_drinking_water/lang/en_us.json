@@ -1,1 +1,8 @@
-{"block.better_drinking_water.rain_collector":"Rain Collector"}
+{
+  "block.better_drinking_water.rain_collector": "Rain Collector",
+  "curios.identifier.water": "Drinking Water",
+  "curios.identifier.empty_bottle": "Empty Vessels",
+  "tooltip.better_drinking_water.purified": "Water: purified",
+  "tooltip.better_drinking_water.dirty": "Water: dirty",
+  "tooltip.better_drinking_water.direct": "When filled with water: sneak-right-click with both hands empty to drink."
+}

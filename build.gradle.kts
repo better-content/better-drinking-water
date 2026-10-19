@@ -1,3 +1,6 @@
+import java.time.Instant
+import java.nio.file.Files
+
 plugins {
     idea
     `maven-publish`
@@ -15,6 +18,22 @@ base {
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+// Mirror the pack's exact optional-upstream repairs only in the nonshipping source fixture.
+val nativeFixture by sourceSets.creating {
+    compileClasspath += sourceSets.main.get().output + sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().output + sourceSets.main.get().runtimeClasspath
+}
+val authoredRespiteOverrides = listOf(
+    "recipes/filling/water_cup.json", "recipes/pouring/water_cup.json",
+    "recipes/emptying/water_cup.json", "loot_tables/blocks/kettle.json",
+    "advancements/main/stunt_tea_bush.json"
+).associateWith { file("../../better-content-modpack/kubejs/data/farmersrespite/$it") }
+tasks.named<ProcessResources>(nativeFixture.processResourcesTaskName) {
+    authoredRespiteOverrides.forEach { (relative, authored) ->
+        from(authored) { into("data/farmersrespite/${relative.substringBeforeLast('/')}") }
+    }
 }
 
 minecraft {
@@ -41,6 +60,7 @@ minecraft {
             property("forge.enableGameTest", "true")
             property("forge.gameTestServer", "true")
             property("forge.enabledGameTestNamespaces", property("mod_id") as String)
+            mods { named(property("mod_id") as String) { source(nativeFixture) } }
             arg("--nogui")
         }
     }
@@ -66,6 +86,7 @@ dependencies {
     compileOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-api-${property("minecraft_version")}:1.0.5"))
     runtimeOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-${property("minecraft_version")}:1.0.5"))
     implementation(fg.deobf("com.tterrag.registrate:Registrate:MC1.20-1.3.3"))
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0")!!)
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:[0.5.0,0.6.0)")!!)
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
     compileOnly(fg.deobf("curse.maven:hyle-609850:7736352"))
@@ -83,6 +104,8 @@ dependencies {
     compileOnly(fg.deobf("curse.maven:curios-api-309927:6418456"))
     compileOnly(fg.deobf("curse.maven:mantle-74924:7563777"))
     compileOnly(fg.deobf("curse.maven:tinkers-construct-74072:7449219"))
+    runtimeOnly(fg.deobf("curse.maven:tinkers-construct-74072:7449219"))
+    runtimeOnly(fg.deobf("curse.maven:mantle-74924:7563777"))
     compileOnly(fg.deobf("curse.maven:polymorph-388800:6450982"))
     compileOnly(fg.deobf("curse.maven:architectury-api-419699:5137938"))
     compileOnly(fg.deobf("curse.maven:epic-fight-mod-405076:8049910"))
@@ -152,16 +175,36 @@ tasks.register("verifyFast") {
     dependsOn(tasks.named("check"))
 }
 
+val verifyNativeDiagnostics by tasks.registering {
+    group = "verification"
+    dependsOn(tasks.named("headlessGameTest"))
+    doLast {
+        val nativeLog = file("run-gametest/logs/latest.log")
+        check(nativeLog.isFile) { "Missing current native GameTest diagnostics" }
+        val errors = nativeLog.readLines().filter { line ->
+            listOf("/ERROR]", "/FATAL]", "[ERROR]", "[FATAL]", "Mixin apply failed").any(line::contains)
+        }
+        check(errors.isEmpty()) { "Native failed-operation/ERROR/FATAL diagnostics: ${errors.take(8).joinToString("\n")}" }
+    }
+}
 tasks.register("verifyFull") {
     group = "verification"
-    description = "Runs the full verification lane including headless Forge game tests."
+    description = "Runs unit checks, native GameTests and strict native diagnostics."
     dependsOn(tasks.named("verifyFast"))
-    dependsOn(tasks.named("headlessGameTest"))
+    dependsOn(verifyNativeDiagnostics)
 }
 
-val resetGameTestMods = tasks.register<Delete>("resetGameTestMods") {
-    delete(layout.projectDirectory.dir("run-gametest/mods"))
-    delete(layout.projectDirectory.dir("run-gametest/world"))
+val resetGameTestMods = tasks.register("resetGameTestMods") {
+    doLast {
+        val retained = file("run-gametest/retained/${Instant.now().toEpochMilli()}")
+        for (name in listOf("mods", "world", "logs")) {
+            val previous = file("run-gametest/$name")
+            if (previous.exists()) {
+                retained.mkdirs()
+                Files.move(previous.toPath(), retained.resolve(name).toPath())
+            }
+        }
+    }
 }
 
 val syncGameTestStructures = tasks.register<Sync>("syncGameTestStructures") {
@@ -172,6 +215,7 @@ val syncGameTestStructures = tasks.register<Sync>("syncGameTestStructures") {
 tasks.matching { it.name.startsWith("prepareRunGameTestServer") }.configureEach {
     dependsOn(resetGameTestMods)
     dependsOn(syncGameTestStructures)
+    dependsOn(tasks.named(nativeFixture.processResourcesTaskName))
 }
 
 tasks.processResources {

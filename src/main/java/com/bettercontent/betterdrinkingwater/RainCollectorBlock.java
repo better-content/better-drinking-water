@@ -1,7 +1,6 @@
 package com.bettercontent.betterdrinkingwater;
 
 import dev.ghen.thirst.content.purity.WaterPurity;
-import dev.ghen.thirst.foundation.common.capability.ModCapabilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -81,20 +80,12 @@ public final class RainCollectorBlock extends Block {
         final ItemStack held = player.getItemInHand(hand);
         if (held.isEmpty()) {
             if (level.isClientSide) return InteractionResult.SUCCESS;
-            final boolean[] drank = {false};
-            player.getCapability(ModCapabilities.PLAYER_THIRST).ifPresent(thirst -> {
-                if (thirst.getThirst() < 20 || thirst.getQuenched() < 20) {
-                    thirst.drink(player, 3, 2);
-                    WaterPurity.givePurityEffects(player, WaterPurity.getBlockPurity(level, pos));
-                    if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer
-                            && WaterPurity.getBlockPurity(level, pos) == WaterPurity.MAX_PURITY) {
-                        WaterSafetyEpisodes.purifiedDrunk(serverPlayer);
-                    }
-                    drank[0] = true;
-                }
-            });
-            if (!drank[0]) return InteractionResult.PASS;
-            consumeCharge(level, pos, state);
+            if (!(player instanceof net.minecraft.server.level.ServerPlayer serverPlayer)) return InteractionResult.PASS;
+            boolean drank = WaterDrinking.sip(serverPlayer, () -> {
+                consumeCharge(level, pos, state);
+                return new PlayerWaterReserve.Reserve(3, 2, 0, WaterPurity.getBlockPurity(level, pos));
+            }, 1);
+            if (!drank) return InteractionResult.CONSUME;
             level.playSound(null, pos, SoundEvents.GENERIC_DRINK, SoundSource.BLOCKS, 0.8F, 1.0F);
             return InteractionResult.CONSUME;
         }

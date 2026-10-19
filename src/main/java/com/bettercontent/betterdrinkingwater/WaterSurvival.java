@@ -16,11 +16,14 @@ public final class WaterSurvival {
         bus.addListener(this::registerGameTests);
         MinecraftForge.EVENT_BUS.register(SnowMeltHandler.class);
         MinecraftForge.EVENT_BUS.register(WaterBottleCurio.class);
+        MinecraftForge.EVENT_BUS.register(BlockWaterDrinking.class);
+        MinecraftForge.EVENT_BUS.register(WaterContainerTooltip.class);
         MinecraftForge.EVENT_BUS.register(WaterSafetyEvents.class);
         WaterBottleCurio.registerPredicate();
     }
 
     private void registerGameTests(RegisterGameTestsEvent event) {
         event.register(WaterSurvivalGameTests.class);
+        event.register(WaterSourceGameTests.class);
     }
 }

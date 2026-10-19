@@ -27,7 +27,8 @@ public final class WaterSafetyEvents {
     @SubscribeEvent
     public static void onDrinkFinished(LivingEntityUseItemEvent.Finish event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
-        if (!WaterBottleCurio.isWaterBottle(event.getItem())) return;
+        if (!WaterBottleCurio.isWaterBottle(event.getItem())
+                && !WaterSources.id(event.getItem()).equals("thirst:terracotta_water_bowl")) return;
         if (isSafePurity(WaterPurity.getPurity(event.getItem()), WaterPurity.MAX_PURITY)) {
             WaterSafetyEpisodes.purifiedDrunk(player);
         }
