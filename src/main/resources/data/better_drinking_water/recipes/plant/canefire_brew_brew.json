@@ -1,0 +1,25 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "fluid": "better_drinking_water:cane_juice",
+    "count": 1000
+  },
+  "ingredients": [
+    {
+      "tag": "better_drinking_water:safe_starter_flowers"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:canefire_brew",
+    "count": 1000
+  },
+  "fermentingtime": 9600,
+  "temperature": 3,
+  "experience": 0.5,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ]
+}

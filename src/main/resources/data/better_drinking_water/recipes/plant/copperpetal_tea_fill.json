@@ -1,0 +1,23 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": "better_drinking_water:copperpetal_tea",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "better_drinking_water:copperpetal_tea"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

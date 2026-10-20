@@ -1,0 +1,21 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "fluid": "better_drinking_water:durian_juice",
+  "amount": 250,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "output": {
+    "item": "better_drinking_water:durian_juice"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fruitsdelight"
+    }
+  ]
+}

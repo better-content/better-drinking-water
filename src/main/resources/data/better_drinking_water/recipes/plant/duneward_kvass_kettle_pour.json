@@ -1,0 +1,25 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "fluid": "better_drinking_water:duneward_kvass",
+  "amount": 250,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "output": {
+    "item": "better_drinking_water:duneward_kvass"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "natures_spirit"
+    }
+  ]
+}

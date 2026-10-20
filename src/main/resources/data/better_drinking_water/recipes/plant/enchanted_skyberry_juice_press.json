@@ -1,0 +1,27 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "aether:enchanted_berry"
+    },
+    {
+      "item": "aether:enchanted_berry"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:enchanted_skyberry_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aether"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

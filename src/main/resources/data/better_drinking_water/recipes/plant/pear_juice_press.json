@@ -1,0 +1,24 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:pear"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:pear_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fruitsdelight"
+    }
+  ]
+}

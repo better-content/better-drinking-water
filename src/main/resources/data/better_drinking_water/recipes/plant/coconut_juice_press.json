@@ -1,0 +1,27 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "natures_spirit:coconut_half"
+    },
+    {
+      "item": "natures_spirit:coconut_half"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:coconut_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "natures_spirit"
+    }
+  ]
+}

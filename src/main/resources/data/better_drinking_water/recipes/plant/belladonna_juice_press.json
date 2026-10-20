@@ -1,0 +1,27 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "hexerei:belladonna_berries"
+    },
+    {
+      "item": "hexerei:belladonna_berries"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:belladonna_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "hexerei"
+    }
+  ]
+}

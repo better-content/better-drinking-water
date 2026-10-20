@@ -1,0 +1,24 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "natures_spirit:desert_turnip"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:desert_turnip_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "natures_spirit"
+    }
+  ]
+}

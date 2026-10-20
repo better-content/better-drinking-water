@@ -1,0 +1,27 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "natures_spirit:olives"
+    },
+    {
+      "item": "natures_spirit:olives"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:olive_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "natures_spirit"
+    }
+  ]
+}

@@ -37,7 +37,7 @@ suppressed Health Boost/Cycling/Digesting stay suppressed, and newly supplied va
 level I with at most 60 seconds per full serving. Custom utility effects requiring instantaneous
 on-add actions remain explicitly excluded instead of being flattened into generic buffs.
 
-Melon juice healing is proportional. Honey poison removal, milk cleansing, and cocoa/milk-bottle
+Melon-specialty healing is proportional. Honey poison removal, milk cleansing, and cocoa/milk-bottle
 random cleansing occur once at completion. Cleansing honors native curability, Forge vetoes and
 Brewin' and Chewin' low-priority tags; strong cocoa retains its native up-to-two draws. Gambler's
 Tea resolves one correlated outcome at purchase, then stores it; reconnects and later sips cannot
@@ -51,6 +51,79 @@ entire unfinished beverage serving without refund; it does not retain hydration 
 its costs. Existing plain-water reserves keep their established death persistence. Full thirst
 never buys or releases any serving, even for food or expired buffs. No inventory beverage search
 or automatic substitution is introduced.
+
+## Plant drink production
+
+[`plant_drinks.json`](src/main/resources/plant_drinks.json) is the finite plant/portion/plain/brew
+matrix; [`generate_plant_drinks.py`](scripts/generate_plant_drinks.py) owns its reproducible source.
+The manifest includes exact native item mappings, required mods, colours, role, nutrition and
+recipe process. Duplicate names, invalid quantities/nutrients, unknown roles and unresolved base
+references fail closed. Registration is deterministic and conditional on actual provider mods;
+common setup checks every active item, ingredient, fluid and drink profile.
+
+Every available fruit has a separate plain juice and specialty. Whole fruit uses one edible
+portion; small berries and slices use two. Onion, garlic, potato and kelp are explicitly juiceable.
+Coffee cherries and rose hips have juice; tea leaves, coffee beans, cocoa and herbs keep their
+appropriate existing preparations. Native Long/Strong tea/cider families, milkshakes, cocktails,
+processed-starch vodka, kombucha, Gambler's Tea, Purulent Tea and cursed sap remain distinct.
+Torchberries and enchanted Aether berries have explicit additional preparations. A broader pinned
+inventory audit also admits actual Nature's Spirit coconut halves, olives and desert turnip,
+Aether white apples, Goety Firethorn berries and Fallout corn. Coconut has separate plain juice,
+fat-bearing milk and a water-breathing specialty; olives carry fats, not invented Nectar. White
+apple specialty retains the native 300-tick Aether Remedy (against Aether Inebriation, not a new
+Poison cure or Physiology Booze cure). The source witnesses and exclusions are recorded in
+[plant-stock.md](docs/plant-stock.md). Farmer's Respite
+Wither Roots are recorded as **unavailable inventory stock**, not silently omitted: pinned
+`FRItems` registers no roots item and `WitherRootsBlock` is an environmental hazard with no item
+harvest. It is not substituted for Purulent Tea's actual nether wart/fermented-spider-eye input.
+
+Ordinary hand juicing takes only the portion and a glass bottle. Create basin compacting uses
+the identical portion for 250 mB: automation does not multiply yield. Filling, emptying, keg pouring
+and kettle pouring conserve 250 mB and the actual vessel (native alcoholic drinks use tankards).
+Grain/seed/coconut/ube milks and fresh herb/flower infusions use 250 mB water, the specified portion and
+60 seconds of heated native Respite kettle brewing. Primary fruit brewing conserves 1,000 mB
+juice, uses one safe starter flower and takes eight minutes in B&C temperature band 3. Secondary
+Summerheart/Blackwake preparations conserve 1,000 mB and add four minutes with nether wart/crimson
+fungus respectively. Wither rose and chorus flower are explicit specialty agents, never members
+of the safe starter tag. Native recipes for mixtures and developed teas remain separate.
+
+The pack's plant-only recipe script removes old effect-bearing juice acquisition and conflicting
+primary routes while preserving these new namespaced recipes. This is a fresh-world catalogue
+break, not a save deletion, remapper or retroactive rewrite of existing items/paid reserves.
+Plain juices never inherit healing, cleansing, teleportation or specialist effects. Belladonna
+juice is explicitly **unsafe** and carries Poison. Hydration+ describes nutrition/calories/sugar;
+Buff describes a functional specialist effect, not the vessel or workstation. Most new servings
+have 6 hydration/8 quenching, one food and 0.025 of their ordinary nutrient; fruit Nectar is 0.0125,
+subject to Physiology's existing half-smallest-gain cap. Infusions have no invented food/nutrients.
+Native specialist profiles retain their existing quantities/effects rather than being flattened.
+These bounded doses are source-informed tuning, not a claim of measured gameplay balance.
+
+New native plant items route manual completion through the same entitlement release as automatic
+sipping, never `super.finishUsingItem`; full thirst and blackout deny purchase. Native melon
+healing becomes Summerheart Cordial (2 HP), with Reserve (4 HP). Orange's Suncrest Tonic retains
+Regeneration and completion-only native Recovering (Poison/Wither cleansing). Lemon's Bittergold
+Tonic preserves the **actual pinned Haste + Refreshing/Mining Fatigue cleanse**, not an inferred
+Resistance effect. Completion actions run after paid reserve progress has been committed.
+Cranberry/allium/garlic remove Poison, ginger removes Nausea, and onion/yellow dock cleanse one
+harmful milk-curable effect. Voidstep attempts up to sixteen native safe, Forge-vetoable random
+blink destinations only on completion. Spellbloom restores twenty Ars mana per full serving,
+proportionally capped to missing native mana and synced through Ars's typed API. None adds
+implicit alcohol; native alcoholic specialist outputs retain their own existing profile.
+
+New hover text labels 250 mB, actual role/effects, unsafe Poison and completion-gated actions;
+compatibility still derives from real admission. Retints preserve two native Farmer's Delight
+juice/cider glass silhouettes, glass, handles, garnish and pixel shading with a geometric liquid
+mask. The original MIT donor bytes, exact hashes, attribution and regeneration instructions are
+in [assets-source](assets-source/README.md); attribution/license also ships in the JAR.
+
+The source gate includes plant native registration/recipe resolution, manual vessel/hydration/
+food conservation, every active custom item's catalogue-driven thirst/quenching against the real
+native Finish listener (with no duplicate Thirst config awards), no plain-melon healing, specialty
+2/4 HP healing and completion-safe native
+reserve cleansing. Resource tests check full coverage, safe agents, exceptional agents, volumes,
+vessels, process times, bounded nutrition and detailed licensed art. Optional-provider mana,
+orange/lemon actions, full-pack effective recipe removal and paired native inventory/fluid-model
+captures still require exact-candidate runtime acceptance; source passes do not establish them.
 
 ## Fractional water drinking
 

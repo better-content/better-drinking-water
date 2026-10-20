@@ -1,0 +1,2979 @@
+{
+  "version": 1,
+  "serving_mb": 250,
+  "drinks": [
+    {
+      "name": "apple_juice",
+      "item": "better_drinking_water:apple_juice",
+      "ingredient": "minecraft:apple",
+      "count": 1,
+      "colour": "ffb51b",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "apple_cider",
+      "item": "farmersdelight:apple_cider",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ffb51b",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "primary",
+      "base": "apple_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "pear_juice",
+      "item": "better_drinking_water:pear_juice",
+      "ingredient": "fruitsdelight:pear",
+      "count": 1,
+      "colour": "b9f52b",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "orchard_soother",
+      "item": "better_drinking_water:orchard_soother",
+      "ingredient": null,
+      "count": 1,
+      "colour": "b9f52b",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "pear_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": "fruitsdelight:pear_juice",
+      "role": "buff"
+    },
+    {
+      "name": "orange_juice",
+      "item": "better_drinking_water:orange_juice",
+      "ingredient": "fruitsdelight:orange",
+      "count": 1,
+      "colour": "ff7c08",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "suncrest_tonic",
+      "item": "better_drinking_water:suncrest_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ff7c08",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "orange_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "kiwi_juice",
+      "item": "better_drinking_water:kiwi_juice",
+      "ingredient": "fruitsdelight:kiwi",
+      "count": 1,
+      "colour": "31df37",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "greenbound_fizz",
+      "item": "better_drinking_water:greenbound_fizz",
+      "ingredient": null,
+      "count": 1,
+      "colour": "31df37",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "kiwi_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "mango_juice",
+      "item": "better_drinking_water:mango_juice",
+      "ingredient": "fruitsdelight:mango",
+      "count": 1,
+      "colour": "ee9b08",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "mango_tea",
+      "item": "fruitsdelight:mango_tea",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ee9b08",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "mango_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "lychee_juice",
+      "item": "better_drinking_water:lychee_juice",
+      "ingredient": "fruitsdelight:lychee",
+      "count": 2,
+      "colour": "ffc5bd",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "lychee_cherry_tea",
+      "item": "fruitsdelight:lychee_cherry_tea",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ffc5bd",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "lychee_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "peach_juice",
+      "item": "better_drinking_water:peach_juice",
+      "ingredient": "fruitsdelight:peach",
+      "count": 1,
+      "colour": "ff706c",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "peach_tea",
+      "item": "fruitsdelight:peach_tea",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ff706c",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "peach_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "mangosteen_juice",
+      "item": "better_drinking_water:mangosteen_juice",
+      "ingredient": "fruitsdelight:mangosteen",
+      "count": 1,
+      "colour": "a94ce4",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "mangosteen_tea",
+      "item": "fruitsdelight:mangosteen_tea",
+      "ingredient": null,
+      "count": 1,
+      "colour": "a94ce4",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "mangosteen_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "hawberry_juice",
+      "item": "better_drinking_water:hawberry_juice",
+      "ingredient": "fruitsdelight:hawberry",
+      "count": 2,
+      "colour": "db1833",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "hawberry_tea",
+      "item": "fruitsdelight:hawberry_tea",
+      "ingredient": null,
+      "count": 1,
+      "colour": "db1833",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "hawberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "bayberry_juice",
+      "item": "better_drinking_water:bayberry_juice",
+      "ingredient": "fruitsdelight:bayberry",
+      "count": 2,
+      "colour": "8f153d",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "duskberry_cordial",
+      "item": "better_drinking_water:duskberry_cordial",
+      "ingredient": null,
+      "count": 1,
+      "colour": "8f153d",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "bayberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "fig_juice",
+      "item": "better_drinking_water:fig_juice",
+      "ingredient": "fruitsdelight:fig",
+      "count": 1,
+      "colour": "bf548e",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "featherfall_nectar",
+      "item": "better_drinking_water:featherfall_nectar",
+      "ingredient": null,
+      "count": 1,
+      "colour": "bf548e",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "fig_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "persimmon_juice",
+      "item": "better_drinking_water:persimmon_juice",
+      "ingredient": "fruitsdelight:persimmon",
+      "count": 1,
+      "colour": "d76818",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "embergold_tonic",
+      "item": "better_drinking_water:embergold_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "d76818",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "persimmon_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "durian_juice",
+      "item": "better_drinking_water:durian_juice",
+      "ingredient": "fruitsdelight:durian_flesh",
+      "count": 1,
+      "colour": "c3dc19",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "thornhide_brew",
+      "item": "better_drinking_water:thornhide_brew",
+      "ingredient": null,
+      "count": 1,
+      "colour": "c3dc19",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "durian_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "blueberry_juice",
+      "item": "better_drinking_water:blueberry_juice",
+      "ingredient": "fruitsdelight:blueberry",
+      "count": 2,
+      "colour": "4934c9",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "bluehour_cordial",
+      "item": "better_drinking_water:bluehour_cordial",
+      "ingredient": null,
+      "count": 1,
+      "colour": "4934c9",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "blueberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "cranberry_juice",
+      "item": "better_drinking_water:cranberry_juice",
+      "ingredient": "fruitsdelight:cranberry",
+      "count": 2,
+      "colour": "ed194b",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "bogclear_tonic",
+      "item": "better_drinking_water:bogclear_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ed194b",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "cranberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "sweet_berry_juice",
+      "item": "better_drinking_water:sweet_berry_juice",
+      "ingredient": "minecraft:sweet_berries",
+      "count": 2,
+      "colour": "db2972",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "bramblefoot_fizz",
+      "item": "better_drinking_water:bramblefoot_fizz",
+      "ingredient": null,
+      "count": 1,
+      "colour": "db2972",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "primary",
+      "base": "sweet_berry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "glow_berry_juice",
+      "item": "better_drinking_water:glow_berry_juice",
+      "ingredient": "minecraft:glow_berries",
+      "count": 2,
+      "colour": "ffcf2e",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "glittering_grenadine",
+      "item": "brewinandchewin:glittering_grenadine",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ffcf2e",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "brewinandchewin"
+      ],
+      "process": "primary",
+      "base": "glow_berry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "mulberry_juice",
+      "item": "better_drinking_water:mulberry_juice",
+      "ingredient": "upgrade_aquatic:mulberry",
+      "count": 2,
+      "colour": "4d125d",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "upgrade_aquatic"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "blackbough_cordial",
+      "item": "better_drinking_water:blackbough_cordial",
+      "ingredient": null,
+      "count": 1,
+      "colour": "4d125d",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "upgrade_aquatic"
+      ],
+      "process": "primary",
+      "base": "mulberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "sourceberry_juice",
+      "item": "better_drinking_water:sourceberry_juice",
+      "ingredient": "ars_nouveau:sourceberry_bush",
+      "count": 2,
+      "colour": "bc28fb",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "ars_nouveau"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "spellbloom_tonic",
+      "item": "better_drinking_water:spellbloom_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "bc28fb",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "ars_nouveau"
+      ],
+      "process": "primary",
+      "base": "sourceberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "skyberry_juice",
+      "item": "better_drinking_water:skyberry_juice",
+      "ingredient": "aether:blue_berry",
+      "count": 2,
+      "colour": "189cff",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "aether"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "cloudbreak_cordial",
+      "item": "better_drinking_water:cloudbreak_cordial",
+      "ingredient": null,
+      "count": 1,
+      "colour": "189cff",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "aether"
+      ],
+      "process": "primary",
+      "base": "skyberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "grimberry_juice",
+      "item": "better_drinking_water:grimberry_juice",
+      "ingredient": "the_deep_void:grimberry",
+      "count": 2,
+      "colour": "147d79",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "the_deep_void"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "grimberry_rush",
+      "item": "better_drinking_water:grimberry_rush",
+      "ingredient": null,
+      "count": 1,
+      "colour": "147d79",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "the_deep_void"
+      ],
+      "process": "primary",
+      "base": "grimberry_juice",
+      "agent": "minecraft:wither_rose",
+      "unsafe": false,
+      "native_profile": "the_deep_void:grimberry_juice",
+      "role": "buff"
+    },
+    {
+      "name": "lemon_juice",
+      "item": "better_drinking_water:lemon_juice",
+      "ingredient": "fruitsdelight:lemon",
+      "count": 1,
+      "colour": "f5f318",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "bittergold_tonic",
+      "item": "better_drinking_water:bittergold_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "f5f318",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "lemon_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "pineapple_juice",
+      "item": "better_drinking_water:pineapple_juice",
+      "ingredient": "fruitsdelight:pineapple_slice",
+      "count": 2,
+      "colour": "ffc922",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "goldrush_fizz",
+      "item": "better_drinking_water:goldrush_fizz",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ffc922",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "pineapple_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "melon_juice",
+      "item": "better_drinking_water:melon_juice",
+      "ingredient": "minecraft:melon_slice",
+      "count": 2,
+      "colour": "ff5187",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "summerheart_cordial",
+      "item": "better_drinking_water:summerheart_cordial",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ff5187",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "primary",
+      "base": "melon_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": "farmersdelight:melon_juice",
+      "role": "buff"
+    },
+    {
+      "name": "hamimelon_juice",
+      "item": "better_drinking_water:hamimelon_juice",
+      "ingredient": "fruitsdelight:hamimelon_slice",
+      "count": 2,
+      "colour": "ff9b4d",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "dawnheart_cordial",
+      "item": "better_drinking_water:dawnheart_cordial",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ff9b4d",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "fruitsdelight"
+      ],
+      "process": "primary",
+      "base": "hamimelon_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "chorus_juice",
+      "item": "better_drinking_water:chorus_juice",
+      "ingredient": "minecraft:chorus_fruit",
+      "count": 1,
+      "colour": "e663fa",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "voidstep_elixir",
+      "item": "better_drinking_water:voidstep_elixir",
+      "ingredient": null,
+      "count": 1,
+      "colour": "e663fa",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "primary",
+      "base": "chorus_juice",
+      "agent": "minecraft:chorus_flower",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "enchanted_skyberry_juice",
+      "item": "better_drinking_water:enchanted_skyberry_juice",
+      "ingredient": "aether:enchanted_berry",
+      "count": 2,
+      "colour": "75e3ff",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "aether"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "enchanted_cloudbreak",
+      "item": "better_drinking_water:enchanted_cloudbreak",
+      "ingredient": null,
+      "count": 1,
+      "colour": "75e3ff",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "aether"
+      ],
+      "process": "primary",
+      "base": "enchanted_skyberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "torchberry_juice",
+      "item": "better_drinking_water:torchberry_juice",
+      "ingredient": "twilightforest:torchberries",
+      "count": 2,
+      "colour": "ff8d26",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "twilightforest"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "torchlight_tonic",
+      "item": "better_drinking_water:torchlight_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ff8d26",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "twilightforest"
+      ],
+      "process": "primary",
+      "base": "torchberry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "belladonna_juice",
+      "item": "better_drinking_water:belladonna_juice",
+      "ingredient": "hexerei:belladonna_berries",
+      "count": 2,
+      "colour": "552366",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "hexerei"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": true,
+      "native_profile": null,
+      "role": "unsafe"
+    },
+    {
+      "name": "nightshade_veil",
+      "item": "better_drinking_water:nightshade_veil",
+      "ingredient": null,
+      "count": 1,
+      "colour": "552366",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "hexerei"
+      ],
+      "process": "primary",
+      "base": "belladonna_juice",
+      "agent": "minecraft:fermented_spider_eye",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "coffee_cherry_juice",
+      "item": "better_drinking_water:coffee_cherry_juice",
+      "ingredient": "farmersrespite:coffee_berries",
+      "count": 2,
+      "colour": "bc2936",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "farmersrespite"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "cascara_tonic",
+      "item": "better_drinking_water:cascara_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "bc2936",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "farmersrespite"
+      ],
+      "process": "primary",
+      "base": "coffee_cherry_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "rose_hip_juice",
+      "item": "better_drinking_water:rose_hip_juice",
+      "ingredient": "farmersrespite:rose_hips",
+      "count": 2,
+      "colour": "e24731",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "farmersrespite"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "rose_hip_tea",
+      "item": "farmersrespite:rose_hip_tea",
+      "ingredient": null,
+      "count": 1,
+      "colour": "e24731",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "farmersrespite"
+      ],
+      "process": "primary",
+      "base": "rose_hip_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "white_apple_juice",
+      "item": "better_drinking_water:white_apple_juice",
+      "ingredient": "aether:white_apple",
+      "count": 1,
+      "colour": "eeefce",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "aether"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "cloudwhite_remedy",
+      "item": "better_drinking_water:cloudwhite_remedy",
+      "ingredient": null,
+      "count": 1,
+      "colour": "eeefce",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "aether"
+      ],
+      "process": "primary",
+      "base": "white_apple_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "firethorn_juice",
+      "item": "better_drinking_water:firethorn_juice",
+      "ingredient": "goety:firethorn_berries",
+      "count": 2,
+      "colour": "ec6325",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "goety"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "firethorn_guard",
+      "item": "better_drinking_water:firethorn_guard",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ec6325",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "goety"
+      ],
+      "process": "primary",
+      "base": "firethorn_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "coconut_juice",
+      "item": "better_drinking_water:coconut_juice",
+      "ingredient": "natures_spirit:coconut_half",
+      "count": 2,
+      "colour": "e7dfc7",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "natures_spirit"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "palmshelter_cordial",
+      "item": "better_drinking_water:palmshelter_cordial",
+      "ingredient": null,
+      "count": 1,
+      "colour": "e7dfc7",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "natures_spirit"
+      ],
+      "process": "primary",
+      "base": "coconut_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "olive_juice",
+      "item": "better_drinking_water:olive_juice",
+      "ingredient": "natures_spirit:olives",
+      "count": 2,
+      "colour": "778331",
+      "food": 1,
+      "nutrition": {
+        "fats": 0.025
+      },
+      "mods": [
+        "natures_spirit"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "groveguard_tonic",
+      "item": "better_drinking_water:groveguard_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "778331",
+      "food": 1,
+      "nutrition": {
+        "fats": 0.025
+      },
+      "mods": [
+        "natures_spirit"
+      ],
+      "process": "primary",
+      "base": "olive_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "coconut_milk",
+      "item": "better_drinking_water:coconut_milk",
+      "ingredient": "natures_spirit:coconut_half",
+      "count": 2,
+      "colour": "eee8d7",
+      "food": 1,
+      "nutrition": {
+        "fats": 0.025
+      },
+      "mods": [
+        "natures_spirit"
+      ],
+      "process": "milk",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "carrot_juice",
+      "item": "better_drinking_water:carrot_juice",
+      "ingredient": "minecraft:carrot",
+      "count": 1,
+      "colour": "f98a16",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "goldeneye_tonic",
+      "item": "better_drinking_water:goldeneye_tonic",
+      "ingredient": null,
+      "count": 1,
+      "colour": "f98a16",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [],
+      "process": "primary",
+      "base": "carrot_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "desert_turnip_juice",
+      "item": "better_drinking_water:desert_turnip_juice",
+      "ingredient": "natures_spirit:desert_turnip",
+      "count": 1,
+      "colour": "e4cbb3",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "natures_spirit"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "duneward_kvass",
+      "item": "better_drinking_water:duneward_kvass",
+      "ingredient": null,
+      "count": 1,
+      "colour": "e4cbb3",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "farmersdelight",
+        "natures_spirit"
+      ],
+      "process": "primary",
+      "base": "desert_turnip_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "corn_milk",
+      "item": "better_drinking_water:corn_milk",
+      "ingredient": "fallout_wastelands_:corn",
+      "count": 1,
+      "colour": "e8c54d",
+      "food": 1,
+      "nutrition": {
+        "grains": 0.025
+      },
+      "mods": [
+        "fallout_wastelands_"
+      ],
+      "process": "milk",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "sungrain_kvass",
+      "item": "better_drinking_water:sungrain_kvass",
+      "ingredient": null,
+      "count": 1,
+      "colour": "e8c54d",
+      "food": 1,
+      "nutrition": {
+        "grains": 0.025
+      },
+      "mods": [
+        "fallout_wastelands_"
+      ],
+      "process": "primary",
+      "base": "corn_milk",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "beetroot_juice",
+      "item": "better_drinking_water:beetroot_juice",
+      "ingredient": "minecraft:beetroot",
+      "count": 1,
+      "colour": "b3275a",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "strongroot_ale",
+      "item": "brewinandchewin:strongroot_ale",
+      "ingredient": null,
+      "count": 1,
+      "colour": "b3275a",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "brewinandchewin"
+      ],
+      "process": "primary",
+      "base": "beetroot_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "tomato_juice",
+      "item": "better_drinking_water:tomato_juice",
+      "ingredient": "farmersdelight:tomato",
+      "count": 1,
+      "colour": "ef3b2e",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "bloody_mary",
+      "item": "brewinandchewin:bloody_mary",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ef3b2e",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "brewinandchewin",
+        "farmersdelight"
+      ],
+      "process": "primary",
+      "base": "tomato_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "cabbage_juice",
+      "item": "better_drinking_water:cabbage_juice",
+      "ingredient": "farmersdelight:cabbage_leaf",
+      "count": 2,
+      "colour": "73bc51",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "greenward_kvass",
+      "item": "better_drinking_water:greenward_kvass",
+      "ingredient": null,
+      "count": 1,
+      "colour": "73bc51",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "primary",
+      "base": "cabbage_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "onion_juice",
+      "item": "better_drinking_water:onion_juice",
+      "ingredient": "farmersdelight:onion",
+      "count": 1,
+      "colour": "dfd4a2",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "hearthroot_infusion",
+      "item": "better_drinking_water:hearthroot_infusion",
+      "ingredient": "farmersdelight:onion",
+      "count": 1,
+      "colour": "dfd4a2",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "garlic_juice",
+      "item": "better_drinking_water:garlic_juice",
+      "ingredient": "ubesdelight:garlic",
+      "count": 1,
+      "colour": "e9e4cd",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "ubesdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "whiteclove_tonic",
+      "item": "better_drinking_water:whiteclove_tonic",
+      "ingredient": "ubesdelight:garlic",
+      "count": 1,
+      "colour": "e9e4cd",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "ubesdelight"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "potato_juice",
+      "item": "better_drinking_water:potato_juice",
+      "ingredient": "minecraft:potato",
+      "count": 1,
+      "colour": "c6ae75",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "wheat_milk",
+      "item": "better_drinking_water:wheat_milk",
+      "ingredient": "minecraft:wheat",
+      "count": 1,
+      "colour": "e9cf9e",
+      "food": 1,
+      "nutrition": {
+        "grains": 0.025
+      },
+      "mods": [],
+      "process": "milk",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "beer",
+      "item": "brewinandchewin:beer",
+      "ingredient": null,
+      "count": 1,
+      "colour": "e9cf9e",
+      "food": 1,
+      "nutrition": {
+        "grains": 0.025
+      },
+      "mods": [
+        "brewinandchewin"
+      ],
+      "process": "primary",
+      "base": "wheat_milk",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "rice_milk",
+      "item": "better_drinking_water:rice_milk",
+      "ingredient": "farmersdelight:rice",
+      "count": 1,
+      "colour": "ece8db",
+      "food": 1,
+      "nutrition": {
+        "grains": 0.025
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "milk",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "rice_wine",
+      "item": "brewinandchewin:rice_wine",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ece8db",
+      "food": 1,
+      "nutrition": {
+        "grains": 0.025
+      },
+      "mods": [
+        "brewinandchewin",
+        "farmersdelight"
+      ],
+      "process": "primary",
+      "base": "rice_milk",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "pumpkin_juice",
+      "item": "better_drinking_water:pumpkin_juice",
+      "ingredient": "farmersdelight:pumpkin_slice",
+      "count": 2,
+      "colour": "f6a51c",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "harvestgold_brew",
+      "item": "better_drinking_water:harvestgold_brew",
+      "ingredient": null,
+      "count": 1,
+      "colour": "f6a51c",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "primary",
+      "base": "pumpkin_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "cane_juice",
+      "item": "better_drinking_water:cane_juice",
+      "ingredient": "minecraft:sugar_cane",
+      "count": 1,
+      "colour": "8fc943",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "canefire_brew",
+      "item": "better_drinking_water:canefire_brew",
+      "ingredient": null,
+      "count": 1,
+      "colour": "8fc943",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [],
+      "process": "primary",
+      "base": "cane_juice",
+      "agent": "#better_drinking_water:safe_starter_flowers",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "kelp_juice",
+      "item": "better_drinking_water:kelp_juice",
+      "ingredient": "minecraft:kelp",
+      "count": 2,
+      "colour": "376e30",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "tideward_infusion",
+      "item": "better_drinking_water:tideward_infusion",
+      "ingredient": "minecraft:kelp",
+      "count": 2,
+      "colour": "376e30",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "ginger_juice",
+      "item": "better_drinking_water:ginger_juice",
+      "ingredient": "ubesdelight:ginger",
+      "count": 1,
+      "colour": "d7a45b",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "ubesdelight"
+      ],
+      "process": "juice",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "hearthfire_ginger_tea",
+      "item": "better_drinking_water:hearthfire_ginger_tea",
+      "ingredient": "ubesdelight:ginger",
+      "count": 1,
+      "colour": "d7a45b",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "ubesdelight"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "ube_milk",
+      "item": "better_drinking_water:ube_milk",
+      "ingredient": "ubesdelight:ube",
+      "count": 1,
+      "colour": "9c67bb",
+      "food": 1,
+      "nutrition": {
+        "vegetables": 0.025
+      },
+      "mods": [
+        "ubesdelight"
+      ],
+      "process": "milk",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "pumpkin_seed_milk",
+      "item": "better_drinking_water:pumpkin_seed_milk",
+      "ingredient": "minecraft:pumpkin_seeds",
+      "count": 2,
+      "colour": "e7d9b0",
+      "food": 1,
+      "nutrition": {
+        "fats": 0.025
+      },
+      "mods": [],
+      "process": "milk",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "hydration_plus"
+    },
+    {
+      "name": "lemongrass_infusion",
+      "item": "better_drinking_water:lemongrass_infusion",
+      "ingredient": "ubesdelight:lemongrass",
+      "count": 1,
+      "colour": "b3ce51",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "farmersdelight",
+        "ubesdelight"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "redpetal_tea",
+      "item": "better_drinking_water:redpetal_tea",
+      "ingredient": "minecraft:poppy",
+      "count": 1,
+      "colour": "d53646",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "marshlight_infusion",
+      "item": "better_drinking_water:marshlight_infusion",
+      "ingredient": "minecraft:blue_orchid",
+      "count": 1,
+      "colour": "40c2ef",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "violetguard_tea",
+      "item": "better_drinking_water:violetguard_tea",
+      "ingredient": "minecraft:allium",
+      "count": 1,
+      "colour": "bf67ce",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "clearbrook_infusion",
+      "item": "better_drinking_water:clearbrook_infusion",
+      "ingredient": "minecraft:azure_bluet",
+      "count": 1,
+      "colour": "d8eaf3",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "emberpetal_tea",
+      "item": "better_drinking_water:emberpetal_tea",
+      "ingredient": "minecraft:red_tulip",
+      "count": 1,
+      "colour": "e3342c",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "copperpetal_tea",
+      "item": "better_drinking_water:copperpetal_tea",
+      "ingredient": "minecraft:orange_tulip",
+      "count": 1,
+      "colour": "e68427",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "ivorypetal_tea",
+      "item": "better_drinking_water:ivorypetal_tea",
+      "ingredient": "minecraft:white_tulip",
+      "count": 1,
+      "colour": "ece8ca",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "blushpetal_tea",
+      "item": "better_drinking_water:blushpetal_tea",
+      "ingredient": "minecraft:pink_tulip",
+      "count": 1,
+      "colour": "ef9ab9",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "meadowrest_tea",
+      "item": "better_drinking_water:meadowrest_tea",
+      "ingredient": "minecraft:oxeye_daisy",
+      "count": 1,
+      "colour": "f0d258",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "bluewind_infusion",
+      "item": "better_drinking_water:bluewind_infusion",
+      "ingredient": "minecraft:cornflower",
+      "count": 1,
+      "colour": "4b7aea",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "sunward_tea",
+      "item": "better_drinking_water:sunward_tea",
+      "ingredient": "minecraft:sunflower",
+      "count": 1,
+      "colour": "f8c520",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "evening_lilac_tea",
+      "item": "better_drinking_water:evening_lilac_tea",
+      "ingredient": "minecraft:lilac",
+      "count": 1,
+      "colour": "ba79bc",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "farmersdelight"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "peony_heartcordial",
+      "item": "better_drinking_water:peony_heartcordial",
+      "ingredient": "minecraft:peony",
+      "count": 1,
+      "colour": "ec79b6",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "stillwater_infusion",
+      "item": "better_drinking_water:stillwater_infusion",
+      "ingredient": "hexerei:flowering_lily_pad",
+      "count": 1,
+      "colour": "85ba9a",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "hexerei"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "dockside_bitter",
+      "item": "better_drinking_water:dockside_bitter",
+      "ingredient": "hexerei:yellow_dock_leaves",
+      "count": 1,
+      "colour": "aab34a",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "hexerei"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "dreamwalker_tea",
+      "item": "better_drinking_water:dreamwalker_tea",
+      "ingredient": "hexerei:mugwort_leaves",
+      "count": 1,
+      "colour": "6d8b57",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "hexerei"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "mandrake_fortifier",
+      "item": "better_drinking_water:mandrake_fortifier",
+      "ingredient": "hexerei:mandrake_root",
+      "count": 1,
+      "colour": "a68c56",
+      "food": 0,
+      "nutrition": {},
+      "mods": [
+        "hexerei"
+      ],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "widows_whisper",
+      "item": "better_drinking_water:widows_whisper",
+      "ingredient": "minecraft:lily_of_the_valley",
+      "count": 1,
+      "colour": "b8d1c1",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "gravebloom_draught",
+      "item": "better_drinking_water:gravebloom_draught",
+      "ingredient": "minecraft:wither_rose",
+      "count": 1,
+      "colour": "57283d",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "warped_veil",
+      "item": "better_drinking_water:warped_veil",
+      "ingredient": "minecraft:warped_fungus",
+      "count": 1,
+      "colour": "1aa8a0",
+      "food": 0,
+      "nutrition": {},
+      "mods": [],
+      "process": "infusion",
+      "base": null,
+      "agent": null,
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "summerheart_reserve",
+      "item": "better_drinking_water:summerheart_reserve",
+      "ingredient": null,
+      "count": 1,
+      "colour": "ed457a",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [],
+      "process": "secondary",
+      "base": "summerheart_cordial",
+      "agent": "minecraft:nether_wart",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    },
+    {
+      "name": "blackwake_reserve",
+      "item": "better_drinking_water:blackwake_reserve",
+      "ingredient": null,
+      "count": 1,
+      "colour": "125c63",
+      "food": 1,
+      "nutrition": {
+        "fruits": 0.025,
+        "sugar": 0.0125
+      },
+      "mods": [
+        "the_deep_void"
+      ],
+      "process": "secondary",
+      "base": "grimberry_rush",
+      "agent": "minecraft:crimson_fungus",
+      "unsafe": false,
+      "native_profile": null,
+      "role": "buff"
+    }
+  ],
+  "coverage": [
+    {
+      "plant": "apple",
+      "ingredient": "minecraft:apple",
+      "portion": 1,
+      "plain": "better_drinking_water:apple_juice",
+      "brew": "farmersdelight:apple_cider"
+    },
+    {
+      "plant": "pear",
+      "ingredient": "fruitsdelight:pear",
+      "portion": 1,
+      "plain": "better_drinking_water:pear_juice",
+      "brew": "better_drinking_water:orchard_soother"
+    },
+    {
+      "plant": "orange",
+      "ingredient": "fruitsdelight:orange",
+      "portion": 1,
+      "plain": "better_drinking_water:orange_juice",
+      "brew": "better_drinking_water:suncrest_tonic"
+    },
+    {
+      "plant": "kiwi",
+      "ingredient": "fruitsdelight:kiwi",
+      "portion": 1,
+      "plain": "better_drinking_water:kiwi_juice",
+      "brew": "better_drinking_water:greenbound_fizz"
+    },
+    {
+      "plant": "mango",
+      "ingredient": "fruitsdelight:mango",
+      "portion": 1,
+      "plain": "better_drinking_water:mango_juice",
+      "brew": "fruitsdelight:mango_tea"
+    },
+    {
+      "plant": "lychee",
+      "ingredient": "fruitsdelight:lychee",
+      "portion": 2,
+      "plain": "better_drinking_water:lychee_juice",
+      "brew": "fruitsdelight:lychee_cherry_tea"
+    },
+    {
+      "plant": "peach",
+      "ingredient": "fruitsdelight:peach",
+      "portion": 1,
+      "plain": "better_drinking_water:peach_juice",
+      "brew": "fruitsdelight:peach_tea"
+    },
+    {
+      "plant": "mangosteen",
+      "ingredient": "fruitsdelight:mangosteen",
+      "portion": 1,
+      "plain": "better_drinking_water:mangosteen_juice",
+      "brew": "fruitsdelight:mangosteen_tea"
+    },
+    {
+      "plant": "hawberry",
+      "ingredient": "fruitsdelight:hawberry",
+      "portion": 2,
+      "plain": "better_drinking_water:hawberry_juice",
+      "brew": "fruitsdelight:hawberry_tea"
+    },
+    {
+      "plant": "bayberry",
+      "ingredient": "fruitsdelight:bayberry",
+      "portion": 2,
+      "plain": "better_drinking_water:bayberry_juice",
+      "brew": "better_drinking_water:duskberry_cordial"
+    },
+    {
+      "plant": "fig",
+      "ingredient": "fruitsdelight:fig",
+      "portion": 1,
+      "plain": "better_drinking_water:fig_juice",
+      "brew": "better_drinking_water:featherfall_nectar"
+    },
+    {
+      "plant": "persimmon",
+      "ingredient": "fruitsdelight:persimmon",
+      "portion": 1,
+      "plain": "better_drinking_water:persimmon_juice",
+      "brew": "better_drinking_water:embergold_tonic"
+    },
+    {
+      "plant": "durian",
+      "ingredient": "fruitsdelight:durian_flesh",
+      "portion": 1,
+      "plain": "better_drinking_water:durian_juice",
+      "brew": "better_drinking_water:thornhide_brew"
+    },
+    {
+      "plant": "blueberry",
+      "ingredient": "fruitsdelight:blueberry",
+      "portion": 2,
+      "plain": "better_drinking_water:blueberry_juice",
+      "brew": "better_drinking_water:bluehour_cordial"
+    },
+    {
+      "plant": "cranberry",
+      "ingredient": "fruitsdelight:cranberry",
+      "portion": 2,
+      "plain": "better_drinking_water:cranberry_juice",
+      "brew": "better_drinking_water:bogclear_tonic"
+    },
+    {
+      "plant": "sweet_berry",
+      "ingredient": "minecraft:sweet_berries",
+      "portion": 2,
+      "plain": "better_drinking_water:sweet_berry_juice",
+      "brew": "better_drinking_water:bramblefoot_fizz"
+    },
+    {
+      "plant": "glow_berry",
+      "ingredient": "minecraft:glow_berries",
+      "portion": 2,
+      "plain": "better_drinking_water:glow_berry_juice",
+      "brew": "brewinandchewin:glittering_grenadine"
+    },
+    {
+      "plant": "mulberry",
+      "ingredient": "upgrade_aquatic:mulberry",
+      "portion": 2,
+      "plain": "better_drinking_water:mulberry_juice",
+      "brew": "better_drinking_water:blackbough_cordial"
+    },
+    {
+      "plant": "sourceberry",
+      "ingredient": "ars_nouveau:sourceberry_bush",
+      "portion": 2,
+      "plain": "better_drinking_water:sourceberry_juice",
+      "brew": "better_drinking_water:spellbloom_tonic"
+    },
+    {
+      "plant": "skyberry",
+      "ingredient": "aether:blue_berry",
+      "portion": 2,
+      "plain": "better_drinking_water:skyberry_juice",
+      "brew": "better_drinking_water:cloudbreak_cordial"
+    },
+    {
+      "plant": "grimberry",
+      "ingredient": "the_deep_void:grimberry",
+      "portion": 2,
+      "plain": "better_drinking_water:grimberry_juice",
+      "brew": "better_drinking_water:grimberry_rush"
+    },
+    {
+      "plant": "lemon",
+      "ingredient": "fruitsdelight:lemon",
+      "portion": 1,
+      "plain": "better_drinking_water:lemon_juice",
+      "brew": "better_drinking_water:bittergold_tonic"
+    },
+    {
+      "plant": "pineapple",
+      "ingredient": "fruitsdelight:pineapple_slice",
+      "portion": 2,
+      "plain": "better_drinking_water:pineapple_juice",
+      "brew": "better_drinking_water:goldrush_fizz"
+    },
+    {
+      "plant": "melon",
+      "ingredient": "minecraft:melon_slice",
+      "portion": 2,
+      "plain": "better_drinking_water:melon_juice",
+      "brew": "better_drinking_water:summerheart_cordial"
+    },
+    {
+      "plant": "hamimelon",
+      "ingredient": "fruitsdelight:hamimelon_slice",
+      "portion": 2,
+      "plain": "better_drinking_water:hamimelon_juice",
+      "brew": "better_drinking_water:dawnheart_cordial"
+    },
+    {
+      "plant": "chorus",
+      "ingredient": "minecraft:chorus_fruit",
+      "portion": 1,
+      "plain": "better_drinking_water:chorus_juice",
+      "brew": "better_drinking_water:voidstep_elixir"
+    },
+    {
+      "plant": "enchanted_skyberry",
+      "ingredient": "aether:enchanted_berry",
+      "portion": 2,
+      "plain": "better_drinking_water:enchanted_skyberry_juice",
+      "brew": "better_drinking_water:enchanted_cloudbreak"
+    },
+    {
+      "plant": "torchberry",
+      "ingredient": "twilightforest:torchberries",
+      "portion": 2,
+      "plain": "better_drinking_water:torchberry_juice",
+      "brew": "better_drinking_water:torchlight_tonic"
+    },
+    {
+      "plant": "belladonna",
+      "ingredient": "hexerei:belladonna_berries",
+      "portion": 2,
+      "plain": "better_drinking_water:belladonna_juice",
+      "brew": "better_drinking_water:nightshade_veil"
+    },
+    {
+      "plant": "coffee_cherry",
+      "ingredient": "farmersrespite:coffee_berries",
+      "portion": 2,
+      "plain": "better_drinking_water:coffee_cherry_juice",
+      "brew": "better_drinking_water:cascara_tonic"
+    },
+    {
+      "plant": "rose_hip",
+      "ingredient": "farmersrespite:rose_hips",
+      "portion": 2,
+      "plain": "better_drinking_water:rose_hip_juice",
+      "brew": "farmersrespite:rose_hip_tea"
+    },
+    {
+      "plant": "white_apple",
+      "ingredient": "aether:white_apple",
+      "portion": 1,
+      "plain": "better_drinking_water:white_apple_juice",
+      "brew": "better_drinking_water:cloudwhite_remedy"
+    },
+    {
+      "plant": "firethorn",
+      "ingredient": "goety:firethorn_berries",
+      "portion": 2,
+      "plain": "better_drinking_water:firethorn_juice",
+      "brew": "better_drinking_water:firethorn_guard"
+    },
+    {
+      "plant": "coconut",
+      "ingredient": "natures_spirit:coconut_half",
+      "portion": 2,
+      "plain": "better_drinking_water:coconut_juice",
+      "brew": "better_drinking_water:palmshelter_cordial"
+    },
+    {
+      "plant": "olive",
+      "ingredient": "natures_spirit:olives",
+      "portion": 2,
+      "plain": "better_drinking_water:olive_juice",
+      "brew": "better_drinking_water:groveguard_tonic"
+    },
+    {
+      "plant": "carrot",
+      "ingredient": "minecraft:carrot",
+      "portion": 1,
+      "plain": "better_drinking_water:carrot_juice",
+      "brew": "better_drinking_water:goldeneye_tonic"
+    },
+    {
+      "plant": "desert_turnip",
+      "ingredient": "natures_spirit:desert_turnip",
+      "portion": 1,
+      "plain": "better_drinking_water:desert_turnip_juice",
+      "brew": "better_drinking_water:duneward_kvass"
+    },
+    {
+      "plant": "corn",
+      "ingredient": "fallout_wastelands_:corn",
+      "portion": 1,
+      "plain": "better_drinking_water:corn_milk",
+      "brew": "better_drinking_water:sungrain_kvass"
+    },
+    {
+      "plant": "beetroot",
+      "ingredient": "minecraft:beetroot",
+      "portion": 1,
+      "plain": "better_drinking_water:beetroot_juice",
+      "brew": "brewinandchewin:strongroot_ale"
+    },
+    {
+      "plant": "tomato",
+      "ingredient": "farmersdelight:tomato",
+      "portion": 1,
+      "plain": "better_drinking_water:tomato_juice",
+      "brew": "brewinandchewin:bloody_mary"
+    },
+    {
+      "plant": "cabbage",
+      "ingredient": "farmersdelight:cabbage_leaf",
+      "portion": 2,
+      "plain": "better_drinking_water:cabbage_juice",
+      "brew": "better_drinking_water:greenward_kvass"
+    },
+    {
+      "plant": "onion",
+      "ingredient": "farmersdelight:onion",
+      "portion": 1,
+      "plain": "better_drinking_water:onion_juice",
+      "brew": "better_drinking_water:hearthroot_infusion"
+    },
+    {
+      "plant": "garlic",
+      "ingredient": "ubesdelight:garlic",
+      "portion": 1,
+      "plain": "better_drinking_water:garlic_juice",
+      "brew": "better_drinking_water:whiteclove_tonic"
+    },
+    {
+      "plant": "potato",
+      "ingredient": "minecraft:potato",
+      "portion": 1,
+      "plain": "better_drinking_water:potato_juice",
+      "brew": "brewinandchewin:vodka",
+      "route": "native processed-starch vodka / actual milk-and-tea preparation retained"
+    },
+    {
+      "plant": "wheat",
+      "ingredient": "minecraft:wheat",
+      "portion": 1,
+      "plain": "better_drinking_water:wheat_milk",
+      "brew": "brewinandchewin:beer"
+    },
+    {
+      "plant": "rice",
+      "ingredient": "farmersdelight:rice",
+      "portion": 1,
+      "plain": "better_drinking_water:rice_milk",
+      "brew": "brewinandchewin:rice_wine"
+    },
+    {
+      "plant": "pumpkin",
+      "ingredient": "farmersdelight:pumpkin_slice",
+      "portion": 2,
+      "plain": "better_drinking_water:pumpkin_juice",
+      "brew": "better_drinking_water:harvestgold_brew"
+    },
+    {
+      "plant": "cane",
+      "ingredient": "minecraft:sugar_cane",
+      "portion": 1,
+      "plain": "better_drinking_water:cane_juice",
+      "brew": "better_drinking_water:canefire_brew"
+    },
+    {
+      "plant": "kelp",
+      "ingredient": "minecraft:kelp",
+      "portion": 2,
+      "plain": "better_drinking_water:kelp_juice",
+      "brew": "better_drinking_water:tideward_infusion"
+    },
+    {
+      "plant": "ginger",
+      "ingredient": "ubesdelight:ginger",
+      "portion": 1,
+      "plain": "better_drinking_water:ginger_juice",
+      "brew": "better_drinking_water:hearthfire_ginger_tea"
+    },
+    {
+      "plant": "ube",
+      "ingredient": "ubesdelight:ube",
+      "portion": 1,
+      "plain": "better_drinking_water:ube_milk",
+      "brew": "ubesdelight:milk_tea_ube",
+      "route": "native processed-starch vodka / actual milk-and-tea preparation retained"
+    },
+    {
+      "plant": "ubesdelight:lemongrass",
+      "plain": null,
+      "brew": "better_drinking_water:lemongrass_infusion",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:poppy",
+      "plain": null,
+      "brew": "better_drinking_water:redpetal_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:blue_orchid",
+      "plain": null,
+      "brew": "better_drinking_water:marshlight_infusion",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:allium",
+      "plain": null,
+      "brew": "better_drinking_water:violetguard_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:azure_bluet",
+      "plain": null,
+      "brew": "better_drinking_water:clearbrook_infusion",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:red_tulip",
+      "plain": null,
+      "brew": "better_drinking_water:emberpetal_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:orange_tulip",
+      "plain": null,
+      "brew": "better_drinking_water:copperpetal_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:white_tulip",
+      "plain": null,
+      "brew": "better_drinking_water:ivorypetal_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:pink_tulip",
+      "plain": null,
+      "brew": "better_drinking_water:blushpetal_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:oxeye_daisy",
+      "plain": null,
+      "brew": "better_drinking_water:meadowrest_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:cornflower",
+      "plain": null,
+      "brew": "better_drinking_water:bluewind_infusion",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:sunflower",
+      "plain": null,
+      "brew": "better_drinking_water:sunward_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:lilac",
+      "plain": null,
+      "brew": "better_drinking_water:evening_lilac_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:peony",
+      "plain": null,
+      "brew": "better_drinking_water:peony_heartcordial",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "hexerei:flowering_lily_pad",
+      "plain": null,
+      "brew": "better_drinking_water:stillwater_infusion",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "hexerei:yellow_dock_leaves",
+      "plain": null,
+      "brew": "better_drinking_water:dockside_bitter",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "hexerei:mugwort_leaves",
+      "plain": null,
+      "brew": "better_drinking_water:dreamwalker_tea",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "hexerei:mandrake_root",
+      "plain": null,
+      "brew": "better_drinking_water:mandrake_fortifier",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:lily_of_the_valley",
+      "plain": null,
+      "brew": "better_drinking_water:widows_whisper",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:wither_rose",
+      "plain": null,
+      "brew": "better_drinking_water:gravebloom_draught",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "minecraft:warped_fungus",
+      "plain": null,
+      "brew": "better_drinking_water:warped_veil",
+      "route": "heated kettle infusion"
+    },
+    {
+      "plant": "farmersrespite:wither_roots",
+      "plain": null,
+      "brew": null,
+      "route": "Unavailable inventory stock: FRItems registers no Wither Roots item; WitherRootsBlock is an unharvestable environmental hazard, not a Purulent Tea ingredient. No fabricated item or harvest mechanic."
+    }
+  ],
+  "retained": [
+    "farmersrespite:green_tea",
+    "farmersrespite:yellow_tea",
+    "farmersrespite:black_tea",
+    "create:builders_tea",
+    "farmersrespite:coffee",
+    "farmersdelight:hot_cocoa",
+    "farmersrespite:dandelion_tea",
+    "farmersrespite:purulent_tea",
+    "farmersrespite:gamblers_tea",
+    "malum:cursed_sap",
+    "brewinandchewin:kombucha",
+    "ubesdelight:milk_tea_ube",
+    "fruitsdelight:mango_milkshake",
+    "fruitsdelight:bellini_cocktail",
+    "brewinandchewin:steel_toe_stout",
+    "brewinandchewin:pale_jane",
+    "brewinandchewin:red_rum",
+    "brewinandchewin:salty_folly",
+    "brewinandchewin:saccharine_rum"
+  ]
+}

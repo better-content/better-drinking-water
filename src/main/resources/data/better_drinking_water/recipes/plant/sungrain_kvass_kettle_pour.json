@@ -1,0 +1,21 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "fluid": "better_drinking_water:sungrain_kvass",
+  "amount": 250,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "output": {
+    "item": "better_drinking_water:sungrain_kvass"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fallout_wastelands_"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

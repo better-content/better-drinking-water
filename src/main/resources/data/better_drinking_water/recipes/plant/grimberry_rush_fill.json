@@ -1,0 +1,27 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": "better_drinking_water:grimberry_rush",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "better_drinking_water:grimberry_rush"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "the_deep_void"
+    }
+  ]
+}

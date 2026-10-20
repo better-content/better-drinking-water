@@ -129,6 +129,7 @@ record BeverageServing(String source, int food, float saturation, CompoundTag nu
         data.setSaturation(Math.min(data.getFoodLevel(), data.getSaturationLevel() + saturationGain));
         MinecraftForge.EVENT_BUS.post(new BeverageEvents.Sip(player, nutrition, from, to));
         BeverageEffects.release(player, effects, from, to);
+        PlantDrinkActions.release(player, action, from, to);
         if (action.equals("heal2") || action.equals("heal4")) player.heal((float) ((action.equals("heal2") ? 2 : 4) * (to - from)));
         if (to >= 1) {
             if (action.equals("rest_reset")) player.resetStat(net.minecraft.stats.Stats.CUSTOM.get(net.minecraft.stats.Stats.TIME_SINCE_REST));

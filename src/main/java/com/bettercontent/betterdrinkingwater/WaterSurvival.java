@@ -11,10 +11,11 @@ public final class WaterSurvival {
 
     public WaterSurvival() {
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
+        PlantDrinks.register(bus);
         RainCollectorRegistry.BLOCKS.register(bus);
         RainCollectorRegistry.ITEMS.register(bus);
         bus.addListener(this::registerGameTests);
-        bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) -> event.enqueueWork(DrinkCatalogue::validateLoaded));
+        bus.addListener((net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) -> event.enqueueWork(() -> { DrinkCatalogue.validateLoaded(); PlantDrinks.validateLoaded(); }));
         MinecraftForge.EVENT_BUS.register(SnowMeltHandler.class);
         MinecraftForge.EVENT_BUS.register(WaterBottleCurio.class);
         MinecraftForge.EVENT_BUS.register(BlockWaterDrinking.class);
@@ -27,5 +28,6 @@ public final class WaterSurvival {
         event.register(WaterSurvivalGameTests.class);
         event.register(WaterSourceGameTests.class);
         event.register(BeverageGameTests.class);
+        event.register(PlantDrinkGameTests.class);
     }
 }

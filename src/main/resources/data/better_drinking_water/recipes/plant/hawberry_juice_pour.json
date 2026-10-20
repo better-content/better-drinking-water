@@ -1,0 +1,20 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": "better_drinking_water:hawberry_juice",
+  "amount": 250,
+  "filling": true,
+  "strict": false,
+  "output": {
+    "item": "better_drinking_water:hawberry_juice"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fruitsdelight"
+    }
+  ]
+}

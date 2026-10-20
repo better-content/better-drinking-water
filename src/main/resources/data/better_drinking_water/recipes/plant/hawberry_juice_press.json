@@ -1,0 +1,27 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hawberry"
+    },
+    {
+      "item": "fruitsdelight:hawberry"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:hawberry_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fruitsdelight"
+    }
+  ]
+}

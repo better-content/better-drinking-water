@@ -1,0 +1,17 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "fluid": "better_drinking_water:pumpkin_seed_milk",
+  "amount": 250,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "output": {
+    "item": "better_drinking_water:pumpkin_seed_milk"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

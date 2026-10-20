@@ -1,0 +1,17 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "fluid": "better_drinking_water:emberpetal_tea",
+  "amount": 250,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "output": {
+    "item": "better_drinking_water:emberpetal_tea"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

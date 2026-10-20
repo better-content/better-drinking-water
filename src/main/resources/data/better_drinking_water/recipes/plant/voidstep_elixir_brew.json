@@ -1,0 +1,25 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "fluid": "better_drinking_water:chorus_juice",
+    "count": 1000
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:chorus_flower"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:voidstep_elixir",
+    "count": 1000
+  },
+  "fermentingtime": 9600,
+  "temperature": 3,
+  "experience": 0.5,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ]
+}

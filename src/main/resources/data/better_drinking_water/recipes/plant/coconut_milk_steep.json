@@ -1,0 +1,31 @@
+{
+  "type": "farmersrespite:brewing",
+  "base": {
+    "fluid": "minecraft:water",
+    "count": 250
+  },
+  "ingredients": [
+    {
+      "item": "natures_spirit:coconut_half"
+    },
+    {
+      "item": "natures_spirit:coconut_half"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:coconut_milk",
+    "count": 250
+  },
+  "cookingtime": 1200,
+  "experience": 0.2,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "natures_spirit"
+    }
+  ]
+}

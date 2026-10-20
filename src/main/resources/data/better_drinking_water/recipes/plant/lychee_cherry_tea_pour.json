@@ -1,0 +1,20 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": "better_drinking_water:lychee_cherry_tea",
+  "amount": 250,
+  "filling": true,
+  "strict": false,
+  "output": {
+    "item": "fruitsdelight:lychee_cherry_tea"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fruitsdelight"
+    }
+  ]
+}

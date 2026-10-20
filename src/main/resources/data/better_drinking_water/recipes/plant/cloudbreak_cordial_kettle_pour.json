@@ -1,0 +1,21 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "fluid": "better_drinking_water:cloudbreak_cordial",
+  "amount": 250,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "output": {
+    "item": "better_drinking_water:cloudbreak_cordial"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aether"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

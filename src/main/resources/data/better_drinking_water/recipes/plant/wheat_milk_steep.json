@@ -1,0 +1,24 @@
+{
+  "type": "farmersrespite:brewing",
+  "base": {
+    "fluid": "minecraft:water",
+    "count": 250
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:wheat_milk",
+    "count": 250
+  },
+  "cookingtime": 1200,
+  "experience": 0.2,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

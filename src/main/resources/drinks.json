@@ -11,6 +11,1441 @@
       "source": "aether-1.5.2 AetherItems/SkyrootMilkBucketItem; conservative authored hydration/quenching"
     },
     {
+      "id": "better_drinking_water:apple_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:bayberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:beetroot_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:belladonna_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:poison",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:bittergold_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "lemon",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:blackbough_cordial",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:strength",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:blackwake_reserve",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 1200,
+          "amplifier": 1,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:weakness",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:blueberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:bluehour_cordial",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:night_vision",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:bluewind_infusion",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:speed",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:blushpetal_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:regeneration",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:bogclear_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "poison",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:bramblefoot_fizz",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:speed",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:cabbage_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:cane_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:canefire_brew",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:speed",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:carrot_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:cascara_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersrespite:caffeinated",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:chorus_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:clearbrook_infusion",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:night_vision",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:cloudbreak_cordial",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:slow_falling",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:cloudwhite_remedy",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "aether:remedy",
+          "duration": 300,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:coconut_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:coconut_milk",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:coffee_cherry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:copperpetal_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:corn_milk",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:cranberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:dawnheart_cordial",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:absorption",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:desert_turnip_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:dockside_bitter",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "cure_harmful_one",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:dreamwalker_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:night_vision",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:nausea",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:duneward_kvass",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:durian_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:duskberry_cordial",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:night_vision",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:embergold_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:fire_resistance",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:emberpetal_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:strength",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:enchanted_cloudbreak",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:slow_falling",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:regeneration",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:enchanted_skyberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:evening_lilac_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:featherfall_nectar",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:slow_falling",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:fig_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:firethorn_guard",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:fire_resistance",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:firethorn_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:garlic_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:ginger_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:glow_berry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:goldeneye_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:night_vision",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:goldrush_fizz",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:gravebloom_draught",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:strength",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:wither",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:greenbound_fizz",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:jump_boost",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:greenward_kvass",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:grimberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:grimberry_rush",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:haste",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:groveguard_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:resistance",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:hamimelon_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:harvestgold_brew",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:absorption",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:hawberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:hearthfire_ginger_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "nausea",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:hearthroot_infusion",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "cure_harmful_one",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:ivorypetal_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:resistance",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:kelp_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:kiwi_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:lemon_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:lemongrass_infusion",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:lychee_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:mandrake_fortifier",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:resistance",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:slowness",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:mango_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:mangosteen_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:marshlight_infusion",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:water_breathing",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:meadowrest_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:regeneration",
+          "duration": 400,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:melon_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:mulberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:nightshade_veil",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:invisibility",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:poison",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 0.25
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:olive_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:onion_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:orange_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:orchard_soother",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "fruitsdelight:lozenge",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:palmshelter_cordial",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:water_breathing",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:peach_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:pear_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:peony_heartcordial",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:absorption",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:persimmon_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:pineapple_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:potato_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:pumpkin_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:pumpkin_seed_milk",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:redpetal_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "farmersdelight:comfort",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:rice_milk",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:rose_hip_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:skyberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:sourceberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:spellbloom_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "mana",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:stillwater_infusion",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:water_breathing",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:summerheart_cordial",
+      "hydration": 8,
+      "quenching": 13,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "heal2",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:summerheart_reserve",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "heal4",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:suncrest_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:regeneration",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "orange",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:sungrain_kvass",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:speed",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:sunward_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:fire_resistance",
+          "duration": 600,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:sweet_berry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:thornhide_brew",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:resistance",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:nausea",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:tideward_infusion",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:water_breathing",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:tomato_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:torchberry_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:torchlight_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:night_vision",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:ube_milk",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:violetguard_tea",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "poison",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:voidstep_elixir",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:slow_falling",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "blink",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:warped_veil",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:water_breathing",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:nausea",
+          "duration": 100,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:wheat_milk",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:white_apple_juice",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:whiteclove_tonic",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [],
+      "action": "poison",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
+      "id": "better_drinking_water:widows_whisper",
+      "hydration": 6,
+      "quenching": 8,
+      "remainder": "minecraft:glass_bottle",
+      "effects": [
+        {
+          "id": "minecraft:invisibility",
+          "duration": 1200,
+          "amplifier": 0,
+          "chance": 1
+        },
+        {
+          "id": "minecraft:weakness",
+          "duration": 200,
+          "amplifier": 0,
+          "chance": 1
+        }
+      ],
+      "action": "none",
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+    },
+    {
       "id": "brewinandchewin:beer",
       "hydration": 4,
       "quenching": 5,

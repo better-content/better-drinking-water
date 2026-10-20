@@ -1,0 +1,27 @@
+{
+  "type": "farmersrespite:brewing",
+  "base": {
+    "fluid": "minecraft:water",
+    "count": 250
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:pumpkin_seeds"
+    },
+    {
+      "item": "minecraft:pumpkin_seeds"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:pumpkin_seed_milk",
+    "count": 250
+  },
+  "cookingtime": 1200,
+  "experience": 0.2,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

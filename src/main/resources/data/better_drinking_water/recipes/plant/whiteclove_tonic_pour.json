@@ -1,0 +1,20 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": "better_drinking_water:whiteclove_tonic",
+  "amount": 250,
+  "filling": true,
+  "strict": false,
+  "output": {
+    "item": "better_drinking_water:whiteclove_tonic"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ubesdelight"
+    }
+  ]
+}

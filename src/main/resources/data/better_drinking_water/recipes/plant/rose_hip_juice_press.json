@@ -1,0 +1,27 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "farmersrespite:rose_hips"
+    },
+    {
+      "item": "farmersrespite:rose_hips"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "better_drinking_water:rose_hip_juice",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

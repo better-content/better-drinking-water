@@ -16,7 +16,8 @@ import java.util.Map;
 /** Authored finite servings. Discovery never admits arbitrary edible or fluid-capable items. */
 final class DrinkCatalogue {
     static final List<String> ACTIONS = List.of("none", "milk", "poison", "heal2", "heal4", "cure_one",
-            "cure_harmful_one", "cure_harmful_two", "booze", "dread_nog", "rest_reset");
+            "cure_harmful_one", "cure_harmful_two", "booze", "dread_nog", "rest_reset",
+            "orange", "lemon", "nausea", "mana", "blink");
     record Effect(String id, int duration, int amplifier, double chance, int group) {
         Effect(String id, int duration, int amplifier, double chance) { this(id, duration, amplifier, chance, 0); }
     }

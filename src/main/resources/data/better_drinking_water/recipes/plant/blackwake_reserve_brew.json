@@ -1,0 +1,29 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "fluid": "better_drinking_water:grimberry_rush",
+    "count": 1000
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:crimson_fungus"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:blackwake_reserve",
+    "count": 1000
+  },
+  "fermentingtime": 4800,
+  "temperature": 3,
+  "experience": 0.5,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "the_deep_void"
+    }
+  ]
+}

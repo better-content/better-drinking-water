@@ -1,0 +1,21 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "fluid": "better_drinking_water:strongroot_ale",
+  "amount": 250,
+  "container": {
+    "item": "brewinandchewin:tankard"
+  },
+  "output": {
+    "item": "brewinandchewin:strongroot_ale"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

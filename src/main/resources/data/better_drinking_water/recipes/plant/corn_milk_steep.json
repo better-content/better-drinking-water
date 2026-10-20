@@ -1,0 +1,28 @@
+{
+  "type": "farmersrespite:brewing",
+  "base": {
+    "fluid": "minecraft:water",
+    "count": 250
+  },
+  "ingredients": [
+    {
+      "item": "fallout_wastelands_:corn"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:corn_milk",
+    "count": 250
+  },
+  "cookingtime": 1200,
+  "experience": 0.2,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fallout_wastelands_"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

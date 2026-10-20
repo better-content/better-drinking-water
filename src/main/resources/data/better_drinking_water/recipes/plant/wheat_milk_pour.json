@@ -1,0 +1,16 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": "better_drinking_water:wheat_milk",
+  "amount": 250,
+  "filling": true,
+  "strict": false,
+  "output": {
+    "item": "better_drinking_water:wheat_milk"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ]
+}

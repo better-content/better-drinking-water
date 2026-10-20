@@ -1,0 +1,31 @@
+{
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "better_drinking_water:lemongrass_infusion"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": "better_drinking_water:lemongrass_infusion",
+      "amount": 250
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ubesdelight"
+    }
+  ]
+}

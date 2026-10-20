@@ -1,0 +1,27 @@
+{
+  "type": "farmersrespite:brewing",
+  "base": {
+    "fluid": "minecraft:water",
+    "count": 250
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:kelp"
+    },
+    {
+      "item": "minecraft:kelp"
+    }
+  ],
+  "result": {
+    "fluid": "better_drinking_water:tideward_infusion",
+    "count": 250
+  },
+  "cookingtime": 1200,
+  "experience": 0.2,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

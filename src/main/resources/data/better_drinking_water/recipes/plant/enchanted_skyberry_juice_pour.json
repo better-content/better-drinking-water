@@ -1,0 +1,20 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": "better_drinking_water:enchanted_skyberry_juice",
+  "amount": 250,
+  "filling": true,
+  "strict": false,
+  "output": {
+    "item": "better_drinking_water:enchanted_skyberry_juice"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aether"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ]
+}

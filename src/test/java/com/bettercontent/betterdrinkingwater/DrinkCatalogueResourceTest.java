@@ -16,7 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 /** Authored resource contracts only: no Minecraft bootstrap or retained audit outputs as fixtures. */
 class DrinkCatalogueResourceTest {
     private static final Set<String> ACTIONS = Set.of("none", "milk", "poison", "heal2", "heal4", "cure_one",
-            "cure_harmful_one", "cure_harmful_two", "booze", "dread_nog", "rest_reset");
+            "cure_harmful_one", "cure_harmful_two", "booze", "dread_nog", "rest_reset",
+            "orange", "lemon", "nausea", "mana", "blink");
 
     @Test
     void versionedCatalogueHasUniqueDisjointSupportedAndExcludedIds() throws Exception {
