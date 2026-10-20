@@ -173,7 +173,10 @@ tasks.register("headlessGameTest") {
 tasks.register("verifyFast") {
     group = "verification"
     description = "Runs deterministic unit/resource checks without Forge game tests."
-    dependsOn(tasks.named("check"))
+    dependsOn(tasks.named("check"), "verifyNativeSetup")
+}
+val verifyNativeSetup by tasks.registering(Exec::class) {
+    commandLine("python3", "-B", "-m", "unittest", "discover", "-s", "scripts", "-p", "test_native_properties.py")
 }
 
 val verifyNativeDiagnostics by tasks.registering {
@@ -182,6 +185,10 @@ val verifyNativeDiagnostics by tasks.registering {
     doLast {
         val nativeLog = file("run-gametest/logs/latest.log")
         check(nativeLog.isFile) { "Missing current native GameTest diagnostics" }
+        val text = nativeLog.readText()
+        check(text.contains("All 43 required tests passed") && text.contains("43 GAME TESTS COMPLETE")) {
+            "Missing forty-three-test native completion: $nativeLog"
+        }
         val errors = nativeLog.readLines().filter { line ->
             listOf("/ERROR]", "/FATAL]", "[ERROR]", "[FATAL]", "Mixin apply failed").any(line::contains)
         }
@@ -198,6 +205,12 @@ tasks.register("verifyFull") {
 val resetGameTestMods = tasks.register("resetGameTestMods") {
     doLast {
         val retained = file("run-gametest/retained/${Instant.now().toEpochMilli()}")
+        // Preserve the rest of the actual old working directory before resetting native state.
+        // Historical retained attempts already stay in place and must not be recursively copied.
+        file("run-gametest").listFiles()?.filter { it.name !in setOf("retained", "mods", "world", "logs") }?.forEach { previous ->
+            retained.mkdirs()
+            check(previous.copyRecursively(retained.resolve(previous.name), overwrite = false)) { "Cannot retain native fixture ${previous.name}" }
+        }
         for (name in listOf("mods", "world", "logs")) {
             val previous = file("run-gametest/$name")
             if (previous.exists()) {
@@ -209,6 +222,7 @@ val resetGameTestMods = tasks.register("resetGameTestMods") {
 }
 
 val syncGameTestStructures = tasks.register<Sync>("syncGameTestStructures") {
+    mustRunAfter(resetGameTestMods)
     from(layout.projectDirectory.dir("src/main/resources/gameteststructures"))
     into(layout.projectDirectory.dir("run-gametest/gameteststructures"))
 }
@@ -217,6 +231,9 @@ tasks.matching { it.name.startsWith("prepareRunGameTestServer") }.configureEach 
     dependsOn(resetGameTestMods)
     dependsOn(syncGameTestStructures)
     dependsOn(tasks.named(nativeFixture.processResourcesTaskName))
+    doLast {
+        exec { commandLine("python3", "-B", "scripts/ensure_native_properties.py", file("run-gametest").absolutePath) }
+    }
 }
 
 tasks.processResources {

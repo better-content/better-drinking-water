@@ -10,6 +10,11 @@ public final class WaterSurvival {
     public static final String MOD_ID = "better_drinking_water";
 
     public WaterSurvival() {
+        var ownFile = net.minecraftforge.fml.ModList.get().getModFileById(MOD_ID);
+        String source = WaterDiagnostics.LOG.sourceIdentity(ownFile == null ? null : ownFile.getFile().findResource("META-INF", "better-content-source.properties"));
+        WaterDiagnostics.LOG.status("common", net.minecraftforge.fml.ModList.get().getModContainerById(MOD_ID)
+            .map(container -> container.getModInfo().getVersion().toString()).orElse("UNKNOWN"), source, () ->
+            com.bettercontent.betterdrinkingwater.diagnostics.PlaytestLog.fields("enabled", true, "thirst", "required", "catalogue", "validation_pending"));
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         PlantDrinks.register(bus);
         RainCollectorRegistry.BLOCKS.register(bus);

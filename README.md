@@ -223,6 +223,27 @@ tanks and per-position flowing-water purity are outside this bounded integration
 handlers must expose extractable water; listing a vessel does not invent a missing capability.
 Cold Sweat waterskins retain the pack's temperature-only behavior.
 
+## Bounded playtest observations
+
+The loader's SLF4J provider owns `bc.playtest.better_drinking_water.*`. Normal standalone
+logging emits one startup status (actual mod version, source UNKNOWN when unavailable).
+An explicitly enabled DEBUG profile records sip rejection/release, returned paid-portion
+admission and a separate observed native-thirst before/after result. Admission is not called
+durable publication. `purchase_attempts` counts callback/limit attempts, not successful debits.
+The process UUID plus transient `operation` sequence correlates one sip without player names,
+inventory, beverage payloads, persistent IDs or save/wire changes.
+
+All categories share 120 detail records/minute, burst 20; bounded 256-key accounting coalesces
+at most every 30 monotonic seconds and on server stop. Records are single-line and at most
+2048 characters. Server stop clears bounded keys without rearming the bucket or TRACE.
+TRACE fraction detail additionally requires both JVM properties
+`bc.playtest.trace.better_drinking_water.dimension=<dimension-id>` and exactly one focused
+`.subject=<UUID>` or `.pos=x,y,z`. This player-owned path matches only subject focus; it reads
+UUID only behind the TRACE guard. Only focused TRACE includes that causal subject identifier.
+The first matching detail arms the once-per-process 60-second/1000-record limit; ordinary rate
+limits still apply. No extra RNG, inventory search, NBT traversal, game clocks or mutation are
+introduced for observation. Native failures retain their existing severity independently.
+
 ## Discovery and verification
 
 The optional Threads bridge begins `water_made_safe` on the first observed thirst decrease.
