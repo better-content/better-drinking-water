@@ -29,7 +29,7 @@ replenishing their remaining duration cannot reset or accelerate healing/damage.
 releases proportional shield points, rather than granting a whole shield on every short slice.
 
 The optional typed `BeverageEvents` integration lets Better Survival Physiology snapshot Diet's
-ordinary nutrient gains and its Nectar/Draught loads once and award each actual consumed fraction.
+ordinary nutrient gains and its Nectar/Booze loads once and award each actual consumed fraction.
 It does not synthesize whole-item use events or replay `finishUsingItem`. Blackout can veto both
 purchase and release of paid beverage credit. Meal recovery and Diet's eaten-item history occur at
 serving completion, not every sip. Fruits Delight effect normalization is captured before splitting:
@@ -43,7 +43,7 @@ Brewin' and Chewin' low-priority tags; strong cocoa retains its native up-to-two
 Tea resolves one correlated outcome at purchase, then stores it; reconnects and later sips cannot
 reroll it. Brewin' and Chewin' Tipsy/Bad Omen potency resolves once per paid serving against existing
 native effects (native caps 9/4); later sips cannot repeatedly escalate potency. Their durations
-use the same bounded fractional accounting, while Draught remains a separate proportional load.
+use the same bounded fractional accounting, while Booze remains a separate proportional load.
 
 Changing equipment cannot change an existing paid serving. Reconnects/restarts preserve its
 remaining entitlements, with no active buff until a sip releases duration. Death discards the

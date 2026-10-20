@@ -53,7 +53,7 @@ final class PlayerWaterReserve {
     static void copy(Player original, Player replacement, boolean wasDeath) {
         Reserve reserve = read(original);
         // Water keeps its established persistence. A beverage loses its entire unfinished serving,
-        // never retaining hydration while selectively deleting its Draught cost or other consequences.
+        // never retaining hydration while selectively deleting its Booze cost or other consequences.
         write(replacement, wasDeath && reserve != null && reserve.beverage() != null ? null : reserve);
     }
 }
