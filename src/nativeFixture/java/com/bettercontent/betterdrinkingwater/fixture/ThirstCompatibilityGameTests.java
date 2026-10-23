@@ -40,8 +40,11 @@ public final class ThirstCompatibilityGameTests {
         helper.assertTrue(ModLootModifiers.ADD_LOOT_TABLE.isPresent(), "Native DeferredRegister entry must resolve");
         helper.assertTrue(codec == ModLootModifiers.ADD_LOOT_TABLE.get() && codec == AddLootTableModifier.CODEC.get(),
                 "Existing native ID must bind the exact native codec, not a stand-in");
-        helper.assertTrue(Mixins.getMixinsForClass(AddLootTableModifier.class.getName()).stream().anyMatch(info ->
-                        info.getClassName().equals("com.bettercontent.bettercompatfixes.mixin.thirst.AddLootTableModifierMixin")),
+        // Pinned Mixin0.8.5 postApply records application on the mixin's own ClassInfo,
+        // not the target ClassInfo. Require that applied entry AND its exact sole native target.
+        helper.assertTrue(Mixins.getMixinsForClass(ThirstRecursionFixIdentity.MIXIN_CLASS).stream().anyMatch(info ->
+                        ThirstRecursionFixIdentity.matches(info.getClassName(), info.getTargetClasses(),
+                                AddLootTableModifier.class.getName())),
                 "Public Mixin applied-target metadata must report the existing production recursion fix");
 
         var modFile = ModList.get().getModFileById("thirst").getFile();
