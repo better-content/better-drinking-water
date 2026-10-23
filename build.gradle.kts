@@ -169,7 +169,7 @@ tasks.test {
 tasks.register("headlessGameTest") {
     group = "verification"
     description = "Runs Forge game tests in a headless dedicated server."
-    dependsOn(tasks.named("runGameTestServer"))
+    dependsOn("runGameTestServer")
 }
 
 tasks.register("verifyFast") {
@@ -221,7 +221,7 @@ tasks.matching { it.name.startsWith("prepareRunGameTestServer") }.configureEach 
         exec { commandLine("python3", "-B", "scripts/ensure_native_properties.py", nativeRunDirectory.absolutePath) }
     }
 }
-tasks.named("runGameTestServer") {
+tasks.matching { it.name == "runGameTestServer" }.configureEach {
     doFirst {
         val actual = file(minecraft.runs.getByName("gameTestServer").workingDirectory)
         check(actual.canonicalFile == nativeRunDirectory.canonicalFile) { "Native working-directory drift: $actual" }
