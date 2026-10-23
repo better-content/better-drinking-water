@@ -6,6 +6,27 @@ This repository owns rain collection, campfire snow melting, water quality and n
 fractional water/beverage consumption for Forge 1.20.1. Read [local instructions](AGENTS.md) and the
 [shared documentation/policy index](../../better-content-modpack/docs/README.md).
 
+## SOURCE verification fixture
+
+`./gradlew verifyFull stageRuntimeJar` requires the actual qualified production Compat Fixes
+and Gameplay Notices providers. Bind `-PcompatFixesRuntimeJar=/immutable/provider.jar` and
+`-PgameplayNoticesRuntimeJar=/immutable/notices.jar`, or use canonical
+`BC_CUSTOM_MOD_JAR_DIR`. No mutable sibling `build/libs` fallback is used for these inputs.
+Content-addressed flatDir snapshots outside `build/` retain exact input bytes across clean;
+ForgeGradle remaps the real providers. Heat and HUD are not mandatory for this dedicated fixture.
+Compat already owns Thirst's native codec registration and nested-loot recursion mixin; Water
+adds no replacement codec, registration, dispatcher, mixin or loot data.
+
+The required native count is now **44** (the existing43 plus one nonshipping compatibility
+contract): exact native codec identity, all15 original GLM JSON decodes and native loot sources,
+public Mixin applied-target metadata, unchanged queried-table context through actual raw nested
+loot generation, and real native chest generation. A fresh UUID `run-gametest/attempts/` RunConfig
+never recycles an existing world or adopts ordinary developer instances. Both latest and DEBUG
+logs are required; real loot-modifier WARN decode failures are rejected alongside ERROR/FATAL
+and mixin failures. Pure regression includes the exact historical native WARN, not an exemption.
+These source changes still need a newly admitted full gate with the qualified current provider
+closure; prior43-test receipts with failed native loot operations are not accepted inputs.
+
 ## Beverage catalogue and fractional effects
 
 The native **Drinks** slot uses the same admission predicate as the concise **Drinks slot

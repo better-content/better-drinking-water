@@ -1,0 +1,37 @@
+// SOURCE fixture only. Actual production Compat owns Thirst registration AND recursion repair.
+// No mutable sibling build/libs default; release supplies canonical staging, local gates explicit immutable inputs.
+def providerDirectory = providers.environmentVariable('BC_CUSTOM_MOD_JAR_DIR').orNull
+if (providerDirectory != null && providerDirectory.isBlank()) throw new GradleException('Blank BC_CUSTOM_MOD_JAR_DIR')
+def inputs = [
+    [property: 'compatFixesRuntimeJar', artifact: 'better-compat-fixes', version: '0.1.9'],
+    [property: 'gameplayNoticesRuntimeJar', artifact: 'better-gameplay-notices', version: '1.0.0']
+].collect { spec ->
+    def override = providers.gradleProperty(spec.property).orNull
+    if (override != null && override.isBlank()) throw new GradleException("Blank ${spec.property}")
+    if (override == null && providerDirectory == null)
+        throw new GradleException("Bind qualified ${spec.artifact} via -P${spec.property}=... or BC_CUSTOM_MOD_JAR_DIR")
+    def original = file(override != null ? override : new File(providerDirectory, "${spec.artifact}-${spec.version}.jar"))
+    if (!original.isFile()) throw new GradleException("Missing qualified fixture input: ${original}")
+    def bytes = original.bytes
+    def sha = java.security.MessageDigest.getInstance('SHA-256').digest(bytes).encodeHex().toString()
+    def directory = file(".gradle/native-compat-providers/${sha}")
+    def snapshot = new File(directory, "${spec.artifact}-${sha}.jar")
+    if (snapshot.exists()) {
+        if (!snapshot.isFile() || !java.util.Arrays.equals(snapshot.bytes, bytes))
+            throw new GradleException("Corrupt immutable fixture snapshot: ${snapshot}")
+    } else {
+        directory.mkdirs()
+        java.nio.file.Files.write(snapshot.toPath(), bytes, java.nio.file.StandardOpenOption.CREATE_NEW)
+    }
+    logger.lifecycle("Bound SOURCE fixture provider ${spec.artifact} sha256=${sha}; immutable=${snapshot}")
+    [directory: directory, coordinate: "bettercontent.native.compat.local:${spec.artifact}:${sha}"]
+}
+repositories {
+    flatDir {
+        dirs inputs.collect { it.directory }
+        content { includeGroup('bettercontent.native.compat.local') }
+    }
+}
+dependencies {
+    inputs.each { input -> add('nativeFixtureRuntimeOnly', fg.deobf(input.coordinate)) }
+}

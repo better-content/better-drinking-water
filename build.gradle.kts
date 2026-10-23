@@ -1,5 +1,5 @@
-import java.time.Instant
 import java.nio.file.Files
+import java.util.UUID
 
 plugins {
     idea
@@ -36,6 +36,8 @@ tasks.named<ProcessResources>(nativeFixture.processResourcesTaskName) {
     }
 }
 
+val nativeRunDirectory = file("run-gametest/attempts/${UUID.randomUUID()}")
+
 minecraft {
     mappings("official", property("minecraft_version") as String)
     copyIdeResources = true
@@ -56,7 +58,7 @@ minecraft {
         create("client")
         create("server") { arg("--nogui") }
         create("gameTestServer") {
-            workingDirectory(project.file("run-gametest"))
+            workingDirectory(nativeRunDirectory)
             property("forge.enableGameTest", "true")
             property("forge.gameTestServer", "true")
             property("forge.enabledGameTestNamespaces", property("mod_id") as String)
@@ -176,23 +178,18 @@ tasks.register("verifyFast") {
     dependsOn(tasks.named("check"), "verifyNativeSetup")
 }
 val verifyNativeSetup by tasks.registering(Exec::class) {
-    commandLine("python3", "-B", "-m", "unittest", "discover", "-s", "scripts", "-p", "test_native_properties.py")
+    commandLine("python3", "-B", "-m", "unittest", "discover", "-s", "scripts", "-p", "test_native_*.py")
 }
 
 val verifyNativeDiagnostics by tasks.registering {
     group = "verification"
     dependsOn(tasks.named("headlessGameTest"))
     doLast {
-        val nativeLog = file("run-gametest/logs/latest.log")
-        check(nativeLog.isFile) { "Missing current native GameTest diagnostics" }
-        val text = nativeLog.readText()
-        check(text.contains("All 43 required tests passed") && text.contains("43 GAME TESTS COMPLETE")) {
-            "Missing forty-three-test native completion: $nativeLog"
+        exec {
+            commandLine("python3", "-B", "scripts/audit_native_diagnostics.py", "44",
+                nativeRunDirectory.resolve("logs/latest.log").absolutePath,
+                nativeRunDirectory.resolve("logs/debug.log").absolutePath)
         }
-        val errors = nativeLog.readLines().filter { line ->
-            listOf("/ERROR]", "/FATAL]", "[ERROR]", "[FATAL]", "Mixin apply failed").any(line::contains)
-        }
-        check(errors.isEmpty()) { "Native failed-operation/ERROR/FATAL diagnostics: ${errors.take(8).joinToString("\n")}" }
     }
 }
 tasks.register("verifyFull") {
@@ -202,37 +199,33 @@ tasks.register("verifyFull") {
     dependsOn(verifyNativeDiagnostics)
 }
 
-val resetGameTestMods = tasks.register("resetGameTestMods") {
+val prepareNativeAttempt = tasks.register("prepareNativeAttempt") {
     doLast {
-        val retained = file("run-gametest/retained/${Instant.now().toEpochMilli()}")
-        // Preserve the rest of the actual old working directory before resetting native state.
-        // Historical retained attempts already stay in place and must not be recursively copied.
-        file("run-gametest").listFiles()?.filter { it.name !in setOf("retained", "mods", "world", "logs") }?.forEach { previous ->
-            retained.mkdirs()
-            check(previous.copyRecursively(retained.resolve(previous.name), overwrite = false)) { "Cannot retain native fixture ${previous.name}" }
-        }
-        for (name in listOf("mods", "world", "logs")) {
-            val previous = file("run-gametest/$name")
-            if (previous.exists()) {
-                retained.mkdirs()
-                Files.move(previous.toPath(), retained.resolve(name).toPath())
-            }
-        }
+        check(!Files.isSymbolicLink(nativeRunDirectory.parentFile.toPath()) &&
+            !Files.isSymbolicLink(nativeRunDirectory.parentFile.parentFile.toPath())) { "Native attempt ancestry must not be a symlink" }
+        check(!nativeRunDirectory.exists()) { "Refusing an existing native attempt: $nativeRunDirectory" }
+        check(nativeRunDirectory.mkdirs()) { "Cannot create native attempt: $nativeRunDirectory" }
+        logger.lifecycle("Native GameTest fresh attempt admitted: $nativeRunDirectory")
     }
 }
 
 val syncGameTestStructures = tasks.register<Sync>("syncGameTestStructures") {
-    mustRunAfter(resetGameTestMods)
+    dependsOn(prepareNativeAttempt)
     from(layout.projectDirectory.dir("src/main/resources/gameteststructures"))
-    into(layout.projectDirectory.dir("run-gametest/gameteststructures"))
+    into(nativeRunDirectory.resolve("gameteststructures"))
 }
 
 tasks.matching { it.name.startsWith("prepareRunGameTestServer") }.configureEach {
-    dependsOn(resetGameTestMods)
-    dependsOn(syncGameTestStructures)
-    dependsOn(tasks.named(nativeFixture.processResourcesTaskName))
+    dependsOn(syncGameTestStructures, tasks.named(nativeFixture.classesTaskName))
     doLast {
-        exec { commandLine("python3", "-B", "scripts/ensure_native_properties.py", file("run-gametest").absolutePath) }
+        exec { commandLine("python3", "-B", "scripts/ensure_native_properties.py", nativeRunDirectory.absolutePath) }
+    }
+}
+tasks.named("runGameTestServer") {
+    doFirst {
+        val actual = file(minecraft.runs.getByName("gameTestServer").workingDirectory)
+        check(actual.canonicalFile == nativeRunDirectory.canonicalFile) { "Native working-directory drift: $actual" }
+        check(!nativeRunDirectory.resolve("world").exists()) { "Refusing existing native world: $nativeRunDirectory" }
     }
 }
 
@@ -254,3 +247,5 @@ mixin {
     add(sourceSets.main.get(), "better_drinking_water.refmap.json")
     config("better_drinking_water.mixins.json")
 }
+
+apply(from = "gradle/native-compat-providers.gradle")
