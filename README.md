@@ -1,10 +1,9 @@
 # Better Drinking Water
 
-## Scope and authority
+## Scope
 
 This repository owns rain collection, campfire snow melting, water quality and native Curios
-fractional water/beverage consumption for Forge 1.20.1. Read [local instructions](AGENTS.md) and the
-[shared documentation/policy index](../../better-content-modpack/docs/README.md).
+fractional water/beverage consumption for Forge 1.20.1.
 
 ## SOURCE verification fixture
 
