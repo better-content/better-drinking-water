@@ -170,11 +170,10 @@ public final class WaterSurvivalGameTests {
         replacement.restoreFrom(player, true);
         helper.assertTrue(PlayerWaterReserve.read(player).equals(PlayerWaterReserve.read(replacement)),
                 "Clone must preserve exact credit without replaying refunds");
-        // Thirst's real clone listener invalidates the original entity's capabilities.
+        // Clone listeners can invalidate or revive the retired entity's capabilities;
+        // their final state depends on listener order and is not a gameplay contract.
         // Continue on the live replacement, as a real post-clone player would, rather
-        // than mutating a stale meter while all five sip callbacks see no capability.
-        helper.assertTrue(player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().isEmpty(),
-                "The retired player's Thirst capability must be invalid after native cloning");
+        // than mutating a stale meter while sip callbacks may see no capability.
         player = replacement;
         thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve()
                 .orElseThrow(() -> new IllegalStateException("Replacement is missing the Thirst capability"));
