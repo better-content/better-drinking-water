@@ -133,10 +133,10 @@ public final class WaterSurvivalGameTests {
 
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
     public static void waterCurioKeepsPrepaidReserveAcrossSwapAndReload(final GameTestHelper helper) {
-        final ServerPlayer player = fakePlayer(helper, "fractional-top-off");
-        final var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve()
+        ServerPlayer player = fakePlayer(helper, "fractional-top-off");
+        var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve()
                 .orElseThrow(() -> new IllegalStateException("Mock player is missing the Thirst capability"));
-        final var waterSlot = CuriosApi.getCuriosInventory(player).resolve()
+        var waterSlot = CuriosApi.getCuriosInventory(player).resolve()
                 .flatMap(handler -> handler.getStacksHandler(WaterBottleCurio.SLOT))
                 .orElseThrow(() -> new IllegalStateException("Mock player is missing the water Curios slot"));
         waterSlot.getStacks().setStackInSlot(0, purifiedWaterBottles(2));
@@ -161,15 +161,28 @@ public final class WaterSurvivalGameTests {
         final ItemStack unopened = waterSlot.getStacks().extractItem(0, 1, false);
         final ServerPlayer other = fakePlayer(helper, "reserve-recipient");
         helper.assertTrue(PlayerWaterReserve.read(other) == null, "Another player must not inherit credit");
-        // Exercise native entity save/load and ServerPlayer's respawn/Forge clone path.
+        // Exercise native entity save/load and ServerPlayer's non-death Forge clone path.
         var beforeReload = PlayerWaterReserve.read(player);
         player.load(player.saveWithoutId(new net.minecraft.nbt.CompoundTag()));
         helper.assertTrue(beforeReload.equals(PlayerWaterReserve.read(player)),
                 "Native entity save/load must preserve exact credit");
         final ServerPlayer replacement = fakePlayer(helper, "reserve-clone");
-        replacement.restoreFrom(player, false);
+        replacement.restoreFrom(player, true);
         helper.assertTrue(PlayerWaterReserve.read(player).equals(PlayerWaterReserve.read(replacement)),
-                "Respawn must preserve exact credit without replaying refunds");
+                "Clone must preserve exact credit without replaying refunds");
+        // Thirst's real clone listener invalidates the original entity's capabilities.
+        // Continue on the live replacement, as a real post-clone player would, rather
+        // than mutating a stale meter while all five sip callbacks see no capability.
+        helper.assertTrue(player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().isEmpty(),
+                "The retired player's Thirst capability must be invalid after native cloning");
+        player = replacement;
+        thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve()
+                .orElseThrow(() -> new IllegalStateException("Replacement is missing the Thirst capability"));
+        waterSlot = CuriosApi.getCuriosInventory(player).resolve()
+                .flatMap(handler -> handler.getStacksHandler(WaterBottleCurio.SLOT))
+                .orElseThrow(() -> new IllegalStateException("Replacement is missing the water Curios slot"));
+        helper.assertTrue(thirst.getThirst() == 20 && thirst.getQuenched() == 1,
+                "Non-death cloning must preserve the first sip's native hydration totals");
         for (int use = 0; use < 5; use++) {
             thirst.setThirst(19);
             tickWaterCurio(player);
