@@ -83,8 +83,67 @@ public final class WaterSurvivalGameTests {
             }
             RainCollectorRegistry.RAIN_COLLECTOR.get().tick(state, level, worldPos, RandomSource.create(1L));
             helper.assertBlockProperty(relativePos, RainCollectorBlock.LEVEL, 1);
+            for (int pulse = 0; pulse < 8; pulse++) {
+                RainCollectorRegistry.RAIN_COLLECTOR.get().tick(level.getBlockState(worldPos), level, worldPos, RandomSource.create(pulse));
+            }
+            helper.assertBlockProperty(relativePos, RainCollectorBlock.LEVEL, 4);
             helper.succeed();
         });
+    }
+
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 100)
+    public static void collectorDirectDrinkAndBottleEachDebitOneConfiguredPortion(final GameTestHelper helper) {
+        var level = helper.getLevel();
+        var pos = helper.absolutePos(new BlockPos(2, 2, 2));
+        var player = fakePlayer(helper, "collector-debit");
+        var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        var purity = dev.ghen.thirst.foundation.config.CommonConfig.DEFAULT_PURITY;
+        var config = net.minecraftforge.fml.config.ConfigTracker.INSTANCE.configSets()
+                .get(net.minecraftforge.fml.config.ModConfig.Type.COMMON).stream()
+                .filter(candidate -> candidate.getModId().equals("thirst")
+                        && candidate.getSpec() instanceof net.minecraftforge.common.ForgeConfigSpec candidateSpec
+                        && candidateSpec.getValues().get(purity.getPath()) == purity)
+                .findFirst().orElseThrow();
+        var spec = (net.minecraftforge.common.ForgeConfigSpec) config.getSpec();
+        var original = config.getConfigData();
+        try {
+            spec.setConfig(copyConfig(original));
+            purity.set(3);
+            spec.afterReload();
+            var block = RainCollectorRegistry.RAIN_COLLECTOR.get();
+            level.setBlock(pos, block.defaultBlockState().setValue(RainCollectorBlock.LEVEL, 4), 3);
+            var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(pos),
+                    net.minecraft.core.Direction.UP, pos, false);
+            player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+            player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+            PlayerWaterReserve.write(player, null);
+            thirst.setThirst(19);
+            thirst.setQuenched(0);
+            helper.assertTrue(block.use(level.getBlockState(pos), level, pos, player,
+                    net.minecraft.world.InteractionHand.MAIN_HAND, hit).consumesAction(), "Empty hand must drink");
+            helper.assertTrue(thirst.getThirst() == 20 && level.getBlockState(pos).getValue(RainCollectorBlock.LEVEL) == 3,
+                    "Direct sip must hydrate and prepay exactly one portion");
+            helper.assertTrue(PlayerWaterReserve.read(player) != null && PlayerWaterReserve.read(player).purity() == 3,
+                    "Direct drink must use explicitly configured purity");
+            player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Items.GLASS_BOTTLE));
+            helper.assertTrue(block.use(level.getBlockState(pos), level, pos, player,
+                    net.minecraft.world.InteractionHand.MAIN_HAND, hit).consumesAction(), "Bottle must fill");
+            var bottle = player.getMainHandItem();
+            helper.assertTrue(bottle.is(Items.POTION) && bottle.getCount() == 1
+                            && PotionUtils.getPotion(bottle) == Potions.WATER && WaterPurity.getPurity(bottle) == 3,
+                    "One glass bottle must become one water bottle with configured purity");
+            helper.assertTrue(level.getBlockState(pos).getValue(RainCollectorBlock.LEVEL) == 2,
+                    "Bottling must debit exactly one additional portion");
+            level.setBlock(pos, block.defaultBlockState(), 3);
+            player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Items.GLASS_BOTTLE));
+            helper.assertTrue(block.use(level.getBlockState(pos), level, pos, player,
+                    net.minecraft.world.InteractionHand.MAIN_HAND, hit) == net.minecraft.world.InteractionResult.PASS
+                            && player.getMainHandItem().is(Items.GLASS_BOTTLE), "Empty collector must not fill or consume a bottle");
+        } finally {
+            spec.setConfig(original);
+            spec.afterReload();
+        }
+        helper.succeed();
     }
 
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
