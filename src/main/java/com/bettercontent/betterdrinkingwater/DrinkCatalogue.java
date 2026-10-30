@@ -59,6 +59,10 @@ final class DrinkCatalogue {
                 new ResourceLocation(id);
                 if (!remainder.isEmpty()) new ResourceLocation(remainder);
                 int hydration = row.get("hydration").getAsInt(), quenching = row.get("quenching").getAsInt();
+                DrinkHydration basis = DrinkHydration.valueOf(row.get("hydration_class").getAsString());
+                int volume = row.get("serving_mb").getAsInt();
+                if (hydration != basis.hydration(volume) || quenching != basis.quenching(volume))
+                    throw new IllegalArgumentException("Hydration basis/volume mismatch: " + id);
                 if (hydration < 1 || hydration > 64 || quenching < 0 || quenching > 128)
                     throw new IllegalArgumentException("Invalid drink quantities: " + id);
                 String action = row.get("action").getAsString();

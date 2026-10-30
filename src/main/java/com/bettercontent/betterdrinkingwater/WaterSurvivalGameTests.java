@@ -208,7 +208,7 @@ public final class WaterSurvivalGameTests {
         helper.assertTrue(thirst.getThirst() == 20, "One missing thirst point should be restored immediately");
         helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).getCount() == 1,
                 "The first sip must debit one bottle immediately");
-        helper.assertTrue(closeTo(PlayerWaterReserve.read(player).consumed(), 1.0D / 6.0D),
+        helper.assertTrue(closeTo(PlayerWaterReserve.read(player).consumed(), 1.0D / 4.0D),
                 "The player must own the remaining water");
         helper.assertTrue(!waterSlot.getStacks().getStackInSlot(0).getTag().contains("BetterContentSippedFraction"),
                 "Remaining bottles must not carry sip progress");
@@ -241,12 +241,12 @@ public final class WaterSurvivalGameTests {
                 .orElseThrow(() -> new IllegalStateException("Replacement is missing the water Curios slot"));
         helper.assertTrue(thirst.getThirst() == 20 && thirst.getQuenched() == 1,
                 "Non-death cloning must preserve the first sip's native hydration totals");
-        for (int use = 0; use < 5; use++) {
+        for (int use = 0; use < 3; use++) {
             thirst.setThirst(19);
             tickWaterCurio(player);
         }
-        helper.assertTrue(thirst.getThirst() == 20, "The sixth partial use should still top off thirst");
-        helper.assertTrue(thirst.getQuenched() == 8, "Six small sips must award exactly one bottle's quenched total");
+        helper.assertTrue(thirst.getThirst() == 20, "The fourth partial use should still top off thirst");
+        helper.assertTrue(thirst.getQuenched() == 5, "Four small sips must award exactly one bottle's quenched total");
         helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).isEmpty(),
                 "Paid water must work with an empty slot");
         helper.assertTrue(PlayerWaterReserve.read(player) == null, "Completed credit must be cleared");
@@ -277,7 +277,7 @@ public final class WaterSurvivalGameTests {
         thirst.setQuenched(0);
 
         tickWaterCurio(player);
-        helper.assertTrue(thirst.getThirst() == 6, "One equipped bottle should restore only its six thirst points");
+        helper.assertTrue(thirst.getThirst() == 4, "One equipped250mB bottle should restore only its four thirst points");
         helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).isEmpty(), "The only equipped bottle should be consumed");
         helper.succeed();
     }
@@ -296,7 +296,7 @@ public final class WaterSurvivalGameTests {
         thirst.setQuenched(0);
 
         tickWaterCurio(player);
-        helper.assertTrue(thirst.getThirst() == 12, "Two stacked bottles should restore twelve thirst points");
+        helper.assertTrue(thirst.getThirst() == 8, "Two stacked250mB bottles should restore eight thirst points");
         helper.assertTrue(waterSlot.getStacks().getStackInSlot(0).isEmpty(), "Both used bottles should leave the water slot");
         final var emptySlot = curios.getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow();
         helper.assertTrue(emptySlot.getStacks().getStackInSlot(0).is(Items.GLASS_BOTTLE)
@@ -325,13 +325,13 @@ public final class WaterSurvivalGameTests {
         tickWaterCurio(player);
         helper.assertTrue(slot.getStacks().getStackInSlot(0).getCount() == 1,
                 "Migration must debit one bottle");
-        helper.assertTrue(closeTo(PlayerWaterReserve.read(player).consumed(), 2.0D / 3.0D),
+        helper.assertTrue(closeTo(PlayerWaterReserve.read(player).consumed(), 3.0D / 4.0D),
                 "Migration must honor the already consumed half");
         helper.assertTrue(!slot.getStacks().getStackInSlot(0).getTag().contains("BetterContentSippedFraction"),
                 "Legacy progress must not leak onto the next bottle");
-        thirst.setThirst(18);
+        thirst.setThirst(19);
         tickWaterCurio(player);
-        helper.assertTrue(PlayerWaterReserve.read(player) == null && thirst.getQuenched() == 4,
+        helper.assertTrue(PlayerWaterReserve.read(player) == null && thirst.getQuenched() == 3,
                 "Legacy remaining half must grant only its remaining quenched credit");
         helper.succeed();
     }
@@ -385,7 +385,7 @@ public final class WaterSurvivalGameTests {
         ownerThirst.setThirst(19);
         tickWaterCurio(owner);
         helper.assertTrue(ownerSlot.getStacks().getStackInSlot(0).getCount() == 2
-                        && closeTo(PlayerWaterReserve.read(owner).consumed(), 2.0D / 6.0D),
+                        && closeTo(PlayerWaterReserve.read(owner).consumed(), 2.0D / 4.0D),
                 "Re-equipping and merging must spend old credit, not debit or reset it");
         helper.succeed();
     }

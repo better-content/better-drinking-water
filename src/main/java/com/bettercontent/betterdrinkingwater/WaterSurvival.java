@@ -26,6 +26,7 @@ public final class WaterSurvival {
         MinecraftForge.EVENT_BUS.register(BlockWaterDrinking.class);
         MinecraftForge.EVENT_BUS.register(WaterContainerTooltip.class);
         MinecraftForge.EVENT_BUS.register(WaterSafetyEvents.class);
+        MinecraftForge.EVENT_BUS.register(CompletedFoodHydration.class);
         WaterBottleCurio.registerPredicate();
     }
 
@@ -34,5 +35,6 @@ public final class WaterSurvival {
         event.register(WaterSourceGameTests.class);
         event.register(BeverageGameTests.class);
         event.register(PlantDrinkGameTests.class);
+        event.register(FoodHydrationGameTests.class);
     }
 }

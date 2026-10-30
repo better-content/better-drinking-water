@@ -1,6 +1,6 @@
 package com.bettercontent.betterdrinkingwater;
 
-import dev.ghen.thirst.api.ThirstHelper;
+import com.bettercontent.betterdrinkingwater.api.ServingHydration;
 import dev.ghen.thirst.content.purity.WaterPurity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -59,6 +59,20 @@ public final class WaterSources {
         }).orElse(false);
     }
 
+    /** Native manual intake and automatic reserve purchases share the authored finite quantities.
+     * Drinkable potions retain their native effects; splash/lingering projectiles are never drinks.
+     */
+    public static java.util.Optional<ServingHydration.Profile> nativeHydration(ItemStack stack) {
+        if (stack.isEmpty()) return java.util.Optional.empty();
+        var drink = DrinkCatalogue.find(stack);
+        if (drink != null) return java.util.Optional.of(new ServingHydration.Profile(drink.hydration(), drink.quenching()));
+        if (stack.is(Items.POTION) || id(stack).equals("thirst:terracotta_water_bowl"))
+            return java.util.Optional.of(new ServingHydration.Profile(4, 5));
+        if (stack.is(Items.WATER_BUCKET) || id(stack).equals("aether:skyroot_water_bucket"))
+            return java.util.Optional.of(new ServingHydration.Profile(16, 20));
+        return java.util.Optional.empty();
+    }
+
     /** Resolve a finite beverage on a private copy; caller commits the debit before releasing credit. */
     static Debit debit(ServerPlayer player, ItemStack source) {
         var drink = DrinkCatalogue.find(source);
@@ -79,8 +93,7 @@ public final class WaterSources {
         boolean bottle = WaterBottleCurio.isWaterBottle(source);
         boolean bowl = id(source).equals("thirst:terracotta_water_bowl");
         if (bottle || bowl) {
-            int hydration = ThirstHelper.getThirst(source), quenched = ThirstHelper.getQuenched(source);
-            if (!ThirstHelper.itemRestoresThirst(source) || !validNutrition(hydration, quenched)) return null;
+            int hydration = 4, quenched = 5;
             ItemStack remainder = bottle ? new ItemStack(Items.GLASS_BOTTLE) : item("thirst:terracotta_bowl");
             ItemStack remaining = source.copy();
             remaining.shrink(1);
@@ -120,10 +133,6 @@ public final class WaterSources {
         int hydration = fluid.getAmount() * 4 / 250;
         int quenched = fluid.getAmount() * 5 / 250;
         return hydration == 0 ? null : new PlayerWaterReserve.Reserve(hydration, quenched, 0, WaterPurity.getPurity(fluid.copy()));
-    }
-
-    private static boolean validNutrition(int hydration, int quenched) {
-        return hydration > 0 && hydration <= 20 && quenched >= 0 && quenched <= 20;
     }
 
     private static ItemStack item(String id) {

@@ -3,44 +3,52 @@
   "drinks": [
     {
       "id": "aether:skyroot_milk_bucket",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 12,
+      "quenching": 16,
       "remainder": "aether:skyroot_bucket",
       "effects": [],
       "action": "milk",
-      "source": "aether-1.5.2 AetherItems/SkyrootMilkBucketItem; conservative authored hydration/quenching"
+      "source": "aether-1.5.2 AetherItems/SkyrootMilkBucketItem; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 1000
     },
     {
       "id": "better_drinking_water:apple_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:bayberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:beetroot_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:belladonna_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -51,12 +59,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:bittergold_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -67,12 +77,14 @@
         }
       ],
       "action": "lemon",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:blackbough_cordial",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -83,12 +95,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:blackwake_reserve",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -105,21 +119,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:blueberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:bluehour_cordial",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -130,12 +148,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:bluewind_infusion",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -146,12 +166,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:blushpetal_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -162,21 +184,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:bogclear_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "poison",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:bramblefoot_fizz",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -187,30 +213,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:cabbage_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:cane_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:canefire_brew",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -221,21 +253,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:carrot_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:cascara_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -246,21 +282,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:chorus_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:clearbrook_infusion",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -271,12 +311,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:cloudbreak_cordial",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -287,12 +329,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:cloudwhite_remedy",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -303,39 +347,47 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:coconut_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:coconut_milk",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:coffee_cherry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:copperpetal_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -346,30 +398,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:corn_milk",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:cranberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:dawnheart_cordial",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -380,30 +438,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:desert_turnip_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:dockside_bitter",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "cure_harmful_one",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:dreamwalker_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -420,12 +484,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:duneward_kvass",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -436,21 +502,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:durian_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:duskberry_cordial",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -461,12 +531,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:embergold_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -477,12 +549,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:emberpetal_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -493,12 +567,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:enchanted_cloudbreak",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -515,21 +591,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:enchanted_skyberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:evening_lilac_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -540,12 +620,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:featherfall_nectar",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -556,21 +638,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:fig_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:firethorn_guard",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -581,48 +667,58 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:firethorn_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:garlic_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:ginger_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:glow_berry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:goldeneye_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -633,12 +729,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:goldrush_fizz",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -649,12 +747,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:gravebloom_draught",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -671,12 +771,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:greenbound_fizz",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -687,12 +789,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:greenward_kvass",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -703,21 +807,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:grimberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:grimberry_rush",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -728,12 +836,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:groveguard_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -744,21 +854,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:hamimelon_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:harvestgold_brew",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -769,39 +883,47 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:hawberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:hearthfire_ginger_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "nausea",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:hearthroot_infusion",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "cure_harmful_one",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:ivorypetal_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -812,39 +934,47 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:kelp_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:kiwi_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:lemon_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:lemongrass_infusion",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -855,21 +985,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:lychee_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:mandrake_fortifier",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -886,30 +1020,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:mango_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:mangosteen_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:marshlight_infusion",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -920,12 +1060,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:meadowrest_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -936,30 +1078,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:melon_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:mulberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:nightshade_veil",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -976,39 +1124,47 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:olive_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:onion_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:orange_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:orchard_soother",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1019,12 +1175,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:palmshelter_cordial",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1035,30 +1193,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:peach_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:pear_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:peony_heartcordial",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1069,57 +1233,69 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:persimmon_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:pineapple_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:potato_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:pumpkin_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:pumpkin_seed_milk",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:redpetal_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1130,57 +1306,69 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:rice_milk",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:rose_hip_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:skyberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:sourceberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:spellbloom_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "mana",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:stillwater_infusion",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1191,30 +1379,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:summerheart_cordial",
-      "hydration": 8,
-      "quenching": 13,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "heal2",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:summerheart_reserve",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "heal4",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:suncrest_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1225,12 +1419,14 @@
         }
       ],
       "action": "orange",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:sungrain_kvass",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1241,12 +1437,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:sunward_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1257,21 +1455,25 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:sweet_berry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:thornhide_brew",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1288,12 +1490,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:tideward_infusion",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1304,30 +1508,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:tomato_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:torchberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:torchlight_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1338,30 +1548,36 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:ube_milk",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:violetguard_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "poison",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:voidstep_elixir",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1372,12 +1588,14 @@
         }
       ],
       "action": "blink",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:warped_veil",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1394,39 +1612,47 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:wheat_milk",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:white_apple_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:whiteclove_tonic",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "poison",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "better_drinking_water:widows_whisper",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1443,12 +1669,14 @@
         }
       ],
       "action": "none",
-      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated"
+      "source": "Plant matrix v1; 250 mB; authored conservative dose, native specialist profile retained where indicated; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:beer",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 3,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1465,12 +1693,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: FERMENTED_ALCOHOL per 250 mB",
+      "hydration_class": "FERMENTED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:bloody_mary",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1493,12 +1723,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:dread_nog",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1521,12 +1753,14 @@
         }
       ],
       "action": "dread_nog",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving/DreadNogItem; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving/DreadNogItem; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:egg_grog",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1549,12 +1783,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:glittering_grenadine",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1583,12 +1819,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:kombucha",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 3,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1611,12 +1849,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: FERMENTED_ALCOHOL per 250 mB",
+      "hydration_class": "FERMENTED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:mead",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 3,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1639,12 +1879,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: FERMENTED_ALCOHOL per 250 mB",
+      "hydration_class": "FERMENTED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:pale_jane",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1667,12 +1909,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:red_rum",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 1,
+      "quenching": 0,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1695,12 +1939,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: SPIRIT per 250 mB",
+      "hydration_class": "SPIRIT",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:rice_wine",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 3,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1723,12 +1969,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: FERMENTED_ALCOHOL per 250 mB",
+      "hydration_class": "FERMENTED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:saccharine_rum",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 1,
+      "quenching": 0,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1751,12 +1999,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: SPIRIT per 250 mB",
+      "hydration_class": "SPIRIT",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:salty_folly",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1779,12 +2029,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:steel_toe_stout",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 3,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1807,12 +2059,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: FERMENTED_ALCOHOL per 250 mB",
+      "hydration_class": "FERMENTED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:strongroot_ale",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 3,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1835,12 +2089,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: FERMENTED_ALCOHOL per 250 mB",
+      "hydration_class": "FERMENTED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:vodka",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 1,
+      "quenching": 0,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1857,12 +2113,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: SPIRIT per 250 mB",
+      "hydration_class": "SPIRIT",
+      "serving_mb": 250
     },
     {
       "id": "brewinandchewin:withering_dross",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "brewinandchewin:tankard",
       "effects": [
         {
@@ -1903,12 +2161,14 @@
         }
       ],
       "action": "booze",
-      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching"
+      "source": "BrewinAndChewin-1.20.1-3.2.1 BnCItems/BnCFoods/BoozeItem; native tipsy potency resolved once per serving; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "create:builders_tea",
-      "hydration": 12,
-      "quenching": 22,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1919,39 +2179,47 @@
         }
       ],
       "action": "none",
-      "source": "create-1.20.1-6.0.8 AllItems/BuildersTeaItem; thirst config"
+      "source": "create-1.20.1-6.0.8 AllItems/BuildersTeaItem; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "fallout_wastelands_:neutronade",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "fallout_wastelands_:empty_neutronade_bottle",
       "effects": [],
       "action": "none",
-      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NeutronadeItem: food and empty bottle only; conservative authored hydration/quenching"
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NeutronadeItem: food and empty bottle only; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fallout_wastelands_:nuka_cola",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "fallout_wastelands_:empty_nuka_cola_bottle",
       "effects": [],
       "action": "none",
-      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NukaColaItem: food and empty bottle only; conservative authored hydration/quenching"
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NukaColaItem: food and empty bottle only; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fallout_wastelands_:nuka_cola_quantum",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "fallout_wastelands_:empty_nuka_cola_bottle",
       "effects": [],
       "action": "none",
-      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NukaColaQuantumItem: food and empty bottle only; conservative authored hydration/quenching"
+      "source": "Fallout Wasteland Beta3.8.1 FalloutWastelandsModItems/NukaColaQuantumItem: food and empty bottle only; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersdelight:apple_cider",
-      "hydration": 8,
-      "quenching": 13,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -1962,39 +2230,47 @@
         }
       ],
       "action": "none",
-      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem; thirst config"
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem; thirst config; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersdelight:hot_cocoa",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "cure_harmful_one",
-      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem HotCocoaItem: one random harmful milk-curable effect; conservative authored hydration/quenching"
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem HotCocoaItem: one random harmful milk-curable effect; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersdelight:melon_juice",
-      "hydration": 8,
-      "quenching": 13,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "heal2",
-      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem MelonJuiceItem: direct 2 HP; thirst config"
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem MelonJuiceItem: direct 2 HP; thirst config; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersdelight:milk_bottle",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "cure_one",
-      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem MilkBottleItem: one random milk-curable effect; conservative authored hydration/quenching"
+      "source": "FarmersDelight-1.20.1-1.3.1 ModItems/FoodValues/ConsumableItem MilkBottleItem: one random milk-curable effect; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:black_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2005,12 +2281,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:coffee",
-      "hydration": 6,
-      "quenching": 11,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2021,12 +2299,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:dandelion_tea",
-      "hydration": 12,
-      "quenching": 22,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2037,12 +2317,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:gamblers_tea",
-      "hydration": 6,
-      "quenching": 11,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2061,12 +2343,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:green_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2077,12 +2361,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_apple_cider",
-      "hydration": 8,
-      "quenching": 13,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2093,12 +2379,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; conservative authored hydration/quenching"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_black_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2109,12 +2397,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_coffee",
-      "hydration": 6,
-      "quenching": 11,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2125,12 +2415,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_dandelion_tea",
-      "hydration": 12,
-      "quenching": 22,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2141,12 +2433,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_gamblers_tea",
-      "hydration": 6,
-      "quenching": 11,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2165,12 +2459,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_green_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2181,12 +2477,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_rose_hip_tea",
-      "hydration": 12,
-      "quenching": 22,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2197,12 +2495,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:long_yellow_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2213,12 +2513,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:rose_hip_tea",
-      "hydration": 12,
-      "quenching": 22,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2229,12 +2531,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_apple_cider",
-      "hydration": 8,
-      "quenching": 13,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2245,12 +2549,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_black_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2261,12 +2567,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_coffee",
-      "hydration": 6,
-      "quenching": 11,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2277,12 +2585,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_gamblers_tea",
-      "hydration": 6,
-      "quenching": 11,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2308,12 +2618,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues GamblersTeaItem: complementary coin-flip groups; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_green_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2324,30 +2636,36 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_hot_cocoa",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "cure_harmful_two",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues StrongHotCocoaItem: up to two random harmful cures; conservative authored hydration/quenching"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues StrongHotCocoaItem: up to two random harmful cures; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_melon_juice",
-      "hydration": 8,
-      "quenching": 13,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "heal4",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues StrongMelonJuiceItem: direct 4 HP; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues StrongMelonJuiceItem: direct 4 HP; thirst config; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_rose_hip_tea",
-      "hydration": 12,
-      "quenching": 22,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2358,12 +2676,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:strong_yellow_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2374,12 +2694,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "farmersrespite:yellow_tea",
-      "hydration": 10,
-      "quenching": 14,
+      "hydration": 4,
+      "quenching": 5,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2390,12 +2712,14 @@
         }
       ],
       "action": "none",
-      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config"
+      "source": "farmersrespite-1.20.1-2.1.2 FRItems/FRFoodValues; thirst config; hydration basis: WATER per 250 mB",
+      "hydration_class": "WATER",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:bellini_cocktail",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 2,
+      "quenching": 2,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2412,21 +2736,25 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: MIXED_ALCOHOL per 250 mB",
+      "hydration_class": "MIXED_ALCOHOL",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:hamimelon_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:hawberry_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2437,21 +2765,25 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:kiwi_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:lychee_cherry_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2462,12 +2794,14 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:mango_milkshake",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2484,12 +2818,14 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:mango_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2506,12 +2842,14 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:mangosteen_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2522,12 +2860,14 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:peach_tea",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2538,12 +2878,14 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "fruitsdelight:pear_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2554,21 +2896,25 @@
         }
       ],
       "action": "none",
-      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching"
+      "source": "fruitsdelight-1.1.3 FDItems/FruitType/FoodType/FoodClass; HealthBoost/Cycling/Digesting suppressed; vanilla beneficial amp0 <=1200 ticks; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "hexerei:milk_bottle",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "milk",
-      "source": "hexerei-0.4.2.3 ModItems/BottleMilkItem/HexBottleItem: vanilla milk curative; conservative authored hydration/quenching"
+      "source": "hexerei-0.4.2.3 ModItems/BottleMilkItem/HexBottleItem: vanilla milk curative; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "malum:cursed_sap",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2585,30 +2931,36 @@
         }
       ],
       "action": "none",
-      "source": "malum-1.6.7 ItemRegistry/FoodPropertyRegistry/BottledDrinkItem; conservative authored hydration/quenching"
+      "source": "malum-1.6.7 ItemRegistry/FoodPropertyRegistry/BottledDrinkItem; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "minecraft:honey_bottle",
-      "hydration": 2,
-      "quenching": 3,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [],
       "action": "poison",
-      "source": "Minecraft 1.20.1 Items/HoneyBottleItem: remove poison once at completion; conservative authored hydration/quenching"
+      "source": "Minecraft 1.20.1 Items/HoneyBottleItem: remove poison once at completion; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "minecraft:milk_bucket",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 12,
+      "quenching": 16,
       "remainder": "minecraft:bucket",
       "effects": [],
       "action": "milk",
-      "source": "Minecraft 1.20.1 Items/MilkBucketItem: cure once at completion; conservative authored hydration/quenching"
+      "source": "Minecraft 1.20.1 Items/MilkBucketItem: cure once at completion; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 1000
     },
     {
       "id": "the_bumblezone:sugar_water_bottle",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2619,12 +2971,14 @@
         }
       ],
       "action": "none",
-      "source": "the_bumblezone-7.13.4 BzItems/SugarWaterBottle; conservative authored hydration/quenching"
+      "source": "the_bumblezone-7.13.4 BzItems/SugarWaterBottle; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "the_deep_void:grimberry_juice",
-      "hydration": 6,
-      "quenching": 8,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2635,12 +2989,14 @@
         }
       ],
       "action": "none",
-      "source": "the_deep_void-1.98.1 TheDeepVoidModItems/GrimberryJuiceItem/GrimberryJuicePlayerFinishesUsingItemProcedure; conservative authored hydration/quenching"
+      "source": "the_deep_void-1.98.1 TheDeepVoidModItems/GrimberryJuiceItem/GrimberryJuicePlayerFinishesUsingItemProcedure; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     },
     {
       "id": "ubesdelight:milk_tea_ube",
-      "hydration": 4,
-      "quenching": 5,
+      "hydration": 3,
+      "quenching": 4,
       "remainder": "minecraft:glass_bottle",
       "effects": [
         {
@@ -2651,7 +3007,9 @@
         }
       ],
       "action": "none",
-      "source": "ubesdelight-0.4.11 UbesDelightItemsImpl/FoodValues/UbesDelightDrinkableItem; conservative authored hydration/quenching"
+      "source": "ubesdelight-0.4.11 UbesDelightItemsImpl/FoodValues/UbesDelightDrinkableItem; conservative authored hydration/quenching; hydration basis: JUICE_MILK per 250 mB",
+      "hydration_class": "JUICE_MILK",
+      "serving_mb": 250
     }
   ],
   "excluded": [

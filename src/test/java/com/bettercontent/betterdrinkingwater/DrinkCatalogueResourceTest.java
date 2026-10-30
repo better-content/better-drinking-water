@@ -68,13 +68,31 @@ class DrinkCatalogueResourceTest {
     }
 
     @Test
+    void hydrationClassesAndActualServingVolumesAreConserved() throws Exception {
+        var rows = profiles(resource("/drinks.json"));
+        for (var entry : rows.entrySet()) {
+            var row = entry.getValue();
+            var basis = DrinkHydration.valueOf(row.get("hydration_class").getAsString());
+            int volume = row.get("serving_mb").getAsInt();
+            assertEquals(basis.hydration(volume), row.get("hydration").getAsInt(), entry.getKey());
+            assertEquals(basis.quenching(volume), row.get("quenching").getAsInt(), entry.getKey());
+        }
+        assertEquals(12, rows.get("minecraft:milk_bucket").get("hydration").getAsInt());
+        assertEquals(16, rows.get("minecraft:milk_bucket").get("quenching").getAsInt());
+        assertEquals(1, rows.get("brewinandchewin:vodka").get("hydration").getAsInt());
+        assertEquals(0, rows.get("brewinandchewin:vodka").get("quenching").getAsInt());
+        assertEquals(3, rows.get("brewinandchewin:beer").get("hydration").getAsInt());
+        assertEquals(2, rows.get("fruitsdelight:bellini_cocktail").get("hydration").getAsInt());
+    }
+
+    @Test
     void coffeeTypoIsNotAnAliasAndRealStrongCoffeeHasItsNativeProfile() throws Exception {
         var rows = profiles(resource("/drinks.json"));
         assertFalse(rows.containsKey("farmersrespite:stong_coffee"));
         var coffee = rows.get("farmersrespite:strong_coffee");
         assertNotNull(coffee);
         assertEffect(coffee, "farmersrespite:caffeinated", 3000, 2);
-        assertEquals(22, rows.get("farmersrespite:rose_hip_tea").get("quenching").getAsInt());
+        assertEquals(5, rows.get("farmersrespite:rose_hip_tea").get("quenching").getAsInt());
     }
 
     @Test

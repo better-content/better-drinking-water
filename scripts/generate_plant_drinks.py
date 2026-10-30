@@ -15,7 +15,7 @@ def effect(name, duration=1200, amp=0, chance=1):
 def add(name, ingredient=None, count=1, colour='aa7733', group='fruits', effects=(), action='none', base=None, agent=None, native=None, clone=None, process='juice', food=1, unsafe=False):
     item = native or NS+name
     fx=list(effects)
-    hydration, quenching = 6, 8
+    hydration, quenching = (4, 5) if process == 'infusion' else (3, 4)
     if clone:
         source=profiles[clone]; fx=source['effects']; action=source['action']
         hydration,quenching=source['hydration'],source['quenching']
@@ -182,6 +182,20 @@ for r in rows:
     if item.startswith(NS): emit(RES/'assets/better_drinking_water/models/item'/f'{name}.json',dict(parent='minecraft:item/generated',textures=dict(layer0=NS+'item/'+name)))
 emit(RES/'plant_drinks.json',dict(version=1,serving_mb=250,drinks=rows,coverage=coverage,retained=retained))
 emit(RES/'data/better_drinking_water/tags/items/safe_starter_flowers.json',dict(replace=False,values=['minecraft:'+s for s in ['dandelion','poppy','blue_orchid','allium','azure_bluet','red_tulip','orange_tulip','white_tulip','pink_tulip','oxeye_daisy','cornflower','sunflower','lilac','rose_bush','peony']]))
+# Finite explicit category matrix. No discovery via item-name keywords at runtime.
+water = {'create:builders_tea'} | {'farmersrespite:'+prefix+name for prefix in ['', 'long_', 'strong_']
+    for name in ['green_tea','yellow_tea','black_tea','rose_hip_tea','dandelion_tea','gamblers_tea','coffee']}
+fermented = {'brewinandchewin:'+name for name in ['beer','rice_wine','mead','kombucha','strongroot_ale','steel_toe_stout']}
+spirits = {'brewinandchewin:'+name for name in ['vodka','red_rum','saccharine_rum']}
+mixed = {'brewinandchewin:'+name for name in ['bloody_mary','dread_nog','egg_grog','glittering_grenadine','pale_jane','salty_folly','withering_dross']} | {'fruitsdelight:bellini_cocktail'}
+water |= {r['item'] for r in rows if r['process']=='infusion'}
+quantities = {'WATER': (4,5), 'JUICE_MILK': (3,4), 'FERMENTED_ALCOHOL': (3,3), 'SPIRIT': (1,0), 'MIXED_ALCOHOL': (2,2)}
+for item,p in profiles.items():
+    category = 'WATER' if item in water else 'FERMENTED_ALCOHOL' if item in fermented else 'SPIRIT' if item in spirits else 'MIXED_ALCOHOL' if item in mixed else 'JUICE_MILK'
+    volume = 1000 if item in ['minecraft:milk_bucket','aether:skyroot_milk_bucket'] else 250
+    p['hydration_class'],p['serving_mb']=category,volume
+    p['hydration'],p['quenching']=[x*(volume//250) for x in quantities[category]]
+    p['source'] = p['source'].split('; hydration basis:')[0] + '; hydration basis: '+category+' per 250 mB'
 emit(RES/'drinks.json',dict(version=1,drinks=sorted(profiles.values(),key=lambda r:r['id']),excluded=old['excluded']))
 lang=json.loads((RES/'assets/better_drinking_water/lang/en_us.json').read_text())
 lang={k:v for k,v in lang.items() if not k.startswith(('fluid_type.better_drinking_water.','fluid.better_drinking_water.'))

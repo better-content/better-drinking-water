@@ -83,7 +83,7 @@ public final class RainCollectorBlock extends Block {
             if (!(player instanceof net.minecraft.server.level.ServerPlayer serverPlayer)) return InteractionResult.PASS;
             boolean drank = WaterDrinking.sip(serverPlayer, () -> {
                 consumeCharge(level, pos, state);
-                return new PlayerWaterReserve.Reserve(3, 2, 0, WaterPurity.getBlockPurity(level, pos));
+                return new PlayerWaterReserve.Reserve(4, 5, 0, WaterPurity.getBlockPurity(level, pos));
             }, 1);
             if (!drank) return InteractionResult.CONSUME;
             level.playSound(null, pos, SoundEvents.GENERIC_DRINK, SoundSource.BLOCKS, 0.8F, 1.0F);

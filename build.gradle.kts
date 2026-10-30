@@ -186,7 +186,7 @@ val verifyNativeDiagnostics by tasks.registering {
     dependsOn(tasks.named("headlessGameTest"))
     doLast {
         exec {
-            commandLine("python3", "-B", "scripts/audit_native_diagnostics.py", "45",
+            commandLine("python3", "-B", "scripts/audit_native_diagnostics.py", "48",
                 nativeRunDirectory.resolve("logs/latest.log").absolutePath,
                 nativeRunDirectory.resolve("logs/debug.log").absolutePath)
         }

@@ -131,9 +131,9 @@ public final class BeverageGameTests {
     }
 
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty")
-    public static void twentyTwoQuenchDrinkPaysUpfrontAndReturnsOneVessel(GameTestHelper helper) {
-        var profile = DrinkCatalogue.entries().values().stream().filter(d -> d.quenching() == 22 && d.available())
-                .findFirst().orElseThrow(() -> new AssertionError("Fixture needs a real 22-quenching beverage"));
+    public static void normalizedTeaPaysUpfrontAndReturnsOneVessel(GameTestHelper helper) {
+        var profile = DrinkCatalogue.entries().values().stream().filter(d -> d.hydration() == 4 && d.quenching() == 5 && d.available())
+                .findFirst().orElseThrow(() -> new AssertionError("Fixture needs a real normalized tea beverage"));
         var player = player(helper);
         var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
         var curios = CuriosApi.getCuriosInventory(player).resolve().orElseThrow();
@@ -158,10 +158,10 @@ public final class BeverageGameTests {
             helper.assertTrue(thirst.getThirst() == 20, "Each sip restores only the missing hydration");
             var reserve = PlayerWaterReserve.read(player);
             helper.assertTrue(sip == profile.hydration() ? reserve == null
-                            : reserve != null && reserve.quenched() == 22 && reserve.beverage() != null,
-                    "22-quenching entitlement must survive native reserve validation until completion");
+                            : reserve != null && reserve.quenched() == 5 && reserve.beverage() != null,
+                    "Normalized quenching entitlement must survive native reserve validation until completion");
         }
-        helper.assertTrue(totalQuench == 22, "Fractional native thirst credit must total exactly 22, not clamp to 20");
+        helper.assertTrue(totalQuench == 5, "Fractional native thirst credit must total exactly five across partial sips");
         helper.assertTrue(!profile.remainder().isEmpty() && empty.getStackInSlot(0).is(item(profile.remainder()).getItem())
                         && empty.getStackInSlot(0).getCount() == 1,
                 "Upfront payment returns exactly the native vessel once");

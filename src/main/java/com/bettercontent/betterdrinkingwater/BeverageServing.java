@@ -1,6 +1,7 @@
 package com.bettercontent.betterdrinkingwater;
 
 import com.bettercontent.betterdrinkingwater.api.BeverageEvents;
+import com.bettercontent.betterdrinkingwater.api.ServingEffects;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -92,7 +93,14 @@ record BeverageServing(String source, int food, float saturation, CompoundTag nu
             effects.add(new DrinkCatalogue.Effect(id, duration, amplifier, 1));
         }
         if (effects.stream().map(DrinkCatalogue.Effect::id).distinct().count() != effects.size()) return null;
-        return new BeverageServing(source, food, saturation, nutrition, effects, action);
+        // All chance/group draws and native harmful amplifier choices have already happened.
+        // Restrict fresh purchases and old paid reserves alike, without re-paying or re-rolling.
+        ResourceLocation paidSource = new ResourceLocation(source);
+        List<DrinkCatalogue.Effect> restricted = new ArrayList<>();
+        for (var effect : effects) ServingEffects.restrict(paidSource,
+                new ServingEffects.Selected(new ResourceLocation(effect.id()), effect.duration(), effect.amplifier()))
+            .ifPresent(selected -> restricted.add(new DrinkCatalogue.Effect(selected.id().toString(), selected.duration(), selected.amplifier(), 1)));
+        return new BeverageServing(source, food, saturation, nutrition, restricted, action);
     }
 
     private static boolean validNutrition(CompoundTag nutrition) {
