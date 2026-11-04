@@ -1422,7 +1422,7 @@
       "colour": "778331",
       "food": 1,
       "nutrition": {
-        "fats": 0.025
+        "fruits": 0.025
       },
       "mods": [
         "natures_spirit"
@@ -1442,7 +1442,7 @@
       "colour": "778331",
       "food": 1,
       "nutrition": {
-        "fats": 0.025
+        "fruits": 0.025
       },
       "mods": [
         "natures_spirit"
@@ -1462,7 +1462,7 @@
       "colour": "eee8d7",
       "food": 1,
       "nutrition": {
-        "fats": 0.025
+        "fruits": 0.025
       },
       "mods": [
         "natures_spirit"
@@ -2060,7 +2060,7 @@
       "colour": "e7d9b0",
       "food": 1,
       "nutrition": {
-        "fats": 0.025
+        "vegetables": 0.025
       },
       "mods": [],
       "process": "milk",

@@ -48,8 +48,8 @@ class PlantDrinkResourceTest {
         for (String name : List.of("coconut_milk","olive_juice","groveguard_tonic")) {
             var drink=matrix.getAsJsonArray("drinks").asList().stream().map(v -> v.getAsJsonObject())
                     .filter(r -> r.get("name").getAsString().equals(name)).findFirst().orElseThrow();
-            assertEquals(.025,drink.getAsJsonObject("nutrition").get("fats").getAsDouble());
-            assertFalse(drink.getAsJsonObject("nutrition").has("sugar"),"No invented Nectar from lipid-bearing stock");
+            assertEquals(.025,drink.getAsJsonObject("nutrition").get("fruits").getAsDouble());
+            assertFalse(drink.getAsJsonObject("nutrition").has("sugar"),"No invented Sugar from fruit-bearing stock");
         }
     }
     @Test void nativeVolumesVesselsProcessesAndAgentExceptionsAreConserved() throws Exception {

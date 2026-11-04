@@ -46,7 +46,7 @@ public final class PlantDrinks {
                     throw new IllegalArgumentException("Invalid plant quantity/colour " + name);
                 for (var nutrient : row.getAsJsonObject("nutrition").entrySet()) {
                     double value = nutrient.getValue().getAsDouble();
-                    if (!java.util.Set.of("fruits", "vegetables", "grains", "proteins", "dairy", "fats", "sugar").contains(nutrient.getKey())
+                    if (!java.util.Set.of("fruits", "vegetables", "grains", "proteins", "dairy", "sugar").contains(nutrient.getKey())
                             || !Double.isFinite(value) || value < 0 || value > .1)
                         throw new IllegalArgumentException("Invalid plant nutrition " + name);
                 }
