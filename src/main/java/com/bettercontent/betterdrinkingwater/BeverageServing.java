@@ -54,6 +54,33 @@ record BeverageServing(String source, int food, float saturation, CompoundTag nu
         return read(serving.save()); // The persisted representation and live purchase share one validator.
     }
 
+    /** One native KC drink: freeze the optional typed snapshot BEFORE KC item/effect debit.
+     * An entirely absent profile is not an invented zero; KC remains usable without
+     * a paid Diet entitlement. A partially CLAIMED profile is a hard failure. */
+    static BeverageServing purchaseNative(ServerPlayer player, ItemStack cup, NativeDrinkFacts.Receipt facts) {
+        if (!facts.complete()) return null;
+        CompoundTag nutrition = new CompoundTag();
+        MinecraftForge.EVENT_BUS.post(new BeverageEvents.Profile(player, cup, nutrition, facts));
+        if (nutrition.isEmpty()) return null;
+        if (!"canonical_five".equals(nutrition.getString("vector_type"))
+                || !nutrition.contains("vector_type", Tag.TAG_STRING)
+                || !nutrition.contains("diet", Tag.TAG_COMPOUND)
+                || !nutrition.contains("item", Tag.TAG_STRING)
+                || !nutrition.contains("edible", Tag.TAG_BYTE)
+                || !nutrition.contains("sugar", Tag.TAG_DOUBLE)
+                || !nutrition.contains("alcohol", Tag.TAG_DOUBLE))
+            throw new IllegalStateException("Incomplete claimed native cup nutrition");
+        var serving = new BeverageServing(WaterSources.id(cup), 0, 0, nutrition, List.of(), "none");
+        var frozen = read(serving.save());
+        if (frozen == null) throw new IllegalStateException("Malformed claimed native cup nutrition");
+        return frozen;
+    }
+
+    /** Native KC already handled its physical consumption, tea effects and containers. */
+    void releaseNative(ServerPlayer player) {
+        MinecraftForge.EVENT_BUS.post(new BeverageEvents.Sip(player, nutrition, 0, 1));
+    }
+
     CompoundTag save() {
         CompoundTag data = new CompoundTag();
         data.putString("source", source); data.putInt("food", food); data.putFloat("saturation", saturation);
@@ -104,9 +131,11 @@ record BeverageServing(String source, int food, float saturation, CompoundTag nu
     }
 
     private static boolean validNutrition(CompoundTag nutrition) {
-        if (nutrition.getAllKeys().size() > 5) return false;
+        if (nutrition.getAllKeys().size() > 6) return false;
         for (String key : nutrition.getAllKeys()) {
-            if (key.equals("edible")) {
+            if (key.equals("vector_type")) {
+                if (!nutrition.contains(key, Tag.TAG_STRING) || !"canonical_five".equals(nutrition.getString(key))) return false;
+            } else if (key.equals("edible")) {
                 if (!nutrition.contains(key, Tag.TAG_BYTE)) return false;
             } else if (key.equals("item")) {
                 if (!nutrition.contains(key, Tag.TAG_STRING) || nutrition.getString(key).length() > 128

@@ -516,6 +516,42 @@ public final class WaterSurvivalGameTests {
         helper.succeed();
     }
 
+    /** Thirty-two distinct owners on one server tick path; not a concurrent network/load benchmark. */
+    @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty", timeoutTicks = 200)
+    public static void thirtyTwoPlayersKeepSeparatePaidWaterReserves(final GameTestHelper helper) {
+        final ServerPlayer[] players = new ServerPlayer[32];
+        for (int index = 0; index < players.length; index++) {
+            ServerPlayer player = fakePlayer(helper, "scale-" + index);
+            players[index] = player;
+            var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+            var curios = CuriosApi.getCuriosInventory(player).resolve().orElseThrow();
+            curios.getStacksHandler(WaterBottleCurio.SLOT).orElseThrow().getStacks()
+                    .setStackInSlot(0, purifiedWaterBottles(1));
+            thirst.setThirst(19);
+            thirst.setQuenched(0);
+            tickWaterCurio(player);
+            helper.assertTrue(thirst.getThirst() == 20
+                            && closeTo(PlayerWaterReserve.read(player).consumed(), 1.0D / 4.0D)
+                            && curios.getStacksHandler(WaterBottleCurio.SLOT).orElseThrow()
+                                    .getStacks().getStackInSlot(0).isEmpty()
+                            && curios.getStacksHandler(WaterBottleCurio.EMPTY_BOTTLE_SLOT).orElseThrow()
+                                    .getStacks().getStackInSlot(0).getCount() == 1,
+                    "Player " + index + " must pay only their own bottle and retain their own remainder");
+        }
+        var firstThirst = players[0].getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        firstThirst.setThirst(19);
+        tickWaterCurio(players[0]);
+        helper.assertTrue(closeTo(PlayerWaterReserve.read(players[0]).consumed(), 2.0D / 4.0D),
+                "An additional sip must advance only the first owner's paid reserve");
+        for (int index = 1; index < players.length; index++) {
+            helper.assertTrue(closeTo(PlayerWaterReserve.read(players[index]).consumed(), 1.0D / 4.0D)
+                            && players[index].getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow()
+                                    .getThirst() == 20,
+                    "A separate owner's paid reserve and meter must not advance with another player's sip");
+        }
+        helper.succeed();
+    }
+
     private static void assertDirtyEffects(GameTestHelper helper, ServerPlayer player) {
         var malnourishment = net.minecraftforge.registries.ForgeRegistries.MOB_EFFECTS.getValue(
                 new net.minecraft.resources.ResourceLocation("better_industrial_heat", "malnourishment"));

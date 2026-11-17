@@ -164,18 +164,40 @@ public final class WaterSourceGameTests {
 
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty")
     public static void directCreateTankDrinksStoredQualityAndDebitsNativeTank(GameTestHelper helper) {
-        var player = player(helper);
-        var thirst = player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
-        var relative = new BlockPos(2, 2, 2);
-        var pos = helper.absolutePos(relative);
-        helper.setBlock(relative, com.simibubi.create.AllBlocks.FLUID_TANK.getDefaultState());
-        var handler = helper.getLevel().getBlockEntity(pos).getCapability(ForgeCapabilities.FLUID_HANDLER, Direction.UP)
+        var cleanPlayer = player(helper);
+        var dirtyPlayer = player(helper);
+        helper.assertTrue(!cleanPlayer.getUUID().equals(dirtyPlayer.getUUID()),
+                "Native actors must have distinct persistent reserve identities");
+        var cleanThirst = cleanPlayer.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        var dirtyThirst = dirtyPlayer.getCapability(ModCapabilities.PLAYER_THIRST).resolve().orElseThrow();
+        var cleanRelative = new BlockPos(2, 2, 2);
+        var dirtyRelative = new BlockPos(5, 2, 2); // Not adjacent: Create must not join the two tank reservoirs.
+        var cleanPos = helper.absolutePos(cleanRelative);
+        var dirtyPos = helper.absolutePos(dirtyRelative);
+        helper.setBlock(cleanRelative, com.simibubi.create.AllBlocks.FLUID_TANK.getDefaultState());
+        helper.setBlock(dirtyRelative, com.simibubi.create.AllBlocks.FLUID_TANK.getDefaultState());
+        var cleanTank = helper.getLevel().getBlockEntity(cleanPos).getCapability(ForgeCapabilities.FLUID_HANDLER, Direction.UP)
                 .resolve().orElseThrow();
-        handler.fill(water(1000, 3), IFluidHandler.FluidAction.EXECUTE);
-        thirst.setThirst(19);
-        helper.assertTrue(BlockWaterDrinking.drink(player, pos, Direction.UP), "Native tank should hydrate");
-        helper.assertTrue(handler.getFluidInTank(0).getAmount() == 750 && PlayerWaterReserve.read(player).purity() == 3,
-                "Direct drinking must use stored fluid quality, not surrounding biome quality");
+        var dirtyTank = helper.getLevel().getBlockEntity(dirtyPos).getCapability(ForgeCapabilities.FLUID_HANDLER, Direction.UP)
+                .resolve().orElseThrow();
+        helper.assertTrue(cleanTank.fill(water(1000, 3), IFluidHandler.FluidAction.EXECUTE) == 1000,
+                "Native clean tank must actually accept the entire source volume");
+        helper.assertTrue(dirtyTank.fill(new FluidStack(Fluids.WATER, 250), IFluidHandler.FluidAction.EXECUTE) == 250,
+                "Untagged native control tank must contain one paid portion");
+        cleanThirst.setThirst(19);
+        dirtyThirst.setThirst(19);
+        helper.assertTrue(BlockWaterDrinking.drink(cleanPlayer, cleanPos, Direction.UP), "Native clean tank should hydrate");
+        var cleanReserve = PlayerWaterReserve.read(cleanPlayer);
+        helper.assertTrue(cleanTank.getFluidInTank(0).getAmount() == 750 && cleanReserve != null
+                        && cleanReserve.purity() == 3 && PlayerWaterReserve.read(dirtyPlayer) == null,
+                "Clean purchase must use real stored fluid and not pre-credit another actor");
+        helper.assertTrue(BlockWaterDrinking.drink(dirtyPlayer, dirtyPos, Direction.UP),
+                "Separate untagged native tank should still permit a paid dirty-water purchase");
+        var dirtyReserve = PlayerWaterReserve.read(dirtyPlayer);
+        helper.assertTrue(dirtyTank.getFluidInTank(0).isEmpty() && dirtyReserve != null && dirtyReserve.purity() == 0
+                        && cleanTank.getFluidInTank(0).getAmount() == 750
+                        && PlayerWaterReserve.read(cleanPlayer).equals(cleanReserve),
+                "Untagged water must remain dirty and pay only its owner's 250mB, without borrowing quality or volume");
         helper.succeed();
     }
 

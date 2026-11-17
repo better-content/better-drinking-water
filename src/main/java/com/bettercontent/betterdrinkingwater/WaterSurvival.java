@@ -17,6 +17,7 @@ public final class WaterSurvival {
             com.bettercontent.betterdrinkingwater.diagnostics.PlaytestLog.fields("enabled", true, "thirst", "required", "catalogue", "validation_pending"));
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         PlantDrinks.register(bus);
+        if (net.minecraftforge.fml.ModList.get().isLoaded("kaleidoscope_cookery")) NativeCupsLoaded.register(bus);
         RainCollectorRegistry.BLOCKS.register(bus);
         RainCollectorRegistry.ITEMS.register(bus);
         bus.addListener(this::registerGameTests);
@@ -27,7 +28,12 @@ public final class WaterSurvival {
         MinecraftForge.EVENT_BUS.register(WaterContainerTooltip.class);
         MinecraftForge.EVENT_BUS.register(WaterSafetyEvents.class);
         MinecraftForge.EVENT_BUS.register(CompletedFoodHydration.class);
+        NativeFoodHydration.register();
         WaterBottleCurio.registerPredicate();
+    }
+
+    private static final class NativeCupsLoaded {
+        private static void register(net.minecraftforge.eventbus.api.IEventBus bus) { NativeCupEntities.register(bus); }
     }
 
     private void registerGameTests(RegisterGameTestsEvent event) {

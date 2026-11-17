@@ -1,6 +1,8 @@
 package com.bettercontent.betterdrinkingwater.api;
 
 import net.minecraft.nbt.CompoundTag;
+import com.bettercontent.betterdrinkingwater.NativeDrinkFacts;
+import java.util.Optional;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.Cancelable;
@@ -15,12 +17,19 @@ public final class BeverageEvents {
         private final ServerPlayer player;
         private final ItemStack stack;
         private final CompoundTag nutrition;
+        private final NativeDrinkFacts.Receipt paidInputs;
         public Profile(ServerPlayer player, ItemStack stack, CompoundTag nutrition) {
+            this(player, stack, nutrition, null);
+        }
+        public Profile(ServerPlayer player, ItemStack stack, CompoundTag nutrition, NativeDrinkFacts.Receipt paidInputs) {
             this.player = player; this.stack = stack.copyWithCount(1); this.nutrition = nutrition;
+            this.paidInputs = paidInputs;
         }
         public ServerPlayer player() { return player; }
         public ItemStack stack() { return stack.copy(); }
         public CompoundTag nutrition() { return nutrition; }
+        /** Actual physical sources, never a template or nutrition interpretation. */
+        public Optional<NativeDrinkFacts.Receipt> paidInputs() { return Optional.ofNullable(paidInputs); }
     }
 
     /** Runs before purchase AND before releasing an already-paid beverage fraction. */

@@ -29,6 +29,16 @@ public final class CompletedFoodHydration {
         return true;
     }
 
+    /** Water-owned sequence allocation, shared with all completed food/placed/cup credits.
+     * Call exactly once after a real native cup debit. The existing ledger persists
+     * the sequence before applying credit and conserves subunit tea hydration. */
+    static boolean completeNativeCup(ServerPlayer player, ServingHydration.Profile profile) {
+        if (!player.server.isSameThread()) throw new IllegalStateException("Native cup completion must run on server thread");
+        long previous = read(player).sequence();
+        if (previous == Long.MAX_VALUE) throw new IllegalStateException("Completed hydration sequence exhausted");
+        return complete(player, previous + 1, profile);
+    }
+
     static FoodHydrationLedger.State read(Player player) {
         var data = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getCompound(KEY);
         if (!data.contains("sequence", Tag.TAG_LONG) || !data.contains("hydration", Tag.TAG_DOUBLE)

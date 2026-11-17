@@ -1,5 +1,6 @@
 import java.nio.file.Files
 import java.util.UUID
+import java.security.MessageDigest
 
 plugins {
     idea
@@ -68,7 +69,23 @@ minecraft {
     }
 }
 
+// Only the exact reviewed KC 1.6.0 archive can supply native drink bytecode.
+val kcPath = providers.gradleProperty("kaleidoscopeJar").orNull
+    ?: throw GradleException("Bind pinned KC 1.6.0 via -PkaleidoscopeJar=/absolute/path")
+val kcBytes = file(kcPath).takeIf { it.isFile }?.readBytes()
+    ?: throw GradleException("Missing pinned KC input: $kcPath")
+val kcHash = MessageDigest.getInstance("SHA-256").digest(kcBytes)
+    .joinToString("") { "%02x".format(it) }
+check(kcHash == "0eee5579b36746825d6586c65051d9e68fc84178a19dec4372fc9d64b8629d62") {
+    "Different KC archive is not the reviewed native drink provider: $kcHash"
+}
+val kcDirectory = file(".gradle/kc-provider/$kcHash").apply { mkdirs() }
+val kcSnapshot = kcDirectory.resolve("kaleidoscope-cookery-$kcHash.jar")
+if (!kcSnapshot.isFile) Files.write(kcSnapshot.toPath(), kcBytes)
+else check(kcSnapshot.readBytes().contentEquals(kcBytes)) { "Corrupted pinned KC snapshot" }
+
 repositories {
+    flatDir { dirs(kcDirectory); content { includeGroup("bettercontent.kc.local") } }
     maven("https://maven.minecraftforge.net")
     maven("https://maven.createmod.net")
     maven("https://maven.ithundxr.dev/mirror")
@@ -83,6 +100,14 @@ repositories {
 
 dependencies {
     minecraft("net.minecraftforge:forge:${property("minecraft_version")}-${property("forge_version")}")
+    compileOnly(fg.deobf("bettercontent.kc.local:kaleidoscope-cookery:$kcHash"))
+    // Existing Spice native-placed completion event; source-only compiled classes, never a packaged JAR.
+    val placedSpiceClasses = providers.gradleProperty("typedSpiceCompileClasses").orNull
+        ?: throw GradleException("Bind compiled Spice API via -PtypedSpiceCompileClasses=/absolute/classes/path")
+    check(file(placedSpiceClasses).resolve("com/bettercontent/betterspicyfarmers/api/event/NativePlacedServingEvent.class").isFile) {
+        "Missing compiled native placed-serving event: $placedSpiceClasses"
+    }
+    compileOnly(files(placedSpiceClasses))
     implementation(fg.deobf("com.simibubi.create:create-${property("minecraft_version")}:6.0.8-291:slim"))
     implementation(fg.deobf("net.createmod.ponder:Ponder-Forge-${property("minecraft_version")}:1.0.92"))
     compileOnly(fg.deobf("dev.engine-room.flywheel:flywheel-forge-api-${property("minecraft_version")}:1.0.5"))
