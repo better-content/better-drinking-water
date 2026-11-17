@@ -22,4 +22,17 @@ class NativeCupYieldTest {
                 () -> NativeCupYield.require("stockpot", "kaleidoscope_cookery:clay_pot_milk_tea", 10));
         assertThrows(IllegalArgumentException.class, () -> NativeCupYield.perCup(Double.NaN, 12));
     }
+
+    @Test void noOtherRouteOrUnpaidYieldCanCreateCupEntitlements() {
+        assertThrows(IllegalArgumentException.class,
+                () -> NativeCupYield.require("stockpot", "kaleidoscope_cookery:barley_tea", 12));
+        assertThrows(IllegalArgumentException.class,
+                () -> NativeCupYield.require("teapot", "kaleidoscope_cookery:clay_pot_milk_tea", 9));
+        assertThrows(IllegalArgumentException.class,
+                () -> NativeCupYield.require("teapot", "kaleidoscope_cookery:mystery_tea", 12));
+        assertThrows(IllegalArgumentException.class,
+                () -> NativeCupYield.require("teapot", "kaleidoscope_cookery:unknown_tea", 12));
+        assertThrows(IllegalArgumentException.class, () -> NativeCupYield.perCup(1, 0));
+        assertThrows(IllegalArgumentException.class, () -> NativeCupYield.perCup(-1, 4));
+    }
 }
