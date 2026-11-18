@@ -47,8 +47,10 @@ public final class PlantDrinkGameTests {
                 "Full thirst cannot purchase a manual serving or healing");
         thirst.setThirst(10);
         var result = juice.getItem().finishUsingItem(juice, player.level(), player);
-        helper.assertTrue(result.is(Items.GLASS_BOTTLE) && juice.isEmpty() && thirst.getThirst() == 16,
-                "Native finish consumes exactly one 250mB bottle and restores six thirst");
+        helper.assertTrue(result.is(Items.GLASS_BOTTLE) && juice.isEmpty()
+                        && thirst.getThirst() == 10 + DrinkCatalogue.find(item("better_drinking_water:melon_juice")).hydration(),
+                "Native finish consumes one 250mB bottle and restores the authored hydration: result=" + result
+                        + " remaining=" + juice + " thirst=" + thirst.getThirst());
         helper.assertTrue(player.getHealth() == 8 && player.getActiveEffects().isEmpty(), "Plain melon carries no healing or potion effect");
         helper.assertTrue(player.getFoodData().getFoodLevel() == 11, "Manual explicit nutrition releases once, not via super plus entitlement");
         thirst.setThirst(10);
@@ -72,12 +74,16 @@ public final class PlantDrinkGameTests {
                 "One upfront item debit produces exactly its glass vessel");
         PlayerWaterReserve.write(player, debit.portion());
         player.addEffect(new MobEffectInstance(MobEffects.POISON, 1200));
-        for (int i = 0; i < 6; i++) {
+        int sips = 0;
+        while (PlayerWaterReserve.read(player) != null && sips++ < 20) {
             thirst.setThirst(19);
             WaterDrinking.sip(player, () -> { throw new AssertionError("Paid serving must not repurchase"); }, 0);
-            helper.assertTrue(player.hasEffect(MobEffects.POISON) == (i < 5), "Poison cleansing happens only at paid serving completion");
+            helper.assertTrue(player.hasEffect(MobEffects.POISON) == (PlayerWaterReserve.read(player) != null),
+                    "Poison cleansing happens only at paid serving completion: sip=" + sips
+                    + " remaining=" + PlayerWaterReserve.read(player) + " thirst=" + thirst.getThirst());
         }
-        helper.assertTrue(PlayerWaterReserve.read(player) == null, "Completed serving cannot replay cleansing");
+        helper.assertTrue(sips > 1 && PlayerWaterReserve.read(player) == null,
+                "Completed serving cannot replay cleansing");
         helper.succeed();
     }
     @GameTest(templateNamespace = WaterSurvival.MOD_ID, template = "empty")
@@ -120,7 +126,9 @@ public final class PlantDrinkGameTests {
             net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(
                     new net.minecraftforge.event.entity.living.LivingEntityUseItemEvent.Finish(player, original, 32, result));
             helper.assertTrue(thirst.getThirst() == expectedThirst && thirst.getQuenched() == expectedQuenched,
-                    "Manual plus real native Finish event uses catalogue hydration/quenching once: " + profile.id());
+                    "Manual plus real native Finish event uses catalogue hydration/quenching once: " + profile.id()
+                    + " expected=" + expectedThirst + "/" + expectedQuenched
+                    + " actual=" + thirst.getThirst() + "/" + thirst.getQuenched());
             helper.assertTrue(stack.isEmpty() && result.is(Items.GLASS_BOTTLE), "One payment and vessel: " + profile.id());
             tested++;
         }

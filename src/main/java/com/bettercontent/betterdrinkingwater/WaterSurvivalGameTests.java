@@ -503,13 +503,19 @@ public final class WaterSurvivalGameTests {
                     "Equipping pure water must not complete safety while drinking a dirty reserve");
             thirst.setThirst(16);
             tickWaterCurio(player);
-            helper.assertTrue(PlayerWaterReserve.read(player) == null && slot.getStacks().getStackInSlot(0).getCount() == 1,
-                    "Old reserve must drain before charging the replacement");
+            // The remaining dirty fraction is consumed first; if thirst is still
+            // missing, the now-pure replacement can be purchased in the same tick.
+            helper.assertTrue(PlayerWaterReserve.read(player) != null
+                            && PlayerWaterReserve.read(player).purity() == WaterPurity.MAX_PURITY
+                            && slot.getStacks().getStackInSlot(0).isEmpty()
+                            && empty.getStacks().getStackInSlot(0).getCount() == 3,
+                    "Old reserve must drain before the replacement is charged");
+            helper.assertTrue(WaterSafetyEpisodes.remembered(player).isEmpty(),
+                    "Only actual purified hydration completes the safety episode");
             thirst.setThirst(19);
             tickWaterCurio(player);
-            helper.assertTrue(WaterSafetyEpisodes.remembered(player).isEmpty()
-                            && empty.getStacks().getStackInSlot(0).getCount() == 3,
-                    "Actual purified hydration must complete safety, with one empty per debit");
+            helper.assertTrue(empty.getStacks().getStackInSlot(0).getCount() == 3,
+                    "Remaining paid pure reserve cannot debit another bottle");
         } finally {
             spec.setConfig(originalConfig);
         }

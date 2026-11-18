@@ -29,6 +29,16 @@ class FoodHydrationLedgerTest {
         assertEquals(.25, next.state().quenchingRemainder(), 1e-9);
         assertFalse(FoodHydrationLedger.complete(next.state(), 1, 64, 128, 0, 0).accepted());
     }
+    @Test void cookingSequenceAdvancesPastExistingPaidCupLedgerWithoutRejectingServing() {
+        var fromCups = new FoodHydrationLedger.State(7, .25, .125);
+        long cookingPrevious = 1;
+        long candidate = Math.max(cookingPrevious + 1, fromCups.sequence() + 1);
+        assertFalse(FoodHydrationLedger.complete(fromCups, cookingPrevious + 1, .5, .625, 10, 0).accepted());
+        var paid = FoodHydrationLedger.complete(fromCups, candidate, .5, .625, 10, 0);
+        assertTrue(paid.accepted());
+        assertEquals(8, paid.state().sequence());
+        assertFalse(FoodHydrationLedger.complete(paid.state(), candidate, .5, .625, 10, 0).accepted());
+    }
     @Test void fullMetersDiscardFoodInsteadOfMintingPaidReserveOrWholeFutureCredit() {
         var full = FoodHydrationLedger.complete(new FoodHydrationLedger.State(1,.75,.75), 2, 4, 5, 20, 20);
         assertTrue(full.accepted()); assertEquals(0,full.hydration()); assertEquals(0,full.quenching());

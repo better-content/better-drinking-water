@@ -17,6 +17,9 @@ public final class WaterSurvival {
             com.bettercontent.betterdrinkingwater.diagnostics.PlaytestLog.fields("enabled", true, "thirst", "required", "catalogue", "validation_pending"));
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         PlantDrinks.register(bus);
+        // Provider-initiated: standalone Water never loads Physiology classes.
+        if (net.minecraftforge.fml.ModList.get().isLoaded("better_survival_physiology"))
+            PhysiologyLoaded.register();
         if (net.minecraftforge.fml.ModList.get().isLoaded("kaleidoscope_cookery")) NativeCupsLoaded.register(bus);
         RainCollectorRegistry.BLOCKS.register(bus);
         RainCollectorRegistry.ITEMS.register(bus);
@@ -30,6 +33,12 @@ public final class WaterSurvival {
         MinecraftForge.EVENT_BUS.register(CompletedFoodHydration.class);
         NativeFoodHydration.register();
         WaterBottleCurio.registerPredicate();
+    }
+
+    private static final class PhysiologyLoaded {
+        private static void register() {
+            com.bettercontent.betterdrinkingwater.integration.PhysiologyBeverages.register();
+        }
     }
 
     private static final class NativeCupsLoaded {

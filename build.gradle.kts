@@ -101,6 +101,15 @@ repositories {
 dependencies {
     minecraft("net.minecraftforge:forge:${property("minecraft_version")}-${property("forge_version")}")
     compileOnly(fg.deobf("bettercontent.kc.local:kaleidoscope-cookery:$kcHash"))
+    val physiologyClasses = providers.gradleProperty("physiologyCompileClasses").orNull
+        ?: "../better-survival-physiology/build/classes/java/main"
+    check(file(physiologyClasses).resolve("com/bettercontent/bettersurvivalphysiology/api/BeverageProfiles.class").isFile) {
+        "Compile Physiology first or bind -PphysiologyCompileClasses=/absolute/classes/path"
+    }
+    compileOnly(files(physiologyClasses))
+    testRuntimeOnly(files(physiologyClasses)) // pure paid-batch conversion tests only
+    compileOnly(fg.deobf("curse.maven:diet-443570:4813904"))
+    testRuntimeOnly(fg.deobf("curse.maven:diet-443570:4813904"))
     // Existing Spice native-placed completion event; source-only compiled classes, never a packaged JAR.
     val placedSpiceClasses = providers.gradleProperty("typedSpiceCompileClasses").orNull
         ?: throw GradleException("Bind compiled Spice API via -PtypedSpiceCompileClasses=/absolute/classes/path")
@@ -149,6 +158,7 @@ dependencies {
     runtimeOnly(fg.deobf("curse.maven:architectury-api-419699:5137938"))
     runtimeOnly(fg.deobf("curse.maven:farmers-delight-398521:8007609"))
     runtimeOnly(fg.deobf("curse.maven:farmers-respite-551453:5543547"))
+    compileOnly(fg.deobf("curse.maven:brewin-and-chewin-637808:6237884"))
     runtimeOnly(fg.deobf("curse.maven:brewin-and-chewin-637808:6237884"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
     testImplementation("com.google.code.gson:gson:2.10.1")
@@ -164,7 +174,11 @@ tasks.named<Jar>("jar") {
 }
 
 tasks.named<JavaCompile>("compileJava") {
-    outputs.file(layout.buildDirectory.file("tmp/compileJava/compileJava-refmap.json"))
+    val refmap = layout.buildDirectory.file("tmp/compileJava/compileJava-refmap.json")
+    outputs.file(refmap)
+    // A missing processor output requires recompiling the mixins, not an empty incremental pass.
+    options.isIncremental = false
+    doLast { check(refmap.get().asFile.isFile) { "Production Mixin refmap was not generated" } }
 }
 
 val stageRuntimeJar by tasks.registering(Copy::class) {
@@ -211,7 +225,7 @@ val verifyNativeDiagnostics by tasks.registering {
     dependsOn(tasks.named("headlessGameTest"))
     doLast {
         exec {
-            commandLine("python3", "-B", "scripts/audit_native_diagnostics.py", "48",
+            commandLine("python3", "-B", "scripts/audit_native_diagnostics.py", "49",
                 nativeRunDirectory.resolve("logs/latest.log").absolutePath,
                 nativeRunDirectory.resolve("logs/debug.log").absolutePath)
         }

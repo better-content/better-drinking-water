@@ -39,6 +39,17 @@ public final class CompletedFoodHydration {
         return complete(player, previous + 1, profile);
     }
 
+    /** Read-only preflight. A rejected or missing Thirst receipt must not consume the
+     * Cooking callback token, nutrition entitlement or separately paid Spice charge. */
+    public static java.util.OptionalLong nextFoodSequence(ServerPlayer player) {
+        if (!player.server.isSameThread()) throw new IllegalStateException("Food completion must run on server thread");
+        if (player.getCapability(ModCapabilities.PLAYER_THIRST).resolve().isEmpty())
+            return java.util.OptionalLong.empty();
+        long last = read(player).sequence();
+        if (last == Long.MAX_VALUE) throw new IllegalStateException("Completed hydration sequence exhausted");
+        return java.util.OptionalLong.of(last + 1);
+    }
+
     static FoodHydrationLedger.State read(Player player) {
         var data = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getCompound(KEY);
         if (!data.contains("sequence", Tag.TAG_LONG) || !data.contains("hydration", Tag.TAG_DOUBLE)

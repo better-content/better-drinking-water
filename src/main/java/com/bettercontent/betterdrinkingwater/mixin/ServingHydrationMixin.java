@@ -1,5 +1,6 @@
 package com.bettercontent.betterdrinkingwater.mixin;
 
+import com.bettercontent.betterdrinkingwater.PlantDrinkItem;
 import com.bettercontent.betterdrinkingwater.api.ServingHydration;
 import dev.ghen.thirst.content.thirst.PlayerThirst;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,6 +19,8 @@ public abstract class ServingHydrationMixin {
     @Inject(method = "drink(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;)V",
             at = @At("HEAD"), cancellable = true, remap = false)
     private static void managedFood(ItemStack stack, Player player, CallbackInfo ci) {
-        if (player instanceof ServerPlayer serverPlayer && ServingHydration.resolve(serverPlayer, stack).isPresent()) ci.cancel();
+        if (player instanceof ServerPlayer serverPlayer
+                && (stack.getItem() instanceof PlantDrinkItem
+                    || ServingHydration.resolve(serverPlayer, stack).isPresent())) ci.cancel();
     }
 }

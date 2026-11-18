@@ -52,6 +52,12 @@ public final class ServingHydration {
         return Optional.ofNullable(found);
     }
 
+    /** Read-only reservation preflight; caller still commits only after actual Finish.
+     * Resolves the shared Water ledger before claiming an independent Cooking callback. */
+    public static java.util.OptionalLong nextFoodSequence(ServerPlayer player) {
+        return CompletedFoodHydration.nextFoodSequence(player);
+    }
+
     /** Call ONLY after a paid, actually completed edible portion (including a placed bite).
      * Caller allocates/persists a positive strictly increasing PER-PLAYER sequence before calling;
      * retries MUST reuse it. Older/equal sequences return false, including after reconnect/clone.

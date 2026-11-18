@@ -10,7 +10,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 /** Manual and automatic servings use exactly the same entitlement/actions, never native fruit effects. */
-final class PlantDrinkItem extends Item {
+public final class PlantDrinkItem extends Item {
     PlantDrinkItem(Properties properties) { super(properties); }
     @Override public void appendHoverText(ItemStack stack, Level level, java.util.List<net.minecraft.network.chat.Component> lines, TooltipFlag flag) {
         String role = PlantDrinks.role(WaterSources.id(stack));
